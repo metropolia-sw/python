@@ -3,10 +3,13 @@
 Tervetuloa ohjelmoimaan Python-kieltä Metropolia Ammattikorkeakoulussa!
 
 ... ja sama Pythoniksi:
-```
+
+```python
 print("Tervetuloa opiskelemaan Python-kieltä!")
 ```
+
 Python on maailman yleisimpiä ohjelmointikieliä. Kun opiskelet Pythonia, voit:
+
 - oppia ohjelmoimaan helposti ja hauskasti
 - koodata laadukkailla ja ergonomisilla kehitystyökaluilla
 - luoda näyttävää grafiikkaa visualisointikirjastojen avulla
@@ -57,6 +60,7 @@ Seuraavaksi asennetaan PyCharm-kehitin eli IDE. IDE on lyhenne englannin kielen 
 soveltuvaa ohjelmistoa, jonka avulla voit kirjoittaa, ajaa ja testata ohjelmia.
 
 PyCharm-kehittimen voit ladata seuraavasti:
+
 1. Siirry osoitteeseen https://www.jetbrains.com/
 2. Valitse **Developer tools / PyCharm** ja paina **Download**.
 3. Valitse ladattavaksi Professional-versio.
@@ -101,7 +105,7 @@ Voit suorittaa eli ajaa ohjelman napsauttamalla hiiren kakkospainiketta editorik
 
 Tuloste ilmestyy alareunan konsoli-ikkunaan:
 
-```python
+```output
 Hei, maailma!
 ```
 
