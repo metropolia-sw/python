@@ -3,7 +3,8 @@
 ## [English content available here](English)
 
 ## Osa 1: Python-ohjelmoinnin perustaidot
-1. [Ensimmäinen ohjelma](01a_Ensimmäinen_ohjelma.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_käyttöönotto.md)
+
+1. [Ensimmäinen ohjelma](01a_Ensimmäinen_ohjelma_vscode.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_käyttöönotto.md)
 2. [Muuttujat ja vuorovaikutteiset ohjelmat](02_Muuttujat_ja_vuorovaikutteiset_ohjelmat.md)
 3. [Valintarakenne (if)](03_Valintarakenne.md)
 4. [Alkuehdollinen toistorakenne (while)](04_While-toistorakenne.md)
@@ -13,6 +14,7 @@
 8. [Relaatiotietokannan käyttö](08_Relaatiotietokannan_käyttö.md)
 
 ## Osa 2: Pythonin hallinta
+
 9. [Luokka, olio, alustaja](09_Olio-ohjelmoinnin_lähtökohdat.md)
 10. [Assosiaatio](10_Assosiaatio.md)
 11. [Periytyminen](11_Periytyminen.md)
@@ -24,5 +26,6 @@
 [Tehtäväsarja](Tehtävät.md)
 
 ## Projektityöt
-1. [Esiprojektin toimeksianto](Projektityö/01_Esiprojektin_toimeksianto.md)
-2. [Projektityön toimeksianto](Projektityö/02_Projektityön_toimeksianto.md)
+
+1. opintojakso: [Esiprojektin toimeksianto](Projektityö/01_Esiprojektin_toimeksianto.md)
+2. opintojakso: [Projektityön toimeksianto](Projektityö/02_Projektityön_toimeksianto.md)
