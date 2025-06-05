@@ -77,7 +77,7 @@ muuttujan nimen avulla. Muuttujan nimi on siis ikäänkuin kahva tai nimilappu, 
 
 Muuttujalle annetaan arvo sijoituslauseessa. Sijoituslauseen tunnistaa yhtäsuuruusmerkistä (=). Sen vasemmalla
 puolella on sen muuttujan nimi, jolle arvo annetaan. Oikealle puolelle kirjoitetaan lauseke, jonka
-arvo tulee muuttujan arvoksi.
+arvo tulee muuttujan arvoksi. 
 
 Katsotaan nyt tulostuslausetta tarkemmin.
 
