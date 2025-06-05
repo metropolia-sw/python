@@ -92,7 +92,7 @@ Muuttujalle annetaan arvo sijoituslauseessa. Sijoituslauseen tunnistaa yhtäsuur
 puolella on sen muuttujan nimi, jolle arvo annetaan. Oikealle puolelle kirjoitetaan lauseke, jonka
 arvo tulee muuttujan arvoksi.
 
-### Muuttujien ja sijoitusoperaattorien toiminta
+### Muuttujista ja sijoitusoperaattorista tarkemmin
 
 Ohjelmoinnissa **muuttujien** voidaan ajatella olevan kuin nimettyjä laatikoita, joihin voidaan tallentaa tietoa. Tämä
 tieto voi olla numeroita, tekstiä tai monimutkaisempia rakenteita. Kun tallennettua tietoa tervitaan myöhemmin
@@ -126,7 +126,7 @@ Edellä olevaa esimerkkilausen toimintaa voi hahmottaa seuraavasti:
 Kun Python suorittaa rivin `väri = "sininen"`, se tekee seuraavat askeleet:
 
 1. Lasketaan sijoitusoperaattorin oikealla puolella olevan lausekkeen arvo ja tallennetaan se muistiin. Tässä
-   tapauksessa lausekkeen arvo on yksinkertainen merkkijoliteraali `"sininen"`, mutta lauseke voi sisältaa myös
+   tapauksessa lausekkeen arvo on yksinkertainen merkkijonoliteraali `"sininen"`, mutta lauseke voi sisältaa myös
    monimutkaisempia toimintoja, kuten alun esimerkin syötteen luku input-funktiolla..
 2. Luodaan muuttuja nimeltä `väri` ja varataan sille muistipaikka. Jos muuttuja `väri` on luotu jo aiemmin ohjelmassa,
    käytetään olemassa olevaa muistipaikkaa.
@@ -174,7 +174,7 @@ Hauska tavata, Viivi!
 
 ## Muuttujan tyyppi
 
-Edellä muuttujalle annettiin arvoksi käyttäjän antama merkkijono.
+Edellä muuttujille annettiin arvoksi yksinkertaisia arvoja kuten merkkijono ja kokonaisluku.
 
 Python-kielessä muuttujia ei tarvitse etukäteen esitellä, eikä niiden tyyppiä tarvitse määrittää, vaan
 muuttujan tyyppi määrittyy automaattisesti sijoituslauseen seurauksena. Tyyppi tarkoittaa sitä, minkälaiseen tietoon
