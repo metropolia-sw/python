@@ -18,8 +18,7 @@ print('Hei, maailma!')
 ```
 
 Tulostus hoidetaan print-nimisellä funktiolla, joka on Python-kielen sisäänrakennettu funktio. Funktion argumentti
-kirjoitetaan
-kaarisulkeiden sisään. Tässä tapauksessa tulostettavana on merkkijonoliteraali "Hei, maailma".
+kirjoitetaan kaarisulkeiden sisään. Tässä tapauksessa tulostettavana on merkkijonoliteraali "Hei, maailma".
 Merkkijonoliteraaliksi kutsutaan sellaista merkkijonoa, joka kirjoitetaan suoraan ohjelmakoodiin. Merkkijonoliteraali
 kirjoitetaan joko heitto- tai lainausmerkkien sisään. Niinpä ohjelma voitaisiin kirjoittaa myös seuraavasti:
 
@@ -110,7 +109,8 @@ Yllä olevassa esimerkissä `väri` on **muuttuja**, jonka **arvo on merkkijono*
 Muuttujien nimet voivat sisältää kirjaimia, numeroita ja alaviivoja, mutta ne eivät voi alkaa numerolla eivätkä sisältää
 välilyöntejä. Hyvän ohjelmointikäytännön mukaisesti muuttujalle annetaan kuvaava nimi. Se helpottaa koodin lukemista.
 
-Sijoitusoperaattori (`=`) kirjoitetaan siis yhdellä yhtäsuuruusmerkillä (`=`). Sen tehtävä on asettaa oikealla puolella olevan
+Sijoitusoperaattori (`=`) kirjoitetaan siis yhdellä yhtäsuuruusmerkillä (`=`). Sen tehtävä on asettaa oikealla puolella
+olevan
 lausekkeen arvo vasemmalla puolella olevan muuttujan arvoksi, toisin sanoen tallentaa arvo muuttujalle varattuun
 laatikkoon (muistipaikkaan).
 
@@ -189,9 +189,10 @@ Python-kielessä on kuusi muuttujan perustyyppiä:
 - monikko (*tuple*)
 - sanakirja (*dictionary*)
 
-Lisäksi muuttuja voi olla tyypiltään viittaus olioon. Merkkijonotyyppistä muuttujaa käsittelimme edellä.
-Listoihin, monikkoon, sanakirjaan ja olioviittaukseen palataan myöhemmin kurssilla. Tarkastellaan seuraavaksi
-luku-tietotyyppiä.
+Lisäksi muuttuja voi olla tyypiltään viittaus olioon. Listoihin, monikkoon, sanakirjaan ja olioviittaukseen palataan
+myöhemmin kurssilla. Tarkastellaan seuraavaksi luku- ja merkkijonotietotyyppejä tarkemmin.
+
+### Luku-tietotyyppi
 
 Pythonin luku-tietotyypillä on neljä alatyyppiä: kokonaisluku (esimerkiksi 4), pitkä kokonaisluku (esimerkiksi
 12756413000),
@@ -236,6 +237,34 @@ Esimerkkiohjelma tuottaa seuraavan tulosteen:
 -4.0
 2.0
 ```
+
+### Merkkijonotietotyyppi
+
+Merkkijono on tietotyyppi, jolla esitetään tekstiä. Se on peräkkäinen jono merkkejä, kuten kirjaimia, numeroita ja
+välimerkkejä. Pythonissa merkkijonoja luodaan ympäröimällä teksti joko yksinkertaisilla (`'`) tai
+kaksinkertaisilla (`"`) lainausmerkeillä. Tämä antaa joustavuutta, jos merkkijonon itsensä sisällä on lainausmerkkejä.
+
+**Esimerkkejä merkkijononoista:**
+
+```python
+nimi = "Petra"  # Kaksinkertaisilla lainausmerkeillä
+tervehdys = 'Hei maailma!'  # Yksinkertaisilla lainausmerkeillä
+luku_tekstina = "12345"  # Vaikka sisältää numeroita, se on tekstiä, koska on lainausmerkkien sisällä
+tyhja_merkkijono = ""  # Tyhjä merkkijono
+lause1 = "Bob sanoi: 'Hei!'"  # Kaksinkertaiset lainausmerkit, yksinkertaiset osa merkkijonoa
+lause2 = 'Bob vastasi: "Moi!"'  # Yksinkertaiset lainausmerkit, kaksinkertaiset osa merkkijonoa
+```
+
+#### Merkkien sisäinen esitystapa
+
+Kaikki tietokoneen tallentamat ja käsittelemät merkit muunnetaan tietokoneen "ymmärtämiksi" numeerisiksi
+koodeiksi. Pythonissa kaikki merkit esitetään Unicode-merkkeinä. Unicode on standardi, joka määrittelee useimmille
+maailman kirjoitusmerkeille omat merkkikoodinsa.
+
+Unicode-merkkejä sisältävää tekstiä voidaan tallentaa tietokoneelle
+käyttäen eri eri koodaustapoja eli merkistöjä, esimerkiksi UTF-8. Merkistö on joukko sääntöjä sille, miten tämä muunnos
+tehdään. Yksinkertaisimmillaan merkistö on lista merkeistä ja niitä vastaavista numeroista, esimerkiksi vanha ja
+rajoittunut ASCII-merkistö.
 
 ## Laskutoimitukset ja tyypinmuunnosfunktiot
 
