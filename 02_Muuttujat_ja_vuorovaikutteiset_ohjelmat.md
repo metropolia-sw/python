@@ -262,8 +262,8 @@ koodeiksi. Pythonissa kaikki merkit esitetään Unicode-merkkeinä. Unicode on s
 maailman kirjoitusmerkeille omat merkkikoodinsa.
 
 Unicode-merkkejä sisältävää tekstiä voidaan tallentaa tietokoneelle
-käyttäen eri eri koodaustapoja eli merkistöjä, esimerkiksi UTF-8. Merkistö on joukko sääntöjä sille, miten tämä muunnos
-tehdään. Yksinkertaisimmillaan merkistö on lista merkeistä ja niitä vastaavista numeroista, esimerkiksi vanha ja
+käyttäen eri koodaustapoja eli merkistöjä, esimerkiksi UTF-8. Merkistö on joukko sääntöjä sille, miten tämä muunnos
+tehdään. Yksinkertaisimmillaan merkistö on lista merkeistä ja niitä vastaavista numeroista, kuten esimerkiksi vanha ja
 rajoittunut ASCII-merkistö.
 
 ## Laskutoimitukset ja tyypinmuunnosfunktiot
