@@ -248,131 +248,112 @@ Entä ovatko sanakirjan alkiot - eli avain-arvoparit - järjestettyjä? Tämän 
 versiosta 3.7 lukien alkiot ovat järjestettyjä, eli ajoympäristö takaa, että sanakirjan iterointijärjestys on
 sama kuin järjestys, jossa alkiot sanakirjaan syötettiin. Vanhemmissa Python-versioissa tätä ei taata.
 
-Aivan, loistava idea! Sisäkkäiset tietorakenteet ovat erittäin hyödyllinen ja yleinen tapa tallentaa monimutkaista
-tietoa. Tässä on materiaali Pythonin sisäkkäisistä tietorakenteista, esimerkkinä lista, jonka alkiot ovat sanakirjoja.
-
----
-
 ## Sisäkkäiset tietorakenteet
 
 Tietokone-ohjelmissa käsiteltävä tieto on usein paljon monimutkaisempaa kuin mitä voidaan tallentaa edellä käsitellyillä
-yksittäisillä tietorakenteilla. Monimutkaisen ja hierarkkisen tiedon käsittelyyssä tarvitaan **sisäkkäisiä
-tietorakenteita**, joissa yksi tietorakenne pitää sisällään toisia tietorakenteita.
+yksittäisillä tietorakenteilla. Monimutkaisen ja hierarkkisen tiedon käsittelyssä tarvitaan sisäkkäisiä
+tietorakenteita, joissa yksi tietorakenne pitää sisällään toisia tietorakenteita.
 
-Esimerkki yleisesti käytetystä ja hyödyllisestä sisäkkäisestä tietorakenteesta on **lista, jonka alkiot ovat sanakirjoja
-**. Tämä rakenne on hyvin käyttökelpoinen esimerkiksi verkkosovelluksissa (JSON-datan käsittelyssä) ja
+Eräs yleisesti käytetty sisäkkäinen tietorakenne on **lista, jonka alkiot ovat sanakirjoja**. Tämä rakenne on
+käyttökelpoinen mm. verkkosovelluksissa (JSON-datan käsittelyssä) ja
 tietokantakyselyjen tuloksien käsittelyssä.
 
-### Miksi lista sanakirjoista?
+Käsitellään esimerkkinä ohjelmaa, joka tallentaa tietoja (merkki, malli ja
+vuosimalli) useista autoista.
 
-Kuvittele, että haluat tallentaa useiden opiskelijoiden tiedot. Jokaisella opiskelijalla on nimi, ikä ja arvosana.
+* Jos käyttäisimme vain yhtä listaa, kuten `["Toyota", "Corolla", 2018, "Ford", "Focus", 2020], olisi ohjelmasa hyvin
+  vaikeaa pitää yllä eri autojen tietoja.
+* Yhdellä sanakirjalla voisimme tallentaa yhden auton tiedot:
+  `{"merkki": "Toyota", "malli": "Corolla", "vuosimalli": 2018}`. Voisimme tallentaa autojen tiedot tällaisiin
+  sanakirjatyyppisiin muuttujiin, mutta se ei olisi käytännöllistä jos autoja on paljon.
 
-* Yksinkertaisella listalla (`["Maija", 20, "A", "Pekka", 21, "B"]`) tieto menisi sekaisin, etkä tietäisi, mikä arvo
-  kuuluu kenellekin.
-* Yhdellä sanakirjalla voisit tallentaa yhden opiskelijan tiedot (`{"nimi": "Maija", "ikä": 20, "arvosana": "A"}`).
-  Mutta miten tallentaisit useita opiskelijoita? Tarvitsisit useita eri muuttujia jokaiselle opiskelijalle, mikä ei ole
-  skaalautuvaa.
-
-**Lista sanakirjoista** ratkaisee tämän ongelman! Jokainen sanakirja listassa edustaa yhtä kokonaisuutta (tässä
-tapauksessa yhtä opiskelijaa), ja sanakirjan avaimet kuvaavat tuon kokonaisuuden eri ominaisuuksia.
-
-### Esimerkki: Opiskelijarekisteri
-
-Luodaan lista, joka sisältää useita sanakirjoja. Jokainen sanakirja edustaa yhtä opiskelijaa.
+Ylläolevat ongelmat ratkeavat käyttämällä listaa, jonka alkio on yksittäisen auton tiedot sisältävä sanakirja.
+Sanakirjan avaimet kuvaavat auton ominaisuuksia. Esimerkiksi:
 
 ```python
-# Luodaan lista nimeltä 'opiskelijat'
-opiskelijat = [
-    # Ensimmäinen opiskelija (sanakirja)
+# Luodaan lista nimeltä 'autot'
+autot = [
+    # Ensimmäinen auto (sanakirja)
     {
-        "nimi": "Maija Virtanen",
-        "ikä": 20,
-        "pääaine": "Tietotekniikka",
-        "arvosana_keskiarvo": 3.8
+        "merkki": "Toyota",
+        "malli": "Corolla",
+        "vuosimalli": 2018
     },
-    # Toinen opiskelija (sanakirja)
+    # Toinen auto (sanakirja)
     {
-        "nimi": "Pekka Laitinen",
-        "ikä": 21,
-        "pääaine": "Matematiikka",
-        "arvosana_keskiarvo": 3.2
+        "merkki": "Ford",
+        "malli": "Focus",
+        "vuosimalli": 2020
     },
-    # Kolmas opiskelija (sanakirja)
+    # Kolmas auto (sanakirja)
     {
-        "nimi": "Liisa Saari",
-        "ikä": 19,
-        "pääaine": "Fysiikka",
-        "arvosana_keskiarvo": 4.1
+        "merkki": "VW",
+        "malli": "ID.3",
+        "vuosimalli": 2023
     }
 ]
-
-# Tulostetaan koko lista nähdäksesi sen rakenteen
-print("Koko opiskelijarekisteri:")
-print(opiskelijat)
-print("-" * 30)
 ```
 
-**Mitä yllä oleva koodi tekee?**
+Sisäkkäisen tietorakenteen sisältämiin tietoihin päästään käsiksi yhdistämällä listojen indeksillä ja sanakirjojen
+avaimilla hakemista.
 
-* Olemme luoneet muuttujan `opiskelijat`, joka on **lista** (`[` ja `]`).
-* Listan sisällä on kolme **sanakirjaa** (`{` ja `}`). Jokainen sanakirja edustaa yhtä opiskelijaa.
-* Jokaisessa sanakirjassa on **avaimia** (esim. `"nimi"`, `"ikä"`) ja niitä vastaavia **arvoja** (esim.
-  `"Maija Virtanen"`, `20`).
-
-### Tietojen käsittely sisäkkäisistä rakenteista
-
-Nyt kun meillä on tämä monimutkainen tietorakenne, miten pääsemme käsiksi sen sisältämiin tietoihin? Käytämme
-yhdistelmää listojen indeksoinnista ja sanakirjojen avaimilla hakemisesta.
-
-**1. Opiskelijan hakeminen indeksin perusteella:**
-
-Koska `opiskelijat` on lista, voimme hakea yksittäisen opiskelijan (eli sanakirjan) listan indeksin perusteella.
+Koska `autot` on lista, voimme hakea yksittäisen auton tiedot (eli yhden
+sanakirjan) listan indeksin perusteella:
 
 ```python
-# Haetaan ensimmäinen opiskelija (indeksi 0)
-ensimmainen_opiskelija = opiskelijat[0]
-print("Ensimmäisen opiskelijan tiedot:")
-print(ensimmainen_opiskelija)
-print("-" * 30)
+# Haetaan toinen auto listasta (indeksi 1)
+toinen_auto = autot[1]
+print("Toisen auton tiedot:")
+print(toinen_auto)
 ```
 
-`ensimmainen_opiskelija`-muuttuja on nyt itse asiassa sanakirja:
-`{"nimi": "Maija Virtanen", "ikä": 20, "pääaine": "Tietotekniikka", "arvosana_keskiarvo": 3.8}`.
+`toinen_auto`-muuttuja on nyt sanakirja: `{"merkki": "Ford", "malli": "Focus", "vuosimalli": 2020}`, joten konsoliin
+tulostuu:
 
-**2. Tietyn tiedon hakeminen opiskelijan sanakirjasta:**
+```monospace
+Toisen auton tiedot:
+{'merkki': 'Ford', 'malli': 'Focus', 'vuosimalli': 2020}
+```
 
-Kun olet hakenut yksittäisen opiskelijan (sanakirjan), voit hakea siitä tietoja sanakirjan avaimilla.
+Kun yksittäisen auto (sanakirja) on valittu listan indeksin avulla, voidaan tästä sanakirjasta hakea auton tietty
+ominaisuus (esim. merkki tai malli) käyttämällä sanakirjan avainta seuraavasti:
 
 ```python
-# Haetaan ensimmäisen opiskelijan nimi
-nimi1 = opiskelijat[0]["nimi"]
-print(f"Ensimmäisen opiskelijan nimi on: {nimi1}")
+# Haetaan ensimmäisen auton (indeksi 0) merkki
+eka_auton_merkki = autot[0]["merkki"]
+print(f"Ensimmäisen auton merkki on: {eka_auton_merkki}")
 
-# Haetaan toisen opiskelijan pääaine
-paaaine2 = opiskelijat[1]["pääaine"]
-print(f"Toisen opiskelijan pääaine on: {paaaine2}")
-print("-" * 30)
+# Haetaan viimeisen auton (indeksi 2) malli ja tulostetaan se suoraan
+# tallentamatta muuttujaan
+print(f"Viimeisen auton malli on: {autot[2]["malli"]}")
 ```
 
-**3. Käyminen läpi kaikkia opiskelijoita (silmukalla):**
+Tulostuu:
 
-Yleensä haluat käydä läpi kaikki listan alkiot. Tähän käytetään usein `for`-silmukkaa.
+```monospace
+Ensimmäisen auton merkki on: Toyota
+Viimeisen auton malli on: ID.3
+```
+
+Kun halutaan käsitellä kaikkia listassa olevia autoja, käytetään `for`-silmukkaa seuraavaan tapaan:
 
 ```python
-print("Kaikkien opiskelijoiden tiedot:")
-for opiskelija in opiskelijat:
-    print(f"Nimi: {opiskelija['nimi']}, Ikä: {opiskelija['ikä']}, Pääaine: {opiskelija['pääaine']}")
-print("-" * 30)
+print("Kaikki autot ja niiden tiedot:")
+for auto in autot:
+    print(f"Merkki: {auto['merkki']}, Malli: {auto['malli']}, Vuosimalli: {auto['vuosimalli']}")
 ```
 
-Yllä olevassa silmukassa:
+Tulostuu:
 
-* Jokaisella kierroksella `opiskelija`-muuttujaan sijoitetaan yksi sanakirja `opiskelijat`-listasta.
-* Sen jälkeen voimme käsitellä tätä `opiskelija`-sanakirjaa normaalisti sen avaimia käyttäen.
+```monospace
+Kaikki autot ja niiden tiedot:
+Merkki: Toyota, Malli: Corolla, Vuosimalli: 2018
+Merkki: Ford, Malli: Focus, Vuosimalli: 2020
+Merkki: VW, Malli: ID.3, Vuosimalli: 2023
+```
 
-### Yhteenveto sisäkkäisistä tietorakenteista
+Yllä olevassa silmukan jokaisella kierroksella `auto`-muuttujaan sijoitetaan yksi sanakirja `autot`-listasta. Tämän
+jälkeen voimme käyttää  `auto`-muuttujan sisältämää sanakirjaa normaalisti sen avaimien avulla (esim.`auto['merkki']`).
 
-Sisäkkäiset tietorakenteet, kuten lista sanakirjoista, ovat erittäin tehokkaita tapoja mallintaa monimutkaista ja
-monipuolista tietoa Pythonissa. Ne ovat ohjelmoinnissa jatkuvasti käytössä, ja niiden ymmärtäminen avaa oven
-monimutkaisempien ongelmien ratkaisemiseen ja tehokkaampien ohjelmien kirjoittamiseen. Harjoittelemalla niiden käyttöä
-varmistat vankan pohjan edistyneemmille aiheille!
+
+
