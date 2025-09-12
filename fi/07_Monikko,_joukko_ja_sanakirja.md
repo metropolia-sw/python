@@ -26,8 +26,8 @@ alkaa nollasta samoin kuin listan:
 ```python
 viikonpäivät = ("maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai", "sunnuntai")
 järjestysnumero = int(input("Anna viikonpäivän järjestysnumero (1-7): "))
-viikonpäivä = viikonpäivät[järjestysnumero-1]
-print (f"{järjestysnumero}. viikonpäivä on {viikonpäivä}.")
+viikonpäivä = viikonpäivät[järjestysnumero - 1]
+print(f"{järjestysnumero}. viikonpäivä on {viikonpäivä}.")
 ```
 
 Ohjelma toimii ajettaessa näin:
@@ -47,6 +47,7 @@ print(hedelmät)
 ```
 
 Ohjelma tulostaa:
+
 ```monospace
 ('Appelsiini', 'Banaani', 'Omena')
 ```
@@ -62,13 +63,15 @@ Python-kehittäjät pitävät sitä hyvänä ohjelmointikäytäntönä, joka par
 ### Monikon arvojen purku muuttujiin
 
 Monikon sisältämät arvot voidaan purkaa muuttujiin seuraavan esimerkin osoittamalla tavalla:
+
 ```python
 hedelmät = ("Appelsiini", "Banaani", "Omena")
 (eka, toka, kolmas) = hedelmät
-print (f"Hedelmiä ovat {eka}, {toka} ja {kolmas}.")
+print(f"Hedelmiä ovat {eka}, {toka} ja {kolmas}.")
 ```
 
 Tämä ohjelma tuottaa seuraavan tulosteen:
+
 ```monospace
 Hedelmiä ovat Appelsiini, Banaani ja Omena.
 ```
@@ -87,26 +90,31 @@ Monopoli-lautapeliä varten. Monopoli-pelissä heitetään aina kahta noppaa.
 ```python
 import random
 
+
 def heitä():
-    eka, toka = random.randint(1,6), random.randint(1,6)
+    eka, toka = random.randint(1, 6), random.randint(1, 6)
     return eka, toka
+
 
 noppa1, noppa2 = heitä()
 print(f"Nopista tuli {noppa1} ja {noppa2}.")
 ```
 
 Tulosteesta nähdään, että yhdellä funktiokutsulla saadaan kahden heiton tulos:
+
 ```monospace
 Nopista tuli 5 ja 6.
 ```
 
 ## Joukko
 
-Joukko (*set*) on järjestämätön tietorakenne, eli sen alkiot voivat olla missä tahansa järjestyksessä. Koska joukon alkioille
+Joukko (*set*) on järjestämätön tietorakenne, eli sen alkiot voivat olla missä tahansa järjestyksessä. Koska joukon
+alkioille
 ei ole määritelty järjestystä, ei alkioihin voi myöskään viitata indeksillä. Toisin kuin listassa tai monikossa, sama
 alkio voi esiintyä joukossa vain kertaalleen, eli joukossa ei voi olla kahta samansisältöistä alkiota.
 
 Tarkastellaan seuraavaa esimerkkiä:
+
 ```python
 pelit = {"Monopoli", "Shakki", "Cluedo"}
 print(pelit)
@@ -125,6 +133,7 @@ for p in pelit:
 ```
 
 Ohjelman tuottaa seuraavan tulosteen:
+
 ```monospace
 {'Shakki', 'Cluedo', 'Monopoli'}
 {'Shakki', 'Dominion', 'Cluedo', 'Monopoli'}
@@ -135,16 +144,18 @@ Cluedo
 Monopoli
 ```
 
-Aluksi luodaan joukko, jossa on kolme peliä: Monopoli, Shakki ja Cluedo. Tämän jälkeen pelit sisältävä joukko tulostetaan.
+Aluksi luodaan joukko, jossa on kolme peliä: Monopoli, Shakki ja Cluedo. Tämän jälkeen pelit sisältävä joukko
+tulostetaan.
 Havaitaan, että pelit ovat tulosteessa eri järjestyksessä kuin missä ne joukkoa luotaessa kirjoitettiin.
 Tulostuslause konkretisoi sen, että joukon alkioiden järjestys ei ole määritelty: ohjelmoijan on varauduttava
 siihen, että joukkoa tulostettaessa alkiot voivat näkyä missä järjestyksessä tahansa. Esitysjärjestys
 määräytyy ajoympäristön sisäisen tallennusratkaisun mukaisesti, ja sen on
 sallittua vaihdella jopa saman ohjelman eri suorituskerroilla.
 
-Seuraavaksi kolmealkioiseen pelien joukkoon liitetään neljäs jäsen, Dominion. Joukkoon liittäminen tehdään `add`-operaation
+Seuraavaksi kolmealkioiseen pelien joukkoon liitetään neljäs jäsen, Dominion. Joukkoon liittäminen tehdään `add`
+-operaation
 avulla. Tulostuslause paljastaa jälleen, että alkioiden
-näkyvä järjestys voi olla mikä tahansa. 
+näkyvä järjestys voi olla mikä tahansa.
 
 Tämän jälkeen joukosta poistetaan yksi alkio, Shakki. Tähän käytetään `remove`-operaatiota.
 
@@ -157,7 +168,7 @@ Lopuksi joukon alkiot iteroidaan eli käydään läpi yksi kerrallaan. Tämä ta
 kuin listojen tapauksessa. Tuloksena oleva järjestys voi jälleen olla ohjelmoijan näkökulmasta mikä tahansa.
 
 Edellisessä esimerkissä kaikki joukon alkiot olivat merkkijonoja, joten ne olivat keskenään saman tyyppisiä.
-Mainittakoon, että samantyyppisyyden vaatimusta ei ole. On siis sallittua luoda joukko, jonka yksi alkio on 
+Mainittakoon, että samantyyppisyyden vaatimusta ei ole. On siis sallittua luoda joukko, jonka yksi alkio on
 kokonaisluku, toinen alkio on merkkijono ja kolmas vaikkapa lista.
 
 Tarkastellaan lopuksi tilannetta, jossa luodaan tyhjä joukko.
@@ -165,12 +176,15 @@ Tyhjä joukko luodaan edellä esitetystä poiketen `set`-funktion avulla. Tyhjä
 luominen pelkkien tyhjien aaltosulkeiden kautta ei siis onnistu.
 Seuraava ohjelma luo ensin tyhjän joukon, lisää siihen sen jälkeen yhden alkion ja tulostaa
 lopuksi joukon `print`-lauseella:
+
 ```python
 nimet = set()
 nimet.add("Viivi")
 print(nimet)
 ```
+
 Tuloste on seuraavanlainen:
+
 ```monospace
 {'Viivi'}
 ```
@@ -198,21 +212,22 @@ Lopuksi kysytään käyttäjältä henkilön nimi ja tulostetaan saatua nimeä v
 nimi löytyy sanakirjan avainten joukosta:
 
 ```python
-numerot = {"Viivi":"050-1234567",
-           "Ahmed":"040-1112223",
-           "Pekka":"050-7654321"}
+numerot = {"Viivi": "050-1234567",
+           "Ahmed": "040-1112223",
+           "Pekka": "050-7654321"}
 
 numerot["Olga"] = "050-1011012"
 numerot["Mary"] = "0401-2132139"
 
-print (numerot)
+print(numerot)
 
 nimi = input("Anna nimi: ")
 if nimi in numerot:
-    print (f"Henkilön {nimi} puhelinnumero on {numerot[nimi]}.")
+    print(f"Henkilön {nimi} puhelinnumero on {numerot[nimi]}.")
 ```
 
 Ohjelma tuottaa seuraavan tulosteen:
+
 ```monospace
 {'Viivi': '050-1234567', 'Ahmed': '040-1112223', 'Pekka': '050-7654321', 'Olga': '050-1011012', 'Mary': '0401-2132139'}
 Anna nimi: Olga
@@ -232,4 +247,113 @@ esiintyvän avaimen.
 Entä ovatko sanakirjan alkiot - eli avain-arvoparit - järjestettyjä? Tämän osalta tilanne riippuu Pythonin versiosta:
 versiosta 3.7 lukien alkiot ovat järjestettyjä, eli ajoympäristö takaa, että sanakirjan iterointijärjestys on
 sama kuin järjestys, jossa alkiot sanakirjaan syötettiin. Vanhemmissa Python-versioissa tätä ei taata.
+
+## Sisäkkäiset tietorakenteet
+
+Tietokone-ohjelmissa käsiteltävä tieto on usein paljon monimutkaisempaa kuin mitä voidaan tallentaa edellä käsitellyillä
+yksittäisillä tietorakenteilla. Monimutkaisen ja hierarkkisen tiedon käsittelyssä tarvitaan sisäkkäisiä
+tietorakenteita, joissa yksi tietorakenne pitää sisällään toisia tietorakenteita.
+
+Eräs yleisesti käytetty sisäkkäinen tietorakenne on **lista, jonka alkiot ovat sanakirjoja**. Tämä rakenne on
+käyttökelpoinen mm. verkkosovelluksissa (JSON-datan käsittelyssä) ja
+tietokantakyselyjen tuloksien käsittelyssä.
+
+Käsitellään esimerkkinä ohjelmaa, joka tallentaa tietoja (merkki, malli ja
+vuosimalli) useista autoista.
+
+* Jos käyttäisimme vain yhtä listaa, kuten `["Toyota", "Corolla", 2018, "Ford", "Focus", 2020], olisi ohjelmasa hyvin
+  vaikeaa pitää yllä eri autojen tietoja.
+* Yhdellä sanakirjalla voisimme tallentaa yhden auton tiedot:
+  `{"merkki": "Toyota", "malli": "Corolla", "vuosimalli": 2018}`. Voisimme tallentaa autojen tiedot tällaisiin
+  sanakirjatyyppisiin muuttujiin, mutta se ei olisi käytännöllistä jos autoja on paljon.
+
+Ylläolevat ongelmat ratkeavat käyttämällä listaa, jonka alkio on yksittäisen auton tiedot sisältävä sanakirja.
+Sanakirjan avaimet kuvaavat auton ominaisuuksia. Esimerkiksi:
+
+```python
+# Luodaan lista nimeltä 'autot'
+autot = [
+    # Ensimmäinen auto (sanakirja)
+    {
+        "merkki": "Toyota",
+        "malli": "Corolla",
+        "vuosimalli": 2018
+    },
+    # Toinen auto (sanakirja)
+    {
+        "merkki": "Ford",
+        "malli": "Focus",
+        "vuosimalli": 2020
+    },
+    # Kolmas auto (sanakirja)
+    {
+        "merkki": "VW",
+        "malli": "ID.3",
+        "vuosimalli": 2023
+    }
+]
+```
+
+Sisäkkäisen tietorakenteen sisältämiin tietoihin päästään käsiksi yhdistämällä listojen indeksillä ja sanakirjojen
+avaimilla hakemista.
+
+Koska `autot` on lista, voimme hakea yksittäisen auton tiedot (eli yhden
+sanakirjan) listan indeksin perusteella:
+
+```python
+# Haetaan toinen auto listasta (indeksi 1)
+toinen_auto = autot[1]
+print("Toisen auton tiedot:")
+print(toinen_auto)
+```
+
+`toinen_auto`-muuttuja on nyt sanakirja: `{"merkki": "Ford", "malli": "Focus", "vuosimalli": 2020}`, joten konsoliin
+tulostuu:
+
+```monospace
+Toisen auton tiedot:
+{'merkki': 'Ford', 'malli': 'Focus', 'vuosimalli': 2020}
+```
+
+Kun yksittäisen auto (sanakirja) on valittu listan indeksin avulla, voidaan tästä sanakirjasta hakea auton tietty
+ominaisuus (esim. merkki tai malli) käyttämällä sanakirjan avainta seuraavasti:
+
+```python
+# Haetaan ensimmäisen auton (indeksi 0) merkki
+eka_auton_merkki = autot[0]["merkki"]
+print(f"Ensimmäisen auton merkki on: {eka_auton_merkki}")
+
+# Haetaan viimeisen auton (indeksi 2) malli ja tulostetaan se suoraan
+# tallentamatta muuttujaan
+print(f"Viimeisen auton malli on: {autot[2]["malli"]}")
+```
+
+Tulostuu:
+
+```monospace
+Ensimmäisen auton merkki on: Toyota
+Viimeisen auton malli on: ID.3
+```
+
+Kun halutaan käsitellä kaikkia listassa olevia autoja, käytetään `for`-silmukkaa seuraavaan tapaan:
+
+```python
+print("Kaikki autot ja niiden tiedot:")
+for auto in autot:
+    print(f"Merkki: {auto['merkki']}, Malli: {auto['malli']}, Vuosimalli: {auto['vuosimalli']}")
+```
+
+Tulostuu:
+
+```monospace
+Kaikki autot ja niiden tiedot:
+Merkki: Toyota, Malli: Corolla, Vuosimalli: 2018
+Merkki: Ford, Malli: Focus, Vuosimalli: 2020
+Merkki: VW, Malli: ID.3, Vuosimalli: 2023
+```
+
+Yllä olevassa silmukan jokaisella kierroksella `auto`-muuttujaan sijoitetaan yksi sanakirja `autot`-listasta. Tämän
+jälkeen voimme käyttää  `auto`-muuttujan sisältämää sanakirjaa normaalisti sen avaimien avulla (esim.`auto['merkki']`).
+
+
 
