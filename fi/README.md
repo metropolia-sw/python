@@ -2,7 +2,8 @@
 
 ## Osa 1: Python-ohjelmoinnin perustaidot
 
-1. [Ensimmäinen ohjelma](01a_Ensimmäinen_ohjelma_vscode.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_käyttöönotto.md)
+1. [Ensimmäinen ohjelma](01a_Ensimmainen_ohjelma_vscode.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_kayttoonotto_vscode.md) (Visual Studio Code)  
+[Ensimmäinen ohjelma](01a_Ensimmäinen_ohjelma.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_käyttöönotto.md) (PyCharm)
 2. [Muuttujat ja vuorovaikutteiset ohjelmat](02_Muuttujat_ja_vuorovaikutteiset_ohjelmat.md)
 3. [Valintarakenne (if)](03_Valintarakenne.md)
 4. [Alkuehdollinen toistorakenne (while)](04_While-toistorakenne.md)
