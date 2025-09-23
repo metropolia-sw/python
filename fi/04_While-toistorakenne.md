@@ -10,6 +10,7 @@ Kun nämä kolme perusperiaatetta ovat hallussa, pystyy ohjelmoija kirjoittamaan
 laskennalliseen ongelmaan.
 
 Python-kielessä on kaksi toistorakennetta:
+
 1. alkuehdollinen toistorakenne (while)
 2. iteroiva toistorakenne (for)
 
@@ -23,7 +24,7 @@ kaivetaan kolikoita yksi kerrallaan lisää:
 
 ```monospace
 niin kauan kuin maksettu_rahamäärä < 5
-	anna kolikko
+    anna kolikko
 ```
 
 Jossain vaiheessa maksettu rahasumma tulee riittävän suureksi, ja kolikoiden lisääminen voidaan lopettaa.
@@ -38,7 +39,7 @@ Pythonissa alkuehdollinen toistorakenne toteutetaan  while-lauseen avulla.
 
 ```monospace
 while ehto:
-	toistettava lohko
+    toistettava lohko
 ```
 
 Kuten if-ehtolauseessa, ehto on lauseke, jonka totuusarvo voidaan laskea. Ehto on siis joko tosi tai epätosi.
@@ -58,7 +59,7 @@ tulostetaan tervehdykset:
 ```python
 kerrat = int(input("Montako kertaa tervehditään: "))
 tehdyt = 0
-while tehdyt<kerrat:
+while tehdyt < kerrat:
     print("Hyvää huomenta")
     tehdyt = tehdyt + 1
 ```
@@ -74,10 +75,9 @@ Hyvää huomenta
 ```
 
 Tässä esimerkissä on kaksi muuttujaa:
-1. `tehdyt`-nimisen muuttujan arvona on toistojen kokonaismäärä. Kun se on luettu käyttäjältä, arvo pysyy muuttumattomana koko
-ohjelman suorituksen ajan.
-2. `kerrat`-niminen muuttuja on kierrosmuuttuja. Se alustetaan nollaksi. Jokaisen kierroksen päättyessä kierrosmuuttujan arvoa
-kasvatetaan yhdellä.
+
+1. `kerrat`-nimisen muuttujan arvona on toistojen kokonaismäärä. Kun se on luettu käyttäjältä, arvo pysyy muuttumattomana koko ohjelman suorituksen ajan.
+2. `tehdyt`-niminen muuttuja on kierrosmuuttuja. Se alustetaan nollaksi. Jokaisen kierroksen päättyessä kierrosmuuttujan arvoa kasvatetaan yhdellä.
 
 Oletetaan, että käyttäjä pyytää viisi tervehdystä. Arvo 5 tallentuu `kerrat`-muuttujan arvoksi.
 Kun while-toistorakenteeseen tullaan ensimmäisen kerran, tehdyt-muuttuja on alustettu nollaksi. While-toistorakenteen
@@ -90,8 +90,6 @@ sisällä tulostetaan toinen tervehdys ja kasvatetaan `tehdyt`-muuttujan arvoa y
 Näin toistokierrokset jatkuvat. Viidennnen tervehdyksen tulostamisen päätteeksi `tehdyt`-muuttujan arvoksi tulee 5. Jälleen testataan
 while-toistorakenteen alukehto. Tällä kertaa se on 5<5, joka on epätosi. Seuraavaa toistokierrosta ei tule, ja ohjelman suoritus jatkuisi
 while-toistorakenteen jälkeisestä lauseesta. Sellaista ei ohjelmassa ole, joten suoritus päättyy.
-
-
 
 ## Esimerkki 2: käyttäjä lopettaa toiston
 
@@ -116,7 +114,6 @@ Suoritan toiminnon: tanssi
 Anna komento: lopeta
 Toiminnot lopetettu.
 ```
-
 
 ## Esimerkki 3: vaihteleva määrä toistoja
 
@@ -215,7 +212,6 @@ Heitot keskimäärin:  35.86
 
 Nähdään, että heittoja tarvitaan keskimäärin 36 kappaletta. Tämä vastaa laskemalla saatavaa tulosta. Teimme juuri
 empiirisen simulaation, jossa arvio teoreettisesta tuloksesta saadaan jäljittelemällä ilmiötä tietokoneella.
-
 
 ## Break
 
@@ -316,6 +312,7 @@ print("Valmista tuli.")
 ```
 
 Suoritus ei pääty koskaan:
+
 ```monospace
 1
 1

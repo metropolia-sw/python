@@ -15,7 +15,7 @@ print("Tervetuloa opiskelemaan Python-kieltä!")
 - luoda näyttävää grafiikkaa visualisointikirjastojen avulla
 - soveltaa tekoälyä kattavien koneoppimiskirjastojen ansiosta
 
-Ensimmäisenä opiskeluvuonna saat vankat Python-ohjelmoinnin perustaidot. Syvennät osaamistasi myöhemmissä opinnoissa, ja opit käyttämään Python-kieltä työkaluna ohjelmointi- ja ohjelmistotuotantoprojekteissa. 
+Ensimmäisenä opiskeluvuonna saat vankat Python-ohjelmoinnin perustaidot. Syvennät osaamistasi myöhemmissä opinnoissa, ja opit käyttämään Python-kieltä työkaluna ohjelmointi- ja ohjelmistotuotantoprojekteissa.
 
 Tässä ensimmäisessä moduulissa asennat Python-kehitystyökalut ja opit kirjoittamaan ja ajamaan ensimmäisen Python-ohjelmasi.
 
@@ -52,8 +52,6 @@ Nyt olet valmis kirjoittamaan ensimmäisen ohjelman. Ensimmäiseksi on perustett
 Tee siis projektia varten uusi kansio. Voit luoda kansion esimerkiksi työpöydälle tai omiin asiakirjoihisi. Anna kansion nimeksi `python-harjoitukset`. Avaa luotu kansio Visual Studio Codessa. Voit tehdä sen valitsemalla **File / Open Folder** ja valitsemalla sitten luomasi kansion.
 
 Avaa *Command Palette* painamalla `Ctrl+Shift+P` (Windows) tai `Cmd+Shift+P` (MacOS). Kirjoita avautuvaan kenttään `Python: Create Environment` ja valitse se. Valitse sitten ympäristötyypiksi `Venv` ja paina Enter. Valitse lopuksi Python-tulkin sijainti (tuoreín asentamasi version), jos sitä kysytään.
-
-
 
 Uusi projekti perustetaan luoden Python virtuaaliympäristö (venv). Tämä helpottaa omien ohjelmien käyttämien Python-pakettien ja niiden versioiden hallintaa.
 

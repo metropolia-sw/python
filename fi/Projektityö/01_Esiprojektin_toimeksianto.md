@@ -9,7 +9,7 @@ Tavoitteenanne on rakentaa **toiminnallinen prototyyppi pelistä**.
 
 Pelin prototyyppi on peli, jonka
 avulla käyttäjä voi matkustaa joko koko maailmassa tai sallimallanne alueella. Peli hyödyntää
-todellisten lentokenttien sijanteja.
+todellisten lentokenttien sijainteja.
 
 
 
