@@ -1,18 +1,13 @@
 # Alkuehdollinen toistorakenne (while)
 
-Seuraavaksi opit laatimaan ohjelmia, joissa sama ohjelmakoodin osa suoritetaan useampaan kertaan.
-Tämän tekee mahdolliseksi toistorakenne. Toistorakenteen avulla voidaan esimerkiksi ohjelmoida jokin
-toiminto tapahtuvaksi 20 kertaa peräkkäin, tai vaihtoehtoisesti voimme toistaa toimintoa niin
-kauan kunnes käyttäjä antaa syötteen, jolla hän käskee lopettaa toistamisen.
+Seuraavaksi opit laatimaan ohjelmia, joissa sama ohjelmakoodin osa suoritetaan useampaan kertaan. Tämän tekee mahdolliseksi toistorakenne. Toistorakenteen avulla voidaan esimerkiksi ohjelmoida jokin toiminto tapahtuvaksi 20 kertaa peräkkäin, tai vaihtoehtoisesti voimme toistaa toimintoa niin kauan kunnes käyttäjä antaa syötteen, jolla hän käskee lopettaa toistamisen.
 
-Toisto on yksi ohjelmointikielten kolmesta perusperiaatteesta peräkkäisyyden ja valinnaisuuden ohella.
-Kun nämä kolme perusperiaatetta ovat hallussa, pystyy ohjelmoija kirjoittamaan algoritmisen ratkaisun mihin tahansa
-laskennalliseen ongelmaan.
+Toisto on yksi ohjelmointikielten kolmesta perusperiaatteesta peräkkäisyyden ja valinnaisuuden ohella. Kun nämä kolme perusperiaatetta ovat hallussa, pystyy ohjelmoija kirjoittamaan algoritmisen ratkaisun mihin tahansa laskennalliseen ongelmaan.
 
 Python-kielessä on kaksi toistorakennetta:
 
-1. alkuehdollinen toistorakenne (while)
-2. iteroiva toistorakenne (for)
+1. alkuehdollinen toistorakenne (*while*)
+2. iteroiva toistorakenne (*for*)
 
 Tässä moduulissa opit käyttämään alkuehdollista toistorakennetta.
 
@@ -29,15 +24,19 @@ niin kauan kuin maksettu_rahamäärä < 5
 
 Jossain vaiheessa maksettu rahasumma tulee riittävän suureksi, ja kolikoiden lisääminen voidaan lopettaa.
 
-Toistorakenteen avulla saadaan ohjelmassa oleva lauseiden joukko toistettua useita kertoja.
-Pseudokoodiesimerkissä on alkuehto, joka testataan rakenteeseen tultaessa.
-Jos ehto on tosi, suoritetaan sisennetty lohko.
-Aina kun sisennetty lohko on suoritettu, testataan onko alkuehto yhä voimassa. Jos on, suoritetaan sisennetty lohko uudelleen.
-Toistorakenteesta päästään pois vasta, kun alkuehto on epätosi.
+```mermaid
+flowchart TD
+    A([Alku]) --> B{Onko maksettu_rahamäärä < 5?}
+    B -- Kyllä --> C[Anna kolikko]
+    C --> B
+    B -- Ei --> D([Loppu])
+```
+
+Toistorakenteen avulla saadaan ohjelmassa oleva lauseiden joukko toistettua useita kertoja. Pseudokoodiesimerkissä on alkuehto, joka testataan rakenteeseen tultaessa. Jos ehto on tosi, suoritetaan sisennetty lohko. Aina kun sisennetty lohko on suoritettu, testataan onko alkuehto yhä voimassa. Jos on, suoritetaan sisennetty lohko uudelleen. Toistorakenteesta päästään pois vasta, kun alkuehto on epätosi.
 
 Pythonissa alkuehdollinen toistorakenne toteutetaan  while-lauseen avulla.
 
-```monospace
+```python
 while ehto:
     toistettava lohko
 ```
@@ -47,14 +46,11 @@ Kuten if-ehtolauseessa, ehto on lauseke, jonka totuusarvo voidaan laskea. Ehto o
 1. Jos ehto on tosi, sisennetty lohko (eli sisennetyt lauseet) suoritetaan.
 2. Jos ehto on epätosi, sisennettyä lohkoa ei suoriteta.
 
-Ainoa ero if-lauseeseen on se, että ehdon arvo lasketaan uudelleen aina sisennetyn lohkon suorituksen jälkeen.
-Jos ehto on edelleen tosi, suoritetaan sisennetty lohko uudelleen.
-Tämän jälkeen testataan jälleen ehdon voimassaolo - aina ennen uutta kierrosta.
+Ainoa ero if-lauseeseen on se, että ehdon arvo lasketaan uudelleen aina sisennetyn lohkon suorituksen jälkeen. Jos ehto on edelleen tosi, suoritetaan sisennetty lohko uudelleen. Tämän jälkeen testataan jälleen ehdon voimassaolo - aina ennen uutta kierrosta.
 
 ## Esimerkki 1: kiinteä määrä toistokertoja
 
-Kirjoitetaan ohjelma, joka kysyy käyttäjältä, montako kertaa tervehditään. Tämän jälkeen
-tulostetaan tervehdykset:
+Kirjoitetaan ohjelma, joka kysyy käyttäjältä, montako kertaa tervehditään. Tämän jälkeen tulostetaan tervehdykset:
 
 ```python
 kerrat = int(input("Montako kertaa tervehditään: "))
@@ -79,22 +75,15 @@ Tässä esimerkissä on kaksi muuttujaa:
 1. `kerrat`-nimisen muuttujan arvona on toistojen kokonaismäärä. Kun se on luettu käyttäjältä, arvo pysyy muuttumattomana koko ohjelman suorituksen ajan.
 2. `tehdyt`-niminen muuttuja on kierrosmuuttuja. Se alustetaan nollaksi. Jokaisen kierroksen päättyessä kierrosmuuttujan arvoa kasvatetaan yhdellä.
 
-Oletetaan, että käyttäjä pyytää viisi tervehdystä. Arvo 5 tallentuu `kerrat`-muuttujan arvoksi.
-Kun while-toistorakenteeseen tullaan ensimmäisen kerran, tehdyt-muuttuja on alustettu nollaksi. While-toistorakenteen
-alkuehto on nyt 0<5 eli tosi. Suoritus etenee while-toistorakenteen sisälle. Siellä tulostetaan ensimmäinen tervehdys,
-ja `tehdyt`-kierrosmuuttujan arvoa kasvatetaan nollasta yhteen.
+Oletetaan, että käyttäjä pyytää viisi tervehdystä. Arvo 5 tallentuu `kerrat`-muuttujan arvoksi. Kun while-toistorakenteeseen tullaan ensimmäisen kerran, `tehdyt`-muuttuja on alustettu nollaksi. While-toistorakenteen alkuehto on nyt `0 < 5` eli tosi. Suoritus etenee while-toistorakenteen sisälle. Siellä tulostetaan ensimmäinen tervehdys, ja `tehdyt`-kierrosmuuttujan arvoa kasvatetaan nollasta yhteen.
 
-Koska kyseessä oli while-rakenne, alkuehto testataan nyt uudelleen. Ehto on nyt 1<5 eli edelleen tosi. While-toistorakenteen
-sisällä tulostetaan toinen tervehdys ja kasvatetaan `tehdyt`-muuttujan arvoa yhdellä. Uudeksi arvoksi tulee 2.
+Koska kyseessä oli while-rakenne, alkuehto testataan nyt uudelleen. Ehto on nyt 1<5 eli edelleen tosi. While-toistorakenteen sisällä tulostetaan toinen tervehdys ja kasvatetaan `tehdyt`-muuttujan arvoa yhdellä. Uudeksi arvoksi tulee 2.
 
-Näin toistokierrokset jatkuvat. Viidennnen tervehdyksen tulostamisen päätteeksi `tehdyt`-muuttujan arvoksi tulee 5. Jälleen testataan
-while-toistorakenteen alukehto. Tällä kertaa se on 5<5, joka on epätosi. Seuraavaa toistokierrosta ei tule, ja ohjelman suoritus jatkuisi
-while-toistorakenteen jälkeisestä lauseesta. Sellaista ei ohjelmassa ole, joten suoritus päättyy.
+Näin toistokierrokset jatkuvat. Viidennnen tervehdyksen tulostamisen päätteeksi `tehdyt`-muuttujan arvoksi tulee 5. Jälleen testataan while-toistorakenteen alukehto. Tällä kertaa se on `5 < 5`, joka on epätosi. Seuraavaa toistokierrosta ei tule, ja ohjelman suoritus jatkuisi while-toistorakenteen jälkeisestä lauseesta. Sellaista ei ohjelmassa ole, joten suoritus päättyy.
 
 ## Esimerkki 2: käyttäjä lopettaa toiston
 
-Seuraavassa ohjelmassa toistokierrosten lukumäärä ei ole tiedossa toistorakenteeseen tultaessa.
-Ohjelma kysyy käyttäjältä tekstimuotoisia komentoja siihen saakka, kunnes käyttäjä antaa lopeta-komennon:
+Seuraavassa ohjelmassa toistokierrosten lukumäärä ei ole tiedossa toistorakenteeseen tultaessa. Ohjelma kysyy käyttäjältä tekstimuotoisia komentoja siihen saakka, kunnes käyttäjä antaa lopeta-komennon:
 
 ```python
 komento = input ("Anna komento: ")
@@ -117,8 +106,7 @@ Toiminnot lopetettu.
 
 ## Esimerkki 3: vaihteleva määrä toistoja
 
-Tarkastellaan seuraavaksi simulaatioesimerkkiä, jossa toistokertojen lukumäärä riippuu satunnaislukugeneraattorista.
-Ohjelma heittelee kahta noppaa niin kauan, kunnes saadaan kaksi kuutosta.
+Tarkastellaan seuraavaksi simulaatioesimerkkiä, jossa toistokertojen lukumäärä riippuu satunnaislukugeneraattorista. Ohjelma heittelee kahta noppaa niin kauan, kunnes saadaan kaksi kuutosta.
 
 Tarvittavien heittojen lukumäärä vaihtelee suorituskerrasta toiseen:
 
@@ -140,18 +128,13 @@ Tarvittiin 17 heittoa.
 Tarvittiin 37 heittoa.
 ```
 
-Esimerkissä hyödynnetään Python-kielen mukana tulevaa `random`-kirjastoa.
-Kirjasto otetaan käyttöön kirjoittamalla ohjelman alkuun sitä vastaava import-lause.
-Valmiiden kirjastojen käyttöä ei tarvitse opetella ulkoa, vaan käyttötavan
-voi aina tarkistaa dokumentaatiosta: [https://docs.python.org/]
+Esimerkissä hyödynnetään Python-kielen mukana tulevaa `random`-kirjastoa. Kirjasto otetaan käyttöön kirjoittamalla ohjelman alkuun sitä vastaava import-lause. Valmiiden kirjastojen käyttöä ei tarvitse opetella ulkoa, vaan käyttötavan voi aina tarkistaa dokumentaatiosta: <https://docs.python.org/>
 
 ## Sisäkkäiset toistorakenteet
 
-Toistorakenteita voidaan asettaa sisäkkäin siten, että kutakin ulomman toistorakenteen kierrosta kohden suoritetaan sisempi
-toistorakenne kokonaisuudessaan.
+Toistorakenteita voidaan asettaa sisäkkäin siten, että kutakin ulomman toistorakenteen kierrosta kohden suoritetaan sisempi toistorakenne kokonaisuudessaan.
 
-Tulostetaan kertotaulu yhdestä viiteen. Mukaan otetaan siis kaikki 25 erilaista tuloa, joissa tulon tekijät
-ovat 1, 2, 3, 4 tai 5:
+Tulostetaan kertotaulu yhdestä viiteen. Mukaan otetaan siis kaikki 25 erilaista tuloa, joissa tulon tekijät ovat 1, 2, 3, 4 tai 5:
 
 ```python
 eka = 1
@@ -177,8 +160,7 @@ while eka <= 5:
 5 kertaa 5 on 25
 ```
 
-Laajennetaan edellistä kahden nopan heittämisesimerkkiä siten, että ohjelma tulostaa, montako heittokertaa tarvitaan *keskimäärin* ennen
-kuin saadaan kaksi kuutosta.
+Laajennetaan edellistä kahden nopan heittämisesimerkkiä siten, että ohjelma tulostaa, montako heittokertaa tarvitaan *keskimäärin* ennen kuin saadaan kaksi kuutosta.
 
 Keskiarvon laskemiseksi asetetaan simuloitavien heittosarjojen lukumäärä hyvin suureksi, sataantuhanteen:
 
@@ -203,20 +185,17 @@ print(f"Heitot keskimäärin: {heitot_keskimäärin:6.2f}")
 
 Heittokierroskohtaisen tulostuslauseen eteen on lisätty kommenttimerkki, jotta konsoli ei täyty sadastatuhannesta tulosteesta.
 
-Tulosteesta nähdään keskimääräinen vaadittujen heittojen lukumäärä. Vaikka toistoja on paljon, satunnaisvaihtelu
-vaikuttaa hieman tulokseen:
+Tulosteesta nähdään keskimääräinen vaadittujen heittojen lukumäärä. Vaikka toistoja on paljon, satunnaisvaihtelu vaikuttaa hieman tulokseen:
 
 ```monospace
 Heitot keskimäärin:  35.86
 ```
 
-Nähdään, että heittoja tarvitaan keskimäärin 36 kappaletta. Tämä vastaa laskemalla saatavaa tulosta. Teimme juuri
-empiirisen simulaation, jossa arvio teoreettisesta tuloksesta saadaan jäljittelemällä ilmiötä tietokoneella.
+Nähdään, että heittoja tarvitaan keskimäärin 36 kappaletta. Tämä vastaa laskemalla saatavaa tulosta. Teimme juuri empiirisen simulaation, jossa arvio teoreettisesta tuloksesta saadaan jäljittelemällä ilmiötä tietokoneella.
 
 ## Break
 
-Python-kielessä on break-lause, jonka avulla on mahdollista poistua toistorakenteesta välittömästi.
-Tällöin toistoehdon arvoa ei enää lasketa.
+Python-kielessä on break-lause, jonka avulla on mahdollista poistua toistorakenteesta välittömästi. Tällöin toistoehdon arvoa ei enää lasketa.
 
 Seuraavassa esimerkissä MAYDAY-komennolla poistutaan toistorakenteen sisältä kokonaan ja saman tien:
 
@@ -230,8 +209,7 @@ while komento!="lopeta":
 print ("Toiminnot lopetettu.")
 ```
 
-Kun käyttäjä on antanut MAYDAY-komennon, sallii while-toistorakenteen alkuehto uuden toistokierroksen aloittamisen.
-While-lohkon sisällä olevan if-lauseen suorituksen seurauksena toistorakenteesta poistutaan välittömästi:
+Kun käyttäjä on antanut MAYDAY-komennon, sallii while-toistorakenteen alkuehto uuden toistokierroksen aloittamisen. While-lohkon sisällä olevan if-lauseen suorituksen seurauksena toistorakenteesta poistutaan välittömästi:
 
 ```monospace
 Anna komento: laula
@@ -242,18 +220,13 @@ Anna komento: MAYDAY
 Toiminnot lopetettu.
 ```
 
-Break-lauseen käytön suhteen kannattaa olla varovainen. Sen avulla voidaan kirjoittaa vaikeasti hahmotettavaa
-ohjelmakoodia, ns. spagettikoodia.
-Toistoehto kannattaa lähtökohtaisesti  rakentaa siten, että break-lausetta ei tarvita.
+Break-lauseen käytön suhteen kannattaa olla varovainen. Sen avulla voidaan kirjoittaa vaikeasti hahmotettavaa ohjelmakoodia, ns. spagettikoodia. Toistoehto kannattaa lähtökohtaisesti  rakentaa siten, että break-lausetta ei tarvita.
 
-Helppolukuisen ja logiikaltaan selkeän ohjelman kirjoittaminen on osa ohjelmoijan ammattitaitoa. Niinpä break-lauseen
-käyttö kannattaa rajata tilanteisiin, joissa käyttö edistää näitä tavoitteita.
+Helppolukuisen ja logiikaltaan selkeän ohjelman kirjoittaminen on osa ohjelmoijan ammattitaitoa. Niinpä break-lauseen käyttö kannattaa rajata tilanteisiin, joissa käyttö edistää näitä tavoitteita.
 
 ## While/else
 
-Python-kielessä while-rakenteeseen voidaan liittää else-haara, johon suoritus siirtyy, kun toistoehto on epätosi.
-Else-haara suoritetaan siis toistorakenteen onnistuneen suorituksen päätteeksi. Sitä ei suoriteta, jos
-toistorakenteesta poistutaan break-lauseella.
+Python-kielessä while-rakenteeseen voidaan liittää else-haara, johon suoritus siirtyy, kun toistoehto on epätosi. Else-haara suoritetaan siis toistorakenteen onnistuneen suorituksen päätteeksi. Sitä ei suoriteta, jos toistorakenteesta poistutaan break-lauseella.
 
 Tarkastellaan seuraavaa ohjelmaesimerkkiä:
 
@@ -269,8 +242,7 @@ else:
 print ("Toiminnot lopetettu.")
 ```
 
-Ohjelma tulostaa Näkemiin-tekstin yhden kerran silloin, kun toistorakenteesta poistutaan normaalisti
-alkuehdon tullessa epätodeksi:
+Ohjelma tulostaa Näkemiin-tekstin yhden kerran silloin, kun toistorakenteesta poistutaan normaalisti alkuehdon tullessa epätodeksi:
 
 ```monospace
 Anna komento: tanssi
@@ -293,10 +265,7 @@ Kyseessä on varsin harvoin käytetty kielen piirre.
 
 ## Ikuinen silmukka
 
-Lopuksi tarkastellaan ikuista silmukkaa, ohjelmointivirhettä, jonka jokainen ohjelmoija silloin tällöin tekee.
-Ohjelma joutuu ikuiseen silmukkaan silloin, kun toistorakenteen alkuehto ei muutu koskaan epätodeksi.
-Tällainen tilanne syntyy esimerkiksi silloin, jos kierrosmuuttujan arvoa unohdetaan kasvattaa
-toistorakenteen sisällä.
+Lopuksi tarkastellaan ikuista silmukkaa, ohjelmointivirhettä, jonka jokainen ohjelmoija silloin tällöin tekee. Ohjelma joutuu ikuiseen silmukkaan silloin, kun toistorakenteen alkuehto ei muutu koskaan epätodeksi. Tällainen tilanne syntyy esimerkiksi silloin, jos kierrosmuuttujan arvoa unohdetaan kasvattaa toistorakenteen sisällä.
 
 Seuraava virheellinen ohjelmakoodi tuottaa ikuisen silmukan:
 
@@ -320,10 +289,19 @@ Suoritus ei pääty koskaan:
 ...
 ```
 
-Ikuiseen silmukkaan joutunut ohjelma on pysäytettävä väkisin. PyCharm-kehittimessä se tehdään napsauttamalla
-konsoli-ikkunan laidassa olevaa pysäytyspainiketta:
+Ikuiseen silmukkaan joutunut ohjelma on pysäytettävä väkisin. PyCharm-kehittimessä se tehdään napsauttamalla konsoli-ikkunan laidassa olevaa pysäytyspainiketta:
 
 ![Pysäytyspainike](img/stop-nappi1.png)
 
-Jos pysäytyspainike ei pysäytä suoritusta, tarkista, että päätetoimintojen emulointi on käytössä konsoli-ikkunassa:
-valitse **Run/Edit Configurations**, ja aseta päälle **Emulate Terminal in Output Console** -valintaruutu.
+Jos pysäytyspainike ei pysäytä suoritusta, tarkista, että päätetoimintojen emulointi on käytössä konsoli-ikkunassa: valitse **Run/Edit Configurations**, ja aseta päälle **Emulate Terminal in Output Console** -valintaruutu.
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
