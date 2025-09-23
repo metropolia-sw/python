@@ -224,6 +224,18 @@ Ohjelma tulostaa:
 30
 ```
 
+Toistorakenteen toiminta voidaan esittää vuokaaviona:
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Alusta luku = 3]
+    B --> C{Onko luku ≤ 30?}
+    C -- Kyllä --> D[Tulosta luku]
+    D --> E[Kasvata luku += 3]
+    E --> C
+    C -- Ei --> F([Loppu])
+```
+
 `Range`-funktion avulla on näppärää korvata kierrosmuuttujaan perustuva toistorakenne. Seuraava ohjelma tulostaa kuusi kertaa merkkijonon "Moi!".
 
 ```python
