@@ -33,10 +33,16 @@ Gitin asennuksen jälkeen voit ottaa sen käyttöön Python-projektissasi:
 
 1. Avaa VS Code ja avaa projekti, jonka haluat liittää Git-versionhallintaan.
 1. Avaa terminaali (Terminal) VS Code -editorissa.
-1. Alusta uusi Git-repositorio komennolla `git init`.
 1. Määritä käyttäjänimesi komennolla `git config --global user.name "Etunimi Sukunimi"`.
 1. Määritä sähköpostiosoitteesi komennolla `git config --global user.email "sahkoposti@esimerkki.com"`. Sähköpostiosoite on sama, jota käytit rekisteröityessäsi GitHubiin.
 1. Luo `.gitignore`-tiedosto projektin juureen. Lisää tiedostoon rivi `.venv/`, jotta virtuaaliympäristön tiedostot eivät päädy versionhallintaan.
+1. Alusta Git-versionhallinta projektille ja liitä se GitHub-repositorioon valitsemalla vasemman laidan palkista löytyvä Git-kuvake (tai paina näppäinyhdistelmää `Ctrl+Shift+G`), ja paina sitten **Publish to GitHub** -painiketta.
+
+![Git alustus](img/vscode-init-repo.png)
+
+### Vaihtoehtoisesti voit tehdä Git repositorion alustamisen myös "käsin" terminaalissa
+
+1. Alusta uusi Git-repositorio komennolla `git init`.
 1. Lisää tiedostot versionhallintaan komennolla `git add .`.
 1. Tee ensimmäinen commit komennolla `git commit -m "Initial commit"`.
 
