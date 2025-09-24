@@ -9,7 +9,7 @@
 4. [Alkuehdollinen toistorakenne (while)](04_While-toistorakenne.md)
 5. [Listarakenne ja läpikäyvä toistorakenne (for)](05_Listarakenne_ja_for-toistorakenne.md)
 6. [Funktio](06_Funktio.md)
-7. [Monikko, joukko ja sanakirja](07_Monikko,_joukko_ja_sanakirja.md)
+7. [Monikko, joukko ja sanakirja](07_Monikko_joukko_ja_sanakirja.md)
 8. [Relaatiotietokannan käyttö](08_Relaatiotietokannan_käyttö.md)
 
 ## Osa 2: Pythonin hallinta
