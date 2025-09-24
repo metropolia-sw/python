@@ -335,3 +335,18 @@ Merkki: VW, Malli: ID.3, Vuosimalli: 2023
 ```
 
 Yllä olevassa silmukan jokaisella kierroksella `auto`-muuttujaan sijoitetaan yksi sanakirja `autot`-listasta. Tämän jälkeen voimme käyttää  `auto`-muuttujan sisältämää sanakirjaa normaalisti sen avaimien avulla (esim.`auto['merkki']`).
+
+---
+
+[Seuraavassa moduulissa käsitellään relaatiotietokannan käyttöä Python-ohjelmassa.](08_Relaatiotietokannan_käyttö.md) 
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
