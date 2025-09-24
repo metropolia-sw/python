@@ -45,9 +45,7 @@ Koodin sisentäminen on tärkeä työväline Python-kielessä: sillä ilmaistaan
 
 ## Ehdollisesti suoritettava ohjelmanosa
 
-Kirjoitetaan ensimmäinen esimerkki valintarakennetta käyttävästä ohjelmasta. Ohjelma kysyy käyttäjältä 
-taskussa olevan rahamäärän ja ilmoittaa tälle, jos rahat riittävät viiden euron hintaisen latten ostoon.
-Jos rahat eivät riitä, ohjelma ei ilmoita mitään:
+Kirjoitetaan ensimmäinen esimerkki valintarakennetta käyttävästä ohjelmasta. Ohjelma kysyy käyttäjältä taskussa olevan rahamäärän ja ilmoittaa tälle, jos rahat riittävät viiden euron hintaisen latten ostoon. Jos rahat eivät riitä, ohjelma ei ilmoita mitään:
 
 ```python
 rahat = float(input("Anna rahamäärä: "))
@@ -290,6 +288,10 @@ graph TD
 ```
 
 Ohjelma siis kirjoitettiin siten, että ensimmäisen haaran kireää ehtoa löysätään vaihe vaiheelta, jolloin iän ylärajoja ei tarvitse haarojen ehtoihin kirjoittaa. Ne voitaisiin toki kirjoittaa, mutta se olisi tarpeetonta ja lisäisi uuden mahdollisuuden tehdä ohjelmointivirhe.
+
+---
+
+[Seuraavassa moduulissa käsitellään while-toistorakennetta.](04_While-toistorakenne.md)
 
 ---
 

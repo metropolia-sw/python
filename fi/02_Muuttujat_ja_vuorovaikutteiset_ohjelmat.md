@@ -286,4 +286,10 @@ Lopuksi mainittakoon, että Python tarjoaa useita tapoja tulostuksen muotoiluun.
 2. muotoilumerkkijonon ja lausekeluettelon käyttö print-funktiossa (ns. prosenttinotaatio)
 3. mallimerkkijonon (*template string*) käyttö
 
-Edellä lueteltuja vaihtoehtoisia tapoja ei käsitellä tässä. Aiheesta löytyy lisätietoa Python 3 -kielen dokumentaatiosta: [https://docs.python.org/3/tutorial/inputoutput.html]
+Edellä lueteltuja vaihtoehtoisia tapoja ei käsitellä tässä. Aiheesta löytyy lisätietoa Python 3 -kielen dokumentaatiosta: <https://docs.python.org/3/tutorial/inputoutput.html>
+
+---
+
+[Seuraavassa moduulissa käsitellään if-valintarakennetta.](03_Valintarakenne.md)
+
+---

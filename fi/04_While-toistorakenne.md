@@ -289,11 +289,17 @@ Suoritus ei pääty koskaan:
 ...
 ```
 
-Ikuiseen silmukkaan joutunut ohjelma on pysäytettävä väkisin. PyCharm-kehittimessä se tehdään napsauttamalla konsoli-ikkunan laidassa olevaa pysäytyspainiketta:
+Ikuiseen silmukkaan joutunut ohjelma on pysäytettävä väkisin. **PyCharm**-kehittimessä se tehdään napsauttamalla konsoli-ikkunan laidassa olevaa pysäytyspainiketta:
 
 ![Pysäytyspainike](img/stop-nappi1.png)
 
 Jos pysäytyspainike ei pysäytä suoritusta, tarkista, että päätetoimintojen emulointi on käytössä konsoli-ikkunassa: valitse **Run/Edit Configurations**, ja aseta päälle **Emulate Terminal in Output Console** -valintaruutu.
+
+**Visual Studio Code** -kehittimessä ohjelman suoritus pysäytetään napsauttamalla terminaali-ikkunan ylälaidassa tai sivupaneelissa olevaa roskakorikuvaketta tai klikkaamalla terminaali-ikkunaa ja painamalla näppäinyhdistelmää `Ctrl+C`.
+
+---
+
+[Seuraavassa moduulissa käsitellään tietorakennetta lista ja for-toistolausetta.](05_Listarakenne_ja_for-toistorakenne.md)
 
 ---
 

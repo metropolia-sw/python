@@ -29,7 +29,7 @@ Repositorion luominen olemassaolevan PyCharmilla tehdyn projektin kautta on suor
 
 Vaihtoehtoisesti voit luoda repositorion GitHub-sivustolla:
 
-1. Rekisteröidy GitHubin käyttäjäksi osoitteessa https://github.com/.
+1. Rekisteröidy GitHubin käyttäjäksi osoitteessa <https://github.com/>.
 2. Kirjauduttuasi sisään paina **Repositories**-otsikon vieressä olevaa **New**-painiketta.
 3. Tee itsellesi oma yksityinen repositorio alla olevan kuvan mukaisesti.
 
@@ -65,3 +65,9 @@ Palauta Omassa oleviin tehtäviin aina suoraan kyseisen moduulin tehtävien ratk
 **Jos repositoriosi on yksityinen:** Jotta opettajat näkevät tiedostosi GitHubissa, sinun pitää lisätä opettajien käyttäjätunnukset GitHub-projektiisi käyttäjiksi. Tämä tapahtuu *Settings*-välilehdeltä kohdasta *Collaborators*. Opettajien tunnukset kerrotaan Oma-työtilan kautta. Vaihtoehtoisesti voit muuttaa projektisi näkyvyyden julkiseksi (public) projektin asetuksista.
 
 ![Käyttäjien lisääminen](img/add-collaborator.png)
+
+---
+
+[Seuraavassa moduulissa aloitetaan varsinainen ohjelmointi.](02_Muuttujat_ja_vuorovaikutteiset_ohjelmat.md)
+
+---

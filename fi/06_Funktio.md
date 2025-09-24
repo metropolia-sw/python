@@ -310,3 +310,9 @@ Pythonin funktioilla on lisäksi seuraavia ominaisuuksia:
     ```
 
 Lisäksi Python-tukee anonyymejä funktioita eli lambda-funktioita. Tällöin määritetään vain kaava tai sääntö, jolla paluuarvo tuotetaan ilman, että kirjoitetaan varsinaista funktiota. Lambda-funktioita käsitellään myöhemmin.
+
+---
+
+[Seuraavassa moduulissa käsitellään Pythonin tietorakenteita.](07_Monikko_joukko_ja_sanakirja.md)
+
+---

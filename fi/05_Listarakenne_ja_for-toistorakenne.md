@@ -18,10 +18,6 @@ Listamuuttujan luovassa sijoituslauseessa listamuuttujan nimi on yhtäsuuruusmer
 
 Tässä tapauksessa tuloksena on viisialkioinen lista, jonka alkiot ovat merkkijonoja. Listaan viitataan listamuuttujalla, joka on nimeltään `nimet`. Seuraava kuva havainnollistaa listan rakennetta:
 
-_//TODO: valitse seuraavista kuvis paras_
-
-![Listamuuttuja ja listan alkiot](img/lista.png)
-
 ```mermaid
 graph TD;
     A[nimet] --0--> B['Viivi']
@@ -137,7 +133,7 @@ Esimerkissä listan loppuun saatiin lisättyä uusia alkioita yksi kerrallaan `a
 
 Tavallisimmat listaoperaatiot on koottu alla olevaan taulukkoon:
 
-| Operaatio | Tarkoitus                                                                                   | Esimerkki                                                         | 
+| Operaatio | Tarkoitus                                                                                   | Esimerkki                                                         |
 |-----------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
 | append    | lisää alkion listan loppuun                                                                 | nimet.append("Matti")                                             |
 | remove    | poistaa alkion ensimmäisen ilmentymän listasta                                              | nimet.remove("Pekka")                                             |
@@ -242,6 +238,10 @@ flowchart TD
 for luku in range(6):
     print ("Moi!")
 ```
+
+---
+
+[Seuraavassa moduulissa käsitellään funktioita.](06_Funktio.md)
 
 ---
 

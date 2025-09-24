@@ -86,3 +86,9 @@ Hei, maailma!
 Jos ohjelmassa on virheitä, ei hätää! Saat virheilmoituksen, joka auttaa virheen paikantamisessa. Sen jälkeen voit korjata ohjelmaa niin monta kertaa kuin on tarpeen ja suorittaa sen aina uudelleen.
 
 Virheiden teko kuuluu ohjelmointiin. On arvioitu, että 80 prosenttia ammattimaisen ohjelmoijan työajasta kuuluu virheiden jäljitykseen ja niiden korjaamiseen. Myös oppiminen tapahtuu virheitä tekemällä. Kun selvität virheen syyn ja korjaat sen, olet oppinut hieman paremmaksi ohjelmoijaksi.
+
+---
+
+[Seuraavaksi tutustutaan versionhallinnan käyttöön.](01b_Versionhallinnan_käyttöönotto.md)
+
+---
