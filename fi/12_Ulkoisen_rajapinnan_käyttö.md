@@ -219,3 +219,12 @@ Hyvään ohjelmointitapaan kuuluu lisätä ohjelmaan tämän kaltaiset virhetark
 [Seuraavassa moduulissa rakennetaan oma taustapalvelu toisen sovelluksen käyttöön.](13_Taustapalvelun_ja_rajapinnan_rakentaminen.md)
 
 ---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>'

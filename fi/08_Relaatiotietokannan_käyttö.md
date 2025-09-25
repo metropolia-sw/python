@@ -8,7 +8,7 @@ Tässä moduulissa käytetään MariaDB-tietokantaa. Muita tiedonhallintaohjelmi
 
 Ohjelmisto 1 -opintojaksolla olet perehtynyt relaatiotietokannan laadintaan ja käytön periaatteisiin opintojakson tietokantaosuudessa. Siinä tutustuttiin myös MariaDB-tietokantaohjelmiston asentamiseen.
 
-# Tietokanta-ajuri
+## Tietokanta-ajuri
 
 Relaatiotietokannan käyttö itse ohjelmoidusta ohjelmasta edellyttää tietokanta-ajurin asentamista.
 
@@ -87,6 +87,7 @@ yhteys = mysql.connector.connect(
 ```
 
 Yhteys muodostetaan tietokanta-ajurin `connect`-metodin avulla. Katsotaan metodin parametreja tarkemmin:
+
 - `host` määrittää tietokoneen, johon yhteys otetaan. Kun yhteys otetaan samassa koneessa olevaan palvelimeen, jossa Python-ohjelmaa ajetaan, kirjoitetaan osoitteeksi `127.0.0.1` tai vaihtoehtoisesti `localhost`.
 - `port` määrittää tietoliikenneportin, jota tietokantapalvelin kuuntelee. MariaDB:n käyttämä portti on 3306, jos et ole erikseen muuttanut sitä.
 - `database` määrittää tietokannan nimen.
