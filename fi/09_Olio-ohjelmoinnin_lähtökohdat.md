@@ -140,8 +140,118 @@ Ohjelma tuottaa seuraavan tulosteen:
 Koiria on nyt 2.
 ```
 
+## Olioiden ja luokan välinen suhde
+
+Edellä esitelty luokka voidaa esitään luokkakaaviona seuraavasti:
+
+```mermaid
+classDiagram
+    class Koira {
+        +nimi: str
+        +syntymävuosi: int
+        +haukahdus: str
+        static tehty: int
+        +__init__(nimi, syntymävuosi, haukahdus="Vuh-vuh")
+        +hauku(kerrat)
+    }
+```
+
+Ensimmäisessä osassa on luokan nimi, toisessa osassa on luokan ominaisuudet ja kolmannessa osassa on luokan metodit. Ominaisuuksien ja metodien eteen on merkitty näkyvyys: `+` tarkoittaa julkista (public) näkyvyyttä. Muuttujien näkyvyyttä emme tässä moduulissa käsittele enempää, mutta mainittakoon, että Pythonissa kaikki luokan jäsenet ovat oletuksena julkisia. Luokkamuuttuja `tehty` on merkitty sanalla `static`, joka tarkoittaa, että kyseessä on staattinen eli luokkamuuttuja.
+
+Seuraavassa kaaviossa on esitetty, miten edellisen koodiesimerkin muuttujat, luokat ja oliot liittyvät toisiinsa:
+
+```mermaid
+flowchart LR
+    %%classDef luokka fill:#f9f,stroke:#333,stroke-width:2px;
+    %%classDef olio fill:#bbf,stroke:#333,stroke-width:1px;
+
+    subgraph Muuttujat
+        V1[koira1]
+        V2[koira2]
+    end
+
+    L["Koira (luokka)" <br> tehty=2]:::luokka
+
+    subgraph Oliot_ajonaikana
+      O1((nimi='Muro' syntymävuosi=2018 haukahdus='Vuh-vuh')):::olio
+      O2((nimi='Rekku' syntymävuosi=2022 haukahdus='Viu viu viu')):::olio
+    end
+
+    O1 -. instanssi .-> L
+    O2 -. instanssi .-> L
+
+    V1 --> O1
+    V2 --> O2
+```
+
+Muuttujat `koira1` ja `koira2` viittaavat ajonaikaisiin olioihin, jotka on luotu Koira-luokasta. Nuo oliot puolestaan ovat Koira-luokan ilmentymiä eli instansseja. Luokkamuuttuja `tehty` kuuluu luokkaan, ei yksittäisiin olioihin.
+
+Olioita ei siis tallenneta suoraan muuttujien "sisään", vaan muuttujat viittaavat olioihin (vrt. lista ja muut tietorakenteet). Muuttujat voivat siis olla erilaisia, mutta ne voivat viitata samaan olioon. Esimerkiksi voisimme kirjoittaa pääohjelmaan lauseen `koira3 = koira1`, jolloin muuttuja `koira3` viittaisi samaan olioon kuin `koira1`:
+
+```mermaid
+flowchart LR
+
+    subgraph Muuttujat
+        V1[koira1]
+        V2[koira2]
+        V3[koira3]
+    end
+
+    L["Koira (luokka)" <br> tehty=2]:::luokka
+
+    subgraph Oliot_ajonaikana
+      O1((nimi='Muro' syntymävuosi=2018 haukahdus='Vuh-vuh')):::olio
+      O2((nimi='Rekku' syntymävuosi=2022 haukahdus='Viu viu viu')):::olio
+    end
+
+    O1 -. instanssi .-> L
+    O2 -. instanssi .-> L
+
+    V1 --> O1
+    V3 --> O1
+    V2 --> O2
+```
+
+Tällöin esimerkiksi lause `koira3.nimi` palauttaisi arvon `'Muro'`, koska `koira3` viittaa samaan olioon kuin `koira1`. Ja jos kirjoitetaan lause `koira3.nimi = "Musti"`, muuttuu `koira1`-olion nimi-ominaisuuden arvoksi `'Musti'`.
+
+Jos kirjoitamme lauseen `koira2 = koira1`, kaikki muuttujat `koira1`, `koira2` ja `koira3` viittaavat samaan olioon, jolloin koiraan, jonka nimi on "Rekku", ei ole enää mitään viittausta. Tällöin tuo olio poistuu muistista, kun Pythonin roskienkeruu (*garbage collection*) siivoaa muistista olioita, joita ei enää ole käytössä:
+
+```mermaid
+flowchart LR
+    classDef deleted fill:#aa0000,stroke:#333,stroke-width:2px;
+    subgraph Muuttujat
+        V1[koira1]
+        V2[koira2]
+        V3[koira3]
+    end
+
+    L["Koira (luokka)" <br> tehty=2]
+
+    subgraph Oliot_ajonaikana
+      O1((nimi='Musti' syntymävuosi=2018 haukahdus='Vuh-vuh'))
+      O2((nimi='Rekku' syntymävuosi=2022 haukahdus='Viu viu viu')):::deleted
+    end
+
+    O1 -. instanssi .-> L
+    O2 -. instanssi .-> L
+
+    V1 --> O1
+    V2 --> O1
+    V3 --> O1
+```
+
+
 ---
 
 [Seuraavassa moduulissa käsitellään olioiden välisiä yhteyksiä ja keskinäistä vuorovaikutusta.](10_Assosiaatio.md)
 
 ---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
