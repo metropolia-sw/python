@@ -37,6 +37,29 @@ Entä onko hoitolalla toimintoja, jotka on syytä kirjoittaa metodeiksi? Äsken 
 2. koiran kirjaaminen ulos hoitolasta
 3. kierroksen tekeminen hoitolassa.
 
+Luokkien ja niiden assosiaatiosuhteiden suunnittelua voidaan havainnollistaa luokkakaaviolla. Seuraava kaavio esittää `Hoitola`- ja `Koira`-luokkien välisen assosiaatiosuhteen, jossa hoitola voi sisältää listan useampia koiria:
+
+```mermaid
+classDiagram
+    class Koira {
+        +nimi: str
+        +syntymävuosi: int
+        +haukahdus: str
+        +__init__(nimi: str, syntymävuosi: int, haukahdus: str="Vuh-vuh")
+        +hauku(kerrat: int) void
+    }
+
+    class Hoitola {
+        +koirat: list[Koira]
+        +__init__() 
+        +koira_sisään(koira: Koira) void
+        +koira_ulos(koira: Koira) void
+        +tervehdi_koiria() void
+    }
+
+    Hoitola "1" o-- "0..*" Koira : has
+```
+
 Nyt ohjelma on määritelty ja suunniteltu, ja pääsemme toteuttamaan sen.
 
 ## Kahdesta luokasta koostuva ohjelma
@@ -139,25 +162,31 @@ Näin kirjoitimme ohjelman, jossa on ilmentymiä (eli olioita) kahdesta eri luok
 
 Assosiaatiosuhde on tässä yksisuuntainen: `Hoitola`-olio tietää, mitä koiria kulloinkin on hoidossa. `Koira`-olio sen sijaan ei tiedä mitään hoitolasta, jossa se mahdollisesti on. Assosiaatiosuhde voidaan toteuttaa yksi- tai kaksisuuntaisena. Kaksisuuntainen assosiaatiosuhde kannattaa ottaa käyttöön vain silloin, kun sille on hyvät perusteet. Tällöin ohjelmoijalle tulee ylimääräistä kuormaa siitä, että eri suuntiin olevien olioviittausten on oltava sisällöiltään synkronoidut.
 
+Seuraava kaavio esittää olioiden ja muuttujien välisiä suhteita esimerkkiohjelmassamme. Pääohjelmassa on kolme muuttujaa: `hoitola`, `koira1` ja `koira2`. Ne viittaavat vastaaviin olioihin. Hoitola-oliolla on `koirat`-muuttuja, joka sisältää listan viittauksista samoihin koira-olioihin silloin, kun ne on kirjattu hoitolaan:
+
 ```mermaid
-classDiagram
-    class Koira {
-        +nimi: str
-        +syntymävuosi: int
-        +haukahdus: str
-        +__init__(nimi: str, syntymävuosi: int, haukahdus: str="Vuh-vuh")
-        +hauku(kerrat: int) void
-    }
+flowchart LR
 
-    class Hoitola {
-        +koirat: list[Koira]
-        +__init__() 
-        +koira_sisään(koira: Koira) void
-        +koira_ulos(koira: Koira) void
-        +tervehdi_koiria() void
-    }
+    subgraph Pääohjelman muuttujat
+        MV1[hoitola]
+        MV2[koira1]
+        MV3[koira2]
+    end
 
-    Hoitola "1" o-- "0..*" Koira : has
+    subgraph Koira-oliot
+      K1((nimi='Muro' syntymävuosi=2018 haukahdus='Vuh-vuh'))
+      K2((nimi='Rekku' syntymävuosi=2022 haukahdus='Viu viu viu'))
+    end
+
+    subgraph Hoitola-olio
+        H(("koirat[]"))
+    end
+
+    MV1 --> H
+    MV2 --> K1
+    MV3 --> K2
+    H -- 0 --> K1
+    H -- 1 --> K2
 ```
 
 ## Tilapäinen assosiaatiosuhde
