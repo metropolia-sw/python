@@ -139,6 +139,27 @@ Näin kirjoitimme ohjelman, jossa on ilmentymiä (eli olioita) kahdesta eri luok
 
 Assosiaatiosuhde on tässä yksisuuntainen: `Hoitola`-olio tietää, mitä koiria kulloinkin on hoidossa. `Koira`-olio sen sijaan ei tiedä mitään hoitolasta, jossa se mahdollisesti on. Assosiaatiosuhde voidaan toteuttaa yksi- tai kaksisuuntaisena. Kaksisuuntainen assosiaatiosuhde kannattaa ottaa käyttöön vain silloin, kun sille on hyvät perusteet. Tällöin ohjelmoijalle tulee ylimääräistä kuormaa siitä, että eri suuntiin olevien olioviittausten on oltava sisällöiltään synkronoidut.
 
+```mermaid
+classDiagram
+    class Koira {
+        +nimi: str
+        +syntymävuosi: int
+        +haukahdus: str
+        +__init__(nimi: str, syntymävuosi: int, haukahdus: str="Vuh-vuh")
+        +hauku(kerrat: int) void
+    }
+
+    class Hoitola {
+        +koirat: list[Koira]
+        +__init__() 
+        +koira_sisään(koira: Koira) void
+        +koira_ulos(koira: Koira) void
+        +tervehdi_koiria() void
+    }
+
+    Hoitola "1" o-- "0..*" Koira : has
+```
+
 ## Tilapäinen assosiaatiosuhde
 
 Edellä todettiin, että esimerkin `Hoitola`- ja `Koira`-luokkien välillä oli pysyvä assosiaatiosuhde: hoitolan koirat on tallennettu hoitolan ominaisuutena olevaan koiralistaan.
@@ -178,3 +199,12 @@ Tässä esimerkissä maalaamo tuntee maalattavan auton vain `maalaa`-metodin suo
 [Seuraavassa moduulissa käsitellään olion periytymistä.](11_Periytyminen.md)
 
 ---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
