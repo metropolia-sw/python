@@ -208,6 +208,27 @@ Kulkuneuvo.__init__(self, nopeus)
 Urheiluväline.__init__(self, paino)
 ```
 
+```mermaid
+classDiagram
+    class Kulkuneuvo {
+        +nopeus: int
+        +__init__(nopeus: int)
+    }
+
+    class Urheiluväline {
+        +paino: int
+        +__init__(paino: int)
+    }
+
+    class Polkupyörä {
+        +vaihteet: int
+        +__init__(nopeus: int, paino: int, vaihteet: int)
+    }
+
+    Kulkuneuvo <|-- Polkupyörä
+    Urheiluväline <|-- Polkupyörä
+```
+
 ---
 
 [Seuraavassa moduulissa haetaan tietoa ohjelman käyttöön ulkoisista palveluista.](12_Ulkoisen_rajapinnan_käyttö.md)

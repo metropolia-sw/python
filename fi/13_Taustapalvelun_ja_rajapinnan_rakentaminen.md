@@ -2,7 +2,31 @@
 
 Tässä moduulissa opit toteuttamaan Python-kielisen taustapalvelun (*backend*). Tällöin voit rakentaa web-palvelun siten, että web-sovelluksen HTML-/CSS-/JavaScript-käyttöliittymä kommunikoi Python-kielisen taustapalvelun tarjoamien HTTP-päätepisteiden (*endpoint*) kanssa.
 
-Taustapalvelun käyttäjän ei välttämättä tarvitse olla selain. Tässä opittavalla lähestymistavalla toteutettavaa taustapalveua voi käyttää HTTP-yhteyskäytännön ansiosta ohjelmallisesti mistä tahansa palvelusta, millä tahansa ohjelmointikielellä.
+Taustapalvelun käyttäjän ei välttämättä tarvitse olla selain. Tässä opittavalla lähestymistavalla toteutettavaa taustapalvelua voi käyttää HTTP-yhteyskäytännön ansiosta ohjelmallisesti mistä tahansa palvelusta, millä tahansa ohjelmointikielellä.
+
+Moduulin harjoituksissa toteutetaan yksinkertainen Python-kielinen taustapalvelu, jolla haetaan tietoja MariaDB-tietokannasta. Taustapalvelu tarjoaa HTTP-päätepisteen, jota web-sovelluksen käyttöliittymä voi käyttää tietojen hakemiseen. Päätepiste toteutetaan Flask-kirjaston avulla.
+
+```mermaid
+flowchart LR
+
+    Client[Asiakasohjelma, esim. selain, mobiilisovellus tms.]
+
+    subgraph Python_app [Python-ohjelma]
+        PY[Ohjelmalogiikka, eli oma sovelluskoodi]
+        Flask[Flask-kirjasto]
+        LIB[mysql-connector kirjasto]
+        PY <--> LIB
+        PY <--> Flask
+    end
+
+    DB[(Tietokanta)]
+
+    Client -- HTTP request --> Flask
+    Flask -- HTTP response --> Client
+    
+    LIB -- SQL --> DB
+    DB -- tulokset --> LIB
+```
 
 ## Flask-kirjaston asennus
 
@@ -182,3 +206,14 @@ def page_not_found(virhekoodi):
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3000)
 ```
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
