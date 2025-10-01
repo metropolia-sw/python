@@ -113,6 +113,33 @@ Aliluokalle kirjoitetaan tarvittaessa oma alustaja. Kun aliluokan ilmentymä luo
 
 Yliluokassa määritetyt ominaisuudet näkyvät automaattisesti aliluokkaan. Voimme siis luoda `Tuntipalkkainen`-luokan ilmentymän `t` ja milloin tahansa hakea hänen etunimensä ilmaisulla `t.etunimi`.
 
+```mermaid
+classDiagram
+    class Työntekijä {
+        static työntekijöiden_lukumäärä: int
+        +työntekijänumero: int
+        +etunimi: str
+        +sukunimi: str
+        +__init__(etunimi: str, sukunimi: str)
+        +tulosta_tiedot() void
+    }
+
+    class Tuntipalkkainen {
+        +tuntipalkka: float
+        +__init__(etunimi: str, sukunimi: str, tuntipalkka: float)
+        +tulosta_tiedot() void
+    }
+
+    class Kuukausipalkkainen {
+        +kuukausipalkka: float
+        +__init__(etunimi: str, sukunimi: str, kuukausipalkka: float)
+        +tulosta_tiedot() void
+    }
+
+    Työntekijä <|-- Tuntipalkkainen
+    Työntekijä <|-- Kuukausipalkkainen
+```
+
 ## Metodien ylikirjoittaminen
 
 Kun tarkastelemme edellä olevaa esimerkkiä, havaitsemme, että `Työntekijä`-yliluokkaan kirjoitettu `tulosta_tiedot`-metodi tulostaa henkilön etu- ja sukunimen. Metodi toimii hyvin silloin, kun henkilö on luotu `Työntekijä`-luokan ilmentymäksi ottamatta kantaa siihen, onko hän tunti- vai kuukausipalkkainen. Toisaalta esimerkiksi tuntipalkkaisten työntekijöiden tietojen tulostamiseen metodi on liian suppea: se tulostaa nimitiedot mutta ei pääse käsiksi aliluokassa määritettyyn tuntipalkkaan.
@@ -186,3 +213,12 @@ Urheiluväline.__init__(self, paino)
 [Seuraavassa moduulissa haetaan tietoa ohjelman käyttöön ulkoisista palveluista.](12_Ulkoisen_rajapinnan_käyttö.md)
 
 ---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
