@@ -155,19 +155,19 @@ Seuraava kuva havainnollistaa sanakirjarakennetta:
 
 ```mermaid
 graph TD
-    A[numerot]
+    A["numerot[avain]"]
 
-    A --> K1[Viivi]
-    A --> K2[Ahmed]
-    A --> K3[Pekka]
-    A --> K4[Olga]
-    A --> K5[Mary]
+    A --> K1['Viivi']
+    A --> K2['Ahmed']
+    A --> K3['Pekka']
+    A --> K4['Olga']
+    A --> K5['Mary']
 
-    K1 --> V1["050-1234567"]
-    K2 --> V2["040-1112223"]
-    K3 --> V3["050-7654321"]
-    K4 --> V4["050-1011012"]
-    K5 --> V5["0401-2132139"]
+    K1 --> V1['050-1234567']
+    K2 --> V2['040-1112223']
+    K3 --> V3['050-7654321']
+    K4 --> V4['050-1011012']
+    K5 --> V5['0401-2132139']
 ```
 
 TODO: kumpi parempi?
@@ -278,6 +278,29 @@ graph TD
             M9[vuosimalli] --> V9["2023"]
         end
     end
+```
+
+TODO: Kumpi parempi? Ylläoleva vai allaoleva?
+
+```mermaid
+graph TD
+    A["autot[n]"]
+
+    A --> 0 
+    A --> 1 
+    A --> 2 
+
+    0 -- 'merkki' --> V1["'Toyota'"]
+    0 -- 'malli' --> V2["'Corolla'"]
+    0 -- 'vuosimalli' --> V3["2018"]
+
+    1 -- 'merkki' --> V4["'Ford'"]
+    1 -- 'malli' --> V5["'Focus'"]
+    1 -- 'vuosimalli' --> V6["2020"]
+
+    2 -- 'merkki' --> V7["'VW'"]
+    2 -- 'malli' --> V8["'ID.3'"]
+    2 -- 'vuosimalli' --> V9["2023"]
 ```
 
 Koska `autot` on lista, voimme hakea yksittäisen auton tiedot (eli yhden
