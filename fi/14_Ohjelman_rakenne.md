@@ -73,7 +73,7 @@ miau()
 
 Kun ohjelma ajetaan, tulostuu ensin koiran haukahdus ja sitten kissan naukaisu. Tämä esimerkki osoittaa, kuinka moduulit ja paketit auttavat ohjelmoijaa järjestämään koodia niin, että siitä tulee selkeämpää, uudelleenkäytettävää ja helpommin hallittavaa.
 
-Myös luokat voidaan määritellä moduuleissa ja paketeissa, mikä mahdollistaa olio-ohjelmoinnin periaatteiden hyödyntämisen suuremmissa ohjelmistoissa. Tämä tekee koodista entistä modulaarisempaa ja helpommin ylläpidettävää.
+Myös luokat voidaan määritellä moduuleissa ja paketeissa, mikä mahdollistaa olio-ohjelmoinnin periaatteiden hyödyntämisen suuremmissa ohjelmistoissa:
 
 `koira.py`:
 
