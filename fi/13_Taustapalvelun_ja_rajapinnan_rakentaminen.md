@@ -39,7 +39,7 @@ Aloitetaan Flask-kirjaston asentamisesta. Asennus on helppo tehdä suoraan **PyC
 1. Valitse **View / Tool Windows / Python Packages**.
 2. Kirjoita hakukenttään **Flask**. Valitse avautuvasta listasta **Flask**-vaihtoehto ja napsauta **Install**.
 
-**Visual Studio Code** -kehittimessä asennus onnistuu avaamalla terminaali ja kirjoittamalla komento: `pip install Flask`.
+**Visual Studio Code** -kehittimessä asennus onnistuu avaamalla terminaali ja kirjoittamalla komento: `python -m pip install flask`.
 
 Kirjasto on tämän jälkeen heti käytössä.
 
@@ -56,11 +56,10 @@ def summa():
     args = request.args
     luku1 = float(args.get("luku1"))
     luku2 = float(args.get("luku2"))
-    summa = luku1+luku2
+    summa = luku1 + luku2
     return str(summa)
 
-if __name__ == '__main__':
-    app.run(use_reloader=True, host='127.0.0.1', port=3000)
+app.run(use_reloader=True, host='127.0.0.1', port=3000)
 ```
 
 Aloitetaan ohjelmaan perehtyminen sen viimeisestä rivistä. Sillä oleva `app.run`-metodin kutsu käynnistää taustapalvelun. Palvelu avataan IP-osoitteessa 127.0.0.1, joka on omaa tietokonetta vastaava erikoisosoite. Tämä tarkoittaa, että yhteys tuohon IP-osoitteeseen voidaan ottaa vain samasta tietokoneesta, jossa ohjelmaa ajetaan. Porttinumero 3000 kertoo, että taustapalvelin odottaa mainittuja saman koneen yhteydenottoja tietoliikenneportin 3000 kautta.
@@ -77,6 +76,8 @@ Kun taustapalvelua kutsutaan selaimesta, vastauksena oleva luku nähdään selai
 
 Taustapalvelu toimii nyt teknisesti, mutta tulos ei vielä ole sellaisessa muodossa, että sen ohjelmallinen käsittely olisi helppoa.
 
+Huomioi, että palvelinohjelma on käynnissä siihen asti kunnes se lopetetaan joko tarkoituksella tai se kaatuu jonkin virhetilanteen seurauksena. Voit lopettaa ohjelman IDEn pysäytystoiminnolla tai painamalla terminaalissa `Ctrl+C`.
+
 ## JSON-vastauksen tuottaminen
 
 Kun taustapalvelu palauttaa vastauksen selaimelle, halutaan vastaus antaa usein JSON-muodossa. JSON (*JavaScript Object Notation*) on esitysmuoto, joka mukailee JavaScript-kielen oliorakennetta. Rakenne on onneksi intuitiivinen myös Python-kielen olioihin tottuneelle kehittäjälle.
@@ -92,18 +93,17 @@ def summa():
     args = request.args
     luku1 = float(args.get("luku1"))
     luku2 = float(args.get("luku2"))
-    summa = luku1+luku2
+    summa = luku1 + luku2
 
     vastaus = {
-        "luku1" : luku1,
-        "luku2" : luku2,
-        "summa" : summa
+        "luku1": luku1,
+        "luku2": luku2,
+        "summa": summa
     }
 
     return vastaus
 
-if __name__ == '__main__':
-    app.run(use_reloader=True, host='127.0.0.1', port=3000)
+app.run(use_reloader=True, host='127.0.0.1', port=3000)
 ```
 
 Nyt ohjelma tuottaa JSON-vastauksen, jonka ohjelmallinen käsittely on helppoa vaikkapa selaimessa ajettavan JavaScript-kielen avulla (kuvan porttinumero poikkeaa esimerkissä käytetystä):
@@ -125,12 +125,11 @@ app = Flask(__name__)
 @app.route('/kaiku/<teksti>')
 def kaiku(teksti):
     vastaus = {
-        "kaiku" : teksti + " " + teksti
+        "kaiku": teksti + " " + teksti
     }
     return vastaus
 
-if __name__ == '__main__':
-    app.run(use_reloader=True, host='127.0.0.1', port=3000)
+app.run(use_reloader=True, host='127.0.0.1', port=3000)
 ```
 
 Selaimessa palvelu näyttäytyy näin:
@@ -145,22 +144,21 @@ Tarkastellaan aiempaa summan laskentaesimerkkiä, jota on muunnettu siten, että
 
 Esimerkissä oletettiin, että käyttäjän lähettämä pyyntö on virheetön.
 
-Jos virheenkäsittelyä ei erikseen ohjelmoida, ovat ainakin seuraavat virhetilanteet
-mahdollisia:
+Jos virheenkäsittelyä ei erikseen ohjelmoida, ovat ainakin seuraavat virhetilanteet mahdollisia:
 
 1. Käyttäjä yrittää kutsua virheellistä päätepistettä: `http://127.0.0.1:3000/sumka/42/117`
-2. Käsittely ohjautuu oikeaan päätepisteeseen, mutta vastauksen tuottaminen epäonnistuu virheellisen
-yhteenlaskettavan vuoksi: `http://127.0.0.1:3000/summa/4t23/117`
+2. Käsittely ohjautuu oikeaan päätepisteeseen, mutta vastauksen tuottaminen epäonnistuu virheellisen yhteenlaskettavan vuoksi: `http://127.0.0.1:3000/summa/4t23/117`
 
 Ensimmäisessä tapauksessa Flask-taustapalvelu palauttaa automaattisesti virhekoodin 404 (Not found). Jälkimmäisessä tapauksessa palautuu statuskoodi 500 (Internal server error). Pyynnön lähettäjä voi toki käsitellä nuo virheilmoitukset ohjelmallisesti. Taustapalvelun ohjelmoijina meidän on kuitenkin mahdollisuus käsitellä virhetilanteet samalla kun ne syntyvät ja tarjota palvelun käyttäjälle (asiakasohjelmalle) seikkaperäisempää tietoa virheen syystä.
 
 Seuraava ohjelma käsittelee virhetilanteet edellä esitettyä yksityiskohtaisemmin:
 
-1. Kutsu virheelliseen päätepisteeseen tuottaa statuskoodin 404 ja JSON-vastauksen `{"status": 404, "teksti": "Virheellinen päätepiste"}`.
-2. Jos parametrin muunnos liukuluvuksi ei onnistu, tulostuu `{"status": 400, "teksti": "Virheellinen yhteenlaskettava"}`.
-Taustapalvelu palauttaa nyt kuvaavamman HTTP-statuskoodin 400 (Bad Request) eikä oletusarvoista koodia 500 (Internal server error).
+1. Jos parametrin muunnos liukuluvuksi ei onnistu, tulostuu `{"status": 400, "teksti": "Virheellinen yhteenlaskettava"}`. Taustapalvelu palauttaa nyt kuvaavamman HTTP-statuskoodin 400 (Bad Request) eikä oletusarvoista koodia 500 (Internal server error).
+2. Kutsu virheelliseen päätepisteeseen tuottaa statuskoodin 404 ja JSON-vastauksen `{"status": 404, "teksti": "Virheellinen päätepiste"}`.
 
-Ohjelma lisää statuskoodin myös onnistuneesta operaatiosta rakennettavan vastauksen runkoon. Rungossa oleva statuskoodi on vain lisätiedoksi. Varsinainen HTTP-yhteyskäytännön mukainen statuskoodi annetaan Response-olion statuscode-parametrina. (Response-olio on luotava silloin, kun vastauksena palautetaan muutakin kuin paljas sanakirjarakenteesta tuotettu JSON ja oletusstatuskoodi 200. Response-oliota luotaessa määritetään ns. mime-tyyppi. Se antaa lisätietona selaimelle tiedon siitä, miten vastaus on tarkoitus tulkita.)
+Ohjelma lisää statuskoodin myös onnistuneesta operaatiosta rakennettavan vastauksen runkoon. Rungossa oleva statuskoodi on vain lisätiedoksi. Varsinainen HTTP-yhteyskäytännön mukainen statuskoodi annetaan `Response`-olion `statuscode`-parametrina.
+
+Response-olio on luotava silloin, kun vastauksena palautetaan muutakin kuin paljas sanakirjarakenteesta tuotettu JSON ja oletusstatuskoodi 200. Response-oliota luotaessa määritetään ns. mime-tyyppi. Se antaa lisätietona selaimelle tiedon siitä, miten vastaus on tarkoitus tulkita. Response-oliota käytettäessä Flask ei myöskään muuta sanakirjarakennetta automaattisesti JSON-muotoon, vaan se on tehtävä erikseen. Tähän käytetään Pythonin sisäänrakennettua `json`-kirjastoa.
 
 Laajennettu ohjelma on seuraavanlainen:
 
@@ -174,7 +172,7 @@ def summa(luku1, luku2):
     try:
         luku1 = float(luku1)
         luku2 = float(luku2)
-        summa = luku1+luku2
+        summa = luku1 + luku2
 
         tilakoodi = 200
         vastaus = {
@@ -191,14 +189,14 @@ def summa(luku1, luku2):
             "teksti": "Virheellinen yhteenlaskettava"
         }
 
-    jsonvast = json.dumps(vastaus)
-    return Response(response=jsonvast, status=tilakoodi, mimetype="application/json")
+    json_vastaus = json.dumps(vastaus)
+    return Response(response=json_vastaus, status=tilakoodi, mimetype="application/json")
 
 @app.errorhandler(404)
-def page_not_found(virhekoodi):
+def page_not_found(virhe):
     vastaus = {
-        "status" : "404",
-        "teksti" : "Virheellinen päätepiste"
+        "status": "404",
+        "teksti": "Virheellinen päätepiste"
     }
     jsonvast = json.dumps(vastaus)
     return Response(response=jsonvast, status=404, mimetype="application/json")
@@ -206,6 +204,28 @@ def page_not_found(virhekoodi):
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3000)
 ```
+
+Ensimmäinen virhetilanne käsitellään `try`-`except`-rakenteella. Jos muunnos liukuluvuksi epäonnistuu, heittää Python `ValueError`-virhetilanteen, joka käsitellään hallitusti `except`-lohkossa ilman että ohjelma kaatuu. `except`-lohkossa rakennetaan virhetilanteen mukainen vastaus.
+
+Toinen virhetilanne käsitellään `@app.errorhandler(404)`-koristelijan alla määritellyssä funktiossa, joka ajetaan aina, kun Flask havaitsee, että käyttäjä on yrittänyt kutsua olematonta päätepistettä. Tällöin rakennetaan kuvaava JSON-vastaus. Funktio ottaa parametrina virhe-olion, jota ei tässä esimerkissä käytetä. Virhe olio sisältää lisätietoa virheestä, ja sen sisältöä voisi hyödyntää suoraan virhetilanteen käsittelyssä:
+
+```python
+def page_not_found(virhe):
+    #print(f"Virhe: {virhe}") # debug-tulostus konsoliin
+    vastaus = {
+        "status": virhe.code,
+        "teksti": virhe.description
+    }
+...
+```
+
+Esimerkissä käytetään myös if-lausetta `if __name__ == '__main__':`, joka varmistaa, että taustapalvelu käynnistyy vain silloin, kun ohjelma suoritetaan pääohjelmana. Jos ohjelma tuodaan käyttöön moduulina jossain toisessa ohjelmassa, ei taustapalvelu käynnisty automaattisesti. Pythonin moduulirakenteesta kerrotaan tarkemmin seuraavassa moduulissa.
+
+---
+
+[Viimeisessä moduulissa käsitellään Python-ohjelman jakamista erillisiin moduuleihin.](14_Ohjelman_rakenne.md)
+
+---
 
 ---
 
