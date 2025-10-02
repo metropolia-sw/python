@@ -25,7 +25,7 @@ print(matikka.plus(2, 3))  # Tulostaa: 5
 
 ## Paketti
 
-Jos moduuleja on useampia ja ne halutaan koota yhteen kokonaisuuteen, puhutaan paketista. Paketti on yksinkertaisesti kansio, joka sisältää moduulit ja yleensä myös erityisen tiedoston nimeltä __init__.py. Tämä tiedosto voi olla tyhjä, mutta sen olemassaolo kertoo Pythonille, että kyseessä on paketti eikä tavallinen kansio. Paketin avulla voi luoda laajoja kirjastoja, jotka koostuvat useista moduuleista ja jopa alikansioista.
+Jos moduuleja on useampia ja ne halutaan koota yhteen kokonaisuuteen, puhutaan paketista. Paketti on yksinkertaisesti kansio, joka sisältää moduulit ja yleensä myös erityisen tiedoston nimeltä `__init__.py`. Tämä tiedosto voi olla tyhjä, mutta sen olemassaolo kertoo Pythonille, että kyseessä on paketti eikä tavallinen kansio. Paketin avulla voi luoda laajoja kirjastoja, jotka koostuvat useista moduuleista ja jopa alikansioista.
 
 Kuvitellaan esimerkki, jossa teemme paketin nimeltä `elaimet`. Hakemistorakenne voisi näyttää tältä:
 
@@ -53,7 +53,7 @@ def miau():
     print("Miau!")
 ```
 
-Tiedostoon __init__.py voidaan kirjoittaa:
+Tiedostoon `__init__.py` voidaan kirjoittaa:
 
 ```python
 from .koira import hauku
@@ -75,7 +75,7 @@ Kun ohjelma ajetaan, tulostuu ensin koiran haukahdus ja sitten kissan naukaisu. 
 
 Myös luokat voidaan määritellä moduuleissa ja paketeissa, mikä mahdollistaa olio-ohjelmoinnin periaatteiden hyödyntämisen suuremmissa ohjelmistoissa. Tämä tekee koodista entistä modulaarisempaa ja helpommin ylläpidettävää.
 
-*koira.py*:
+`koira.py`:
 
 ```python
 class Koira:
@@ -87,7 +87,7 @@ class Koira:
         print(f"{self.nimi} haukkuu: Vuh vuh!")
 ```
 
-*kissa.py*:
+`kissa.py`:
 
 ```python
 class Kissa:
@@ -99,7 +99,7 @@ class Kissa:
         print(f"{self.nimi} sanoo: Miau!")
 ```
 
-*__init__.py*:
+`__init__.py`:
 
 ```python
 from .koira import Koira
@@ -108,7 +108,7 @@ from .kissa import Kissa
 
 Tämän ansiosta voidaan tuoda suoraan `Koira` ja `Kissa`-luokat paketista ilman, että tarvitsee viitata yksittäisiin tiedostoihin.
 
-*main.py*:
+`main.py`:
 
 ```python
 from elaimet import Koira, Kissa
