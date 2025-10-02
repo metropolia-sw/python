@@ -119,14 +119,14 @@ Jos nimesi olisi Viivi Virta, ohjelma tulostaisi: `Hei, Viivi Virta!`
 
 1. Kirjoita ohjelma, joka kysyy käyttäjältä lentoaseman ICAO-koodin. Ohjelma hakee ja tulostaa koodia vastaavan lentokentän nimen ja sen sijaintikunnan kurssilla käytettävästä lentokenttätietokannasta. ICAO-koodi on tallennettuna airport-taulun ident-sarakkeeseen.
 
-2. Kirjoita ohjelma, joka kysyy käyttäjältä maakoodin (esimerkiksi `FI`) ja tulostaa kyseisessä maassa olevien lentokenttien lukumäärät tyypeittäin. Esimerkiksi Suomen osalta tuloksena on saatava tieto siitä, että pieniä lentokenttiä on 65 kappaletta, helikopterikenttiä on 15 kappaletta jne. 
+2. Kirjoita ohjelma, joka kysyy käyttäjältä maakoodin (esimerkiksi `FI`) ja tulostaa kyseisessä maassa olevien lentokenttien lukumäärät tyypeittäin. Esimerkiksi Suomen osalta tuloksena on saatava tieto siitä, että pieniä lentokenttiä on 65 kappaletta, helikopterikenttiä on 15 kappaletta jne.
 
 3. Kirjoita ohjelma, joka kysyy käyttäjältä kahden lentokentän ICAO-koodit. Ohjelma ilmoittaa lentokenttien välisen etäisyyden kilometreinä. Laskenta perustuu tietokannasta haettuihin koordinaatteihin. Laske etäisyys `geopy`-kirjaston avulla: <https://geopy.readthedocs.io/en/stable/>.
 
    Kirjaston asennus:
 
    - PyCharm: valitse **View / Tool Windows / Python Packages**. Kirjoita hakukenttään `geopy` ja vie asennus loppuun.
-   - Visual Studio Code: avaa terminaali ja kirjoita komento `pip install geopy`.
+   - Visual Studio Code: avaa terminaali ja kirjoita komento `python -m pip install geopy`.
 
 ## 9. Luokka, olio, alustaja
 

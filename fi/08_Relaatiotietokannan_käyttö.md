@@ -42,12 +42,12 @@ Tietokanta-ajuria tarvitaan jo tietokantayhteyden muodostamiseen. Kun yhteys on 
 
 Tietokanta-ajuri riippuu sekä tiedonhallintaohjelmistosta että valitusta ohjelmointikielestä. Nyt tarvitsemme siis MariaDB-ohjelmistoa tukevan ajurin Python-kielelle. Koska MariaDB on yhteensopiva MySQL-tiedonhallintaohjelmiston kanssa, voimme asentaa MySQL-ajurin Python-kielelle.
 
-Voit asentaa MySQL:n Python-ajurin jommallakummalla alla esitetyistä tavoista:
+Voit asentaa MySQL:n Python-ajurin Pythonin virtuaaliympäristöön (*venv*) jommallakummalla alla esitetyistä tavoista:
 
 - Vain PyCharmissa: Valitse **View/Tools Windows/Python Packages**. Kirjoita hakukenttään hakusanaksi **connector** ja etsi luettelosta vaihtoehto **mysql-connector-python**. Napsauta kyseistä vaihtoehtoa ja paina **Install**.
 - Visual Studio Code (ja PyCharm):
   1. Avaa terminaali
-  2. Kirjoita komento `pip install mysql-connector-python`
+  2. Kirjoita komento `python -m pip install mysql-connector-python`
 
 Tässä materiaalissa oletetaan, että käytämme MySQL-ajuria käyttöönoton helppouden ja käytön ongelmattomuuden vuoksi sekä MySQL-ajurin pitkän historian takia (ensimmäinen MariaDB-ajuri julkaistiin vuonna 2020). Jos haluat kuitenkin asentaa MariaDB:n Connector/Python-ajuri, voit tehdä sen verkkosivun <https://mariadb.com/docs/clients/mariadb-connectors/connector-python/install/> ohjeen mukaan.
 

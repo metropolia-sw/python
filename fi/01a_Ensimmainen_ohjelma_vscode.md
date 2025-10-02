@@ -57,6 +57,8 @@ Uusi projekti perustetaan luoden Python virtuaaliympäristö (venv). Tämä help
 
 Virtaaliympäristö luodaan projektin kansion sisälle kansioon nimeltä `.venv`. Projektikansiosi sisällön näet vasemman laidan tieodostoselaimessa (Explorer).
 
+   >**Huomaa:** Jos myöhemmin muutat projektin kansion nimeä tai siirrät kansion toiseen paikkaan, virtuaaliympäristö ei välttämättä toimi enää oikein. Tällöin voit poistaa `.venv`-kansion ja luoda virtuaaliympäristön uudelleen yllä kuvatulla tavalla. Tällöin sinun on asennettava kaikki projektin tarvitsemat ulkoiset paketit (käsitellään myöhemmin) uudelleen.
+
 Jokainen ohjelma kirjoitetaan tiedostoon projektin kansiohierarkian sisälle. Voit tehdä ensimmäistä
 ohjelmaa varten uuden tiedoston napsauttamalla projektikansion nimen vieressä olevaa kuvaketta:
 
