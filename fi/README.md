@@ -19,6 +19,7 @@
 11. [Periytyminen](11_Periytyminen.md)
 12. [Ulkoisen rajapinnan käyttö](12_Ulkoisen_rajapinnan_käyttö.md)
 13. [Taustapalvelun ja rajapinnan rakentaminen](13_Taustapalvelun_ja_rajapinnan_rakentaminen.md)
+14. [Ohjelman rakenne: moduulit ja paketit](14_Ohjelman_rakenne.md) (ei erillisiä tehtäviä, mutta voi hyödyntää projektityössä)
 
 ## Tehtävät
 
