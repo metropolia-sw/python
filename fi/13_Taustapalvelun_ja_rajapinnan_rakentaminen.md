@@ -210,6 +210,7 @@ Ensimmäinen virhetilanne käsitellään `try`-`except`-rakenteella. Jos muunnos
 Toinen virhetilanne käsitellään `@app.errorhandler(404)`-koristelijan alla määritellyssä funktiossa, joka ajetaan aina, kun Flask havaitsee, että käyttäjä on yrittänyt kutsua olematonta päätepistettä. Tällöin rakennetaan kuvaava JSON-vastaus. Funktio ottaa parametrina virhe-olion, jota ei tässä esimerkissä käytetä. Virhe olio sisältää lisätietoa virheestä, ja sen sisältöä voisi hyödyntää suoraan virhetilanteen käsittelyssä:
 
 ```python
+...
 def page_not_found(virhe):
     #print(f"Virhe: {virhe}") # debug-tulostus konsoliin
     vastaus = {
@@ -220,6 +221,49 @@ def page_not_found(virhe):
 ```
 
 Esimerkissä käytetään myös if-lausetta `if __name__ == '__main__':`, joka varmistaa, että taustapalvelu käynnistyy vain silloin, kun ohjelma suoritetaan pääohjelmana. Jos ohjelma tuodaan käyttöön moduulina jossain toisessa ohjelmassa, ei taustapalvelu käynnisty automaattisesti. Pythonin moduulirakenteesta kerrotaan tarkemmin seuraavassa moduulissa.
+
+Vastauksen tuottaminen json-muodossa voidaan tehdä myös ilman `Response`-oliota käyttäen Flaskin omaa `jsonify`-funktiota, jolloin ohjelma yksinkertaistuu hieman:
+
+```python
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/summa/<luku1>/<luku2>')
+def summa(luku1, luku2):
+    try:
+        luku1 = float(luku1)
+        luku2 = float(luku2)
+        summa = luku1 + luku2
+
+        tilakoodi = 200
+        vastaus = {
+            "status": tilakoodi,
+            "luku1": luku1,
+            "luku2": luku2,
+            "summa": summa
+        }
+
+    except ValueError:
+        tilakoodi = 400
+        vastaus = {
+            "status": tilakoodi,
+            "teksti": "Virheellinen yhteenlaskettava"
+        }
+
+    return jsonify(vastaus), tilakoodi
+
+@app.errorhandler(404)
+def page_not_found(virhe):
+    vastaus = {
+        "status": virhe.code,
+        "teksti": virhe.description
+    }
+    return jsonify(vastaus), virhe.code
+
+if __name__ == '__main__':
+    app.run(use_reloader=True, host='127.0.0.1', port=3000)
+```
 
 ---
 
