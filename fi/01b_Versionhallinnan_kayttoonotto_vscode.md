@@ -61,8 +61,6 @@ Tämän jälkeen paikallinen Git-repositorio on valmis, ja voit liittää sen Gi
     1. Työnnä paikallisen repositorion sisältö GitHubiin komennolla `git push -u origin main`.
  Kirjaudu VS Code -editorissa sisään GitHubiin  ja valitsemalla **Sign in to GitHub**. Seuraa ohjeita.
 
-TODO: autentikointi ja prosessi testattava "puhtaalla" koneella!
-
 ## Repositorion käyttö
 
 Tarkastellaan tässä vaiheessa GitHubin käyttöä yhden kehittäjän näkökulmasta. Tällöin voimme olettaa, että eri kehittäjät eivät käytä samoja tiedostoja, ja tästä aiheutuvia samanaikaisen muokkauksen ongelmia ei esiinny. Oletamme myös, että meille ei synny tarvetta jakaa kehitysprojektia eri kehityshaaroihin. GitHubin edistyneeseen käyttöön kehitystiimin yhteistyöalustana kannattaa perehtyä vasta myöhemmin projektityön alkaessa.

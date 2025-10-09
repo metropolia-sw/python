@@ -170,19 +170,6 @@ graph TD
     K5 --> V5['0401-2132139']
 ```
 
-TODO: kumpi parempi?
-
-```mermaid
-graph LR
-    subgraph numerot
-        K1[Viivi] --> V1["050-1234567"]
-        K2[Ahmed] --> V2["040-1112223"]
-        K3[Pekka] --> V3["050-7654321"]
-        K4[Olga] --> V4["050-1011012"]
-        K5[Mary] --> V5["0401-2132139"]
-    end
-```
-
 Sanakirja nimeltä `numerot` sisältää viiden henkilön puhelinnumerot. Henkilön nimi toimii avaimena: kun tiedät nimen, saat arvon - eli puhelinnumeron - selville.
 
 Laaditaan vastaava rakenne Python-kielellä. Luodaan aluksi kolmen henkilön tiedot sisältävä sanakirja. Sitten lisätään kaksi henkilöä erikseen sanakirjan luonnin jälkeen ja tulostetaan sanakirja, jossa on tässä vaiheessa viiden henkilön nimet ja puhelinnumerot. Lopuksi kysytään käyttäjältä henkilön nimi ja tulostetaan saatua nimeä vastaava puhelinnumero, jos annettu nimi löytyy sanakirjan avainten joukosta:
@@ -259,36 +246,11 @@ Sisäkkäisen tietorakenteen sisältämiin tietoihin päästään käsiksi yhdis
 
 ```mermaid
 graph TD
-    subgraph autot
-        subgraph 0
-            M1[merkki] --> V1["Toyota"]
-            M2[malli] --> V2["Corolla"]
-            M3[vuosimalli] --> V3["2018"]
-        end
-
-        subgraph 1
-            M4[merkki] --> V4["Ford"]
-            M5[malli] --> V5["Focus"]
-            M6[vuosimalli] --> V6["2020"]
-        end
-
-        subgraph 2
-            M7[merkki] --> V7["VW"]
-            M8[malli] --> V8["ID.3"]
-            M9[vuosimalli] --> V9["2023"]
-        end
-    end
-```
-
-TODO: Kumpi parempi? Ylläoleva vai allaoleva?
-
-```mermaid
-graph TD
     A["autot[n]"]
 
-    A --> 0 
-    A --> 1 
-    A --> 2 
+    A --> 0["0[avain]"] 
+    A --> 1["1[avain]"]  
+    A --> 2["2[avain]"] 
 
     0 -- 'merkki' --> V1["'Toyota'"]
     0 -- 'malli' --> V2["'Corolla'"]
