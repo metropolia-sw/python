@@ -46,15 +46,15 @@ classDiagram
         +syntymävuosi: int
         +haukahdus: str
         +__init__(nimi: str, syntymävuosi: int, haukahdus: str="Vuh-vuh")
-        +hauku(kerrat: int) void
+        +hauku(kerrat: int) None
     }
 
     class Hoitola {
         +koirat: list[Koira]
         +__init__() 
-        +koira_sisään(koira: Koira) void
-        +koira_ulos(koira: Koira) void
-        +tervehdi_koiria() void
+        +koira_sisään(koira: Koira) None
+        +koira_ulos(koira: Koira) None
+        +tervehdi_koiria() None
     }
 
     Hoitola "1" o-- "0..*" Koira : has
