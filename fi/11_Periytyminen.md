@@ -121,19 +121,19 @@ classDiagram
         +etunimi: str
         +sukunimi: str
         +__init__(etunimi: str, sukunimi: str)
-        +tulosta_tiedot() void
+        +tulosta_tiedot() None
     }
 
     class Tuntipalkkainen {
         +tuntipalkka: float
         +__init__(etunimi: str, sukunimi: str, tuntipalkka: float)
-        +tulosta_tiedot() void
+        +tulosta_tiedot() None
     }
 
     class Kuukausipalkkainen {
         +kuukausipalkka: float
         +__init__(etunimi: str, sukunimi: str, kuukausipalkka: float)
-        +tulosta_tiedot() void
+        +tulosta_tiedot() None
     }
 
     Työntekijä <|-- Tuntipalkkainen
