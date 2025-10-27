@@ -1,6 +1,6 @@
 # Inheritance
 
-Inheritance is a mechanism in object-oriented programming where classes have a defined hierarchy: 
+Inheritance is a mechanism in object-oriented programming where classes have a defined hierarchy:
 one class called base class can have more detailed subclasses (derived classes).
 
 In this module you will learn to use inheritance when writing object-based Python programs.
@@ -34,27 +34,27 @@ for e in employees:
 The program creates two employees: Viivi and Ahmed, adds them to the employee list and prints out the contents
 of the list:
 
-``` monospace
+```monospace
 1: Viivi Virta
 2: Ahmed Habib
 ```
 
-Each employee has three properties: employee number, first name and last name. Each employee gets an employee number 
+Each employee has three properties: employee number, first name and last name. Each employee gets an employee number
 automatically and it is based on the total amount of employees. The total amount of employees here is a
 class variable: its value is not defined separately for each instance of the Employee class but instead only once
 for the entire Employee class. Notice that a class variable is defined outside the initializer and when referenced
 the `self` expression is replaced by the name of the class.
 
-Let's assume that we face a need for improvement: some employees are hourly employees while others have a monthly salary. 
+Let's assume that we face a need for improvement: some employees are hourly employees while others have a monthly salary.
 How should the salary information be added to the properties list in the Employee class?
 
-One solution would be to add two separate properties: hourly pay and monthly pay. The solution would, however, be imprecise 
-and when using the software, we would always have to check the field values to see which employee type is in question. 
-Moreover, nothing would technically prevent us from defining both and hourly as well as a monthly pay for the same employee. 
+One solution would be to add two separate properties: hourly pay and monthly pay. The solution would, however, be imprecise
+and when using the software, we would always have to check the field values to see which employee type is in question.
+Moreover, nothing would technically prevent us from defining both and hourly as well as a monthly pay for the same employee.
 
 Let's solve this by using the inheritance mechanism of Python.
 Let's write two subclasses for the Employee class to clarify things: HourlyPaid and MonthlyPaid. When we create a new object,
-we could make it for example an instance of the HourlyPaid subclass. Then it would have all the properties and methods inherited 
+we could make it for example an instance of the HourlyPaid subclass. Then it would have all the properties and methods inherited
 from the Employee base class (such as first name and the method work) but also the hourly pay property only defined for hourly
 paid staff inside the subclass.
 
@@ -110,6 +110,7 @@ The example has four employees: two with hourly pay, one with monthly pay and on
 contract type.
 
 The program provides the following output:
+
 ```monospace
 1: Viivi Virta
  Hourly pay: 12.35
@@ -132,13 +133,40 @@ are passed to the base class by calling the base class initializer, or `__init__
 can be accessed with the super() function: statement `super().__init__(first_name, last_name)` calls the initializer
 of the base class that receives the first and last name as parameters.
 
-Properties defined in the base class are automatically visible in the subclass. Thus, we can create an instance of the 
+Properties defined in the base class are automatically visible in the subclass. Thus, we can create an instance of the
 `HourlyPaid` class and fetch their name anytime with the expression `e.first_name`.
+
+```mermaid
+classDiagram
+    class Employee {
+        static total_employees: int
+        +employee_number: int
+        +first_name: str
+        +last_name: str
+        +__init__(first_name: str, last_name: str)
+        +print_information() void
+    }
+
+    class HourlyPaid {
+        +hourly_pay: float
+        +__init__(first_name: str, last_name: str, hourly_pay: float)
+        +print_information() void
+    }
+
+    class MonthlyPaid {
+        +monthly_pay: float
+        +__init__(first_name: str, last_name: str, monthly_pay: float)
+        +print_information() void
+    }
+
+    Employee <|-- HourlyPaid
+    Employee <|-- MonthlyPaid
+```
 
 ## Overriding methods
 
 When we look at the example above, we notice that the `Employee` base class has a `print_information` method that
-prints out the first and last name of the employee. The method works well when a person has been created as an 
+prints out the first and last name of the employee. The method works well when a person has been created as an
 instance of the `Employee` class regardless of their contract type. On the other hand, for printing the information
 of hourly paid employees for example the method is too concise: it prints out the name information but cannot access
 the hourly pay defined in the subclass.
@@ -182,7 +210,7 @@ class Bicycle(Vehicle, SportsItem):
     def __init__(self, speed, weight, gears):
         Vehicle.__init__(self, speed)
         SportsItem.__init__(self, weight)
-        
+
         self.gears = gears
 
 b = Bicycle(45, 18.7, 3)
@@ -192,7 +220,7 @@ print(b.weight)
 ```
 
 We create a Bicycle object and print out the number of gears, speed and weight. The number of gears is defined in the `Bicycle` class.
-The class inherits speed ifrom the `Vehicle` class and weight from the `SportsItem` class. The program produces the following output:
+The class inherits speed from the `Vehicle` class and weight from the `SportsItem` class. The program produces the following output:
 
 ```monospace
 3
@@ -217,3 +245,39 @@ We can call the initializers of both base classes using an alternative notation 
 Vehicle.__init__(self, speed)
 SportsItem.__init__(self, weight)
 ```
+
+```mermaid
+classDiagram
+    class Vehicle {
+        +speed: int
+        +__init__(speed: int)
+    }
+
+    class SportsItem {
+        +weight: int
+        +__init__(weight: int)
+    }
+
+    class Bicycle {
+        +gears: int
+        +__init__(speed: int, weight: int, gears: int)
+    }
+
+    Vehicle <|-- Bicycle
+    SportsItem <|-- Bicycle
+```
+
+---
+
+[In the next module, we will fetch information for our program from external services.](12_Using_External_Interfaces.md)
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
