@@ -121,8 +121,8 @@ The program provides the following output:
  Hourly pay: 14.92
 ```
 
-A base class - subclass relationship in Python is expressed by adding the name of the base class enclosed in brackets
-to the `class` statement that defines the subclass. Thus, the beginning of statement the `class HourlyPaid(Employee)`
+A base class - subclass relationship in Python is expressed by adding the name of the base class enclosed in parenthesis
+to the `class` statement that defines the subclass. Thus, the beginning of statement the `class HourlyPaid(Employee)` 
 determines that the HourlyPaid class becomes a subclass of the Employee class.
 
 If needed, a subclass can have its own initializer. When an instance of the subclass is created, only the initializer

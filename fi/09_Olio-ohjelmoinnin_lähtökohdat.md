@@ -29,7 +29,7 @@ koira = Koira()
 koira.nimi = "Rekku"
 koira.syntymävuosi = 2022
 
-print (f"{koira.nimi:s} on syntynyt vuonna {koira.syntymävuosi:d}." )
+print (f"{koira.nimi} on syntynyt vuonna {koira.syntymävuosi}." )
 ```
 
 Pääohjelman ensimmäinen lause luo Koira-olion, johon viitataan muuttujalla `koira`. Luodulle koiralle annetaan nimeksi Rekku ja syntymävuodeksi 2022. Nämä ovat luodun olion ominaisuuksia, ja ne ovat oliokohtaisia. Voisimme siis luoda monta koiraa, joista jokaisella olisi oma yksilöllinen nimensä ja syntymävuotensa. Jollekin koirista voisimme lisäksi määrittää rodun ja jollekin lempinimen. Olioiden ominaisuudet voivat siis poiketa toisistaan.
@@ -58,7 +58,7 @@ class Koira:
 
 koira = Koira("Rekku", 2022)
 
-print (f"{koira.nimi:s} on syntynyt vuonna {koira.syntymävuosi:d}." )
+print (f"{koira.nimi} on syntynyt vuonna {koira.syntymävuosi}." )
 ```
 
 Python-kielen alustaja määritetään luokan sisällä kirjoittamalla funktio, jonka nimenä on `__init__`. Funktion ensimmäiseksi parametriksi määritetään aina `self`. Tämän jälkeen määritellään muut parametrit, jotka alustajalle halutaan antaa. Tässä tapauksessa ne ovat nimi ja syntymävuosi. Näin kirjoitettu ja nimetty funktio tulkitaan ohjelmaa ajettaessa automaattisesti alustajaksi, ja se suoritetaan aina, kun uusi olio luodaan. Alustajan loppuun ei kirjoiteta return-lausetta.
@@ -102,7 +102,7 @@ koira1.hauku(2)
 koira2.hauku(5)
 ```
 
-Alustajan parametreja on nyt kolme. Viimeiselle parametrille (`haukahdus`) on annettu oletusarvo, joka asetetaan silloin, kun parametria ei oliota luetaessa anneta. Esimerkissä Muro-koira saa siis oletushaukahduksen.
+Alustajan parametreja on nyt kolme. Viimeiselle parametrille (`haukahdus`) on annettu oletusarvo, joka asetetaan silloin, kun parametria ei oliota luotaessa anneta. Esimerkissä Muro-koira saa siis oletushaukahduksen.
 
 Luokan sisään kirjoitettiin `hauku`-niminen metodi, jota voidaan kutsua mille tahansa olemassa olevalle Koira-luokan ilmentymälle. Metodin ensimmäiseksi parametriksi asetetaan aina `self`. Tämän jälkeen luetellaan muut parametrit, joiden arvo annetaan metodia kutsuttaessa.
 
@@ -142,7 +142,7 @@ Koiria on nyt 2.
 
 ## Olioiden ja luokan välinen suhde
 
-Edellä esitelty luokka voidaa esitään luokkakaaviona seuraavasti:
+Edellä esitelty luokka voidaan esittää luokkakaaviona seuraavasti:
 
 ```mermaid
 classDiagram
