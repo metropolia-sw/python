@@ -3,11 +3,13 @@
 Welcome to study the Python programming language in Metropolia University of Applied Sciences!
 
 ... and the same in Python:
+
 ```
 print("Welcome! Let's start learning Python programming!")
 ```
 
 Python is one of the most popular programming languages in the world. When studying Python, you can:
+
 - learn to program in a fun and easy way
 - program with high-quality, user-friendly development tools
 - create impressive graphics with visualization libraries
@@ -29,10 +31,10 @@ The installation of the Python interpreter proceeds as follows:
 1. Navigate to https://www.python.org/downloads/ with your browser.
 2. Select **Downloads / All releases**.
 3. Scroll to the section titled **Looking for a specific release?**.
-Click Download for the version of your choice (any version between 3.7.X and 3.9.X should do). The minor revision number
-X can be any number.
-4. Download the Python interpreter by clicking the link *Windows installer (64-bit)* at the bottom of the page.
-The wizard will guide you in the installation process. It is recommended to use the default folder for the installation.
+   Click Download for the version of your choice (any version between 3.7.X and 3.9.X should do). The minor revision number
+   X can be any number.
+4. Download the Python interpreter by clicking the link _Windows installer (64-bit)_ at the bottom of the page.
+   The wizard will guide you in the installation process. It is recommended to use the default folder for the installation.
 
 **Important:** The guided installation process provides the opportunity to add
 the Python interpreter to the `PATH` environment variable in the Windows operating
@@ -47,17 +49,18 @@ The following image shows the checkbox from which the addition is made:
 ![Updating the PATH environmental variable](img/path_envvar.png)
 
 > On this course, we also use MariaDB databases. At the time of writing (August 2022), the MySQL Connection/Python database
-driver will not support the newest
-Python 3.10 versions. For this reason, it is recommended that you install a slightly earlier Python version (e.g. version 3.9.)
-that has guaranteed support. If you choose to install the newest Python version now, you may later need to install
-another, earlier version to coexist in your computer. 
+> driver will not support the newest
+> Python 3.10 versions. For this reason, it is recommended that you install a slightly earlier Python version (e.g. version 3.9.)
+> that has guaranteed support. If you choose to install the newest Python version now, you may later need to install
+> another, earlier version to coexist in your computer.
 
 ## Installation of the IDE
 
-Next, we install the development environment (IDE), which is short for *Integrated Development Environment*.
+Next, we install the development environment (IDE), which is short for _Integrated Development Environment_.
 IDEs are professional software tools used for writing, executing, and testing program code.
 
 On this course we are using the JetBrains PyCharm IDE. Please follow these instructions to install PyCharm:
+
 1. Navigate to https://www.jetbrains.com/
 2. Select **Developer tools / PyCharm** ja click **Download**.
 3. Select the Professional version to download.

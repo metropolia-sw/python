@@ -10,6 +10,7 @@ Once you have mastered these three basic principles, you can write an algorithmi
 any computational problem.
 
 Python language has two types of loops:
+
 1. initial condition loop (while)
 2. iterative loop (for)
 
@@ -19,7 +20,7 @@ In this module you will learn to use an initial condition loop.
 
 Let's assume that a latte in a café costs five euros and we want to pay with coins.
 The following pseudo code shows the idea of a loop repetition with initial condition:
-if we have not taken enough money from our pocket yet, we will continue to give more 
+if we have not taken enough money from our pocket yet, we will continue to give more
 coins to the cashier, one coin at a time:
 
 ```monospace
@@ -32,7 +33,7 @@ At some point the amount paid is enough and we can stop giving more coins.
 With a repetitive structure we can repeat a block of code multiple times in our program.
 The pseudo code example has an initial condition that is evaluated every time when entering
 the loop. If the condition is true, the indented block is executed. Every time the indented
-block has run, the initial condition is evaluated again. As long as the condition is still 
+block has run, the initial condition is evaluated again. As long as the condition is still
 true, the block will be executed again. The repetition ends only when the initial condition
 is false.
 
@@ -55,7 +56,7 @@ that the condition is checked again before each new round.
 
 ## Example 1: Fixed amount of repetitions
 
-Let's write a program that asks the user how many times to greet. After that the program will 
+Let's write a program that asks the user how many times to greet. After that the program will
 print out the greetings:
 
 ```python
@@ -78,22 +79,22 @@ Good morning
 ```
 
 This example has two variables:
+
 1. `rounds`- the total amount of greetings. Once it has been read from the user, its value will remain constant throughout
-the execution of the program.
+   the execution of the program.
 2. `finished_rounds` - a loop variable that is initialized with value 0. At the end of each round the loop variable value
-is increased by one.
+   is increased by one.
 
 Let's assume the user wants five greetings. The value 5 is saved to the `rounds` variable. When the `while` loop
 is entered the first time, the `finished_rounds` variable has been initialized to 0. The condition in the while loop
 is now 0<5 which is true. The execution proceeds inside the while loop. In the while loop the first greeting is printed
 out and the value of `finished_rounds` increases from zero to one.
 
-As we are using a while loop, the condition is now evaluated again. The condition is now 1<5 which is still true. Inside
-the while loop the second greeting is printed out and the value of `finished_rounds` is increased once more. The new
-value is 2.
+As we are using a while loop, the condition is now evaluated again. The condition is now 1 < 5 which is still true. Inside
+the while loop the second greeting is printed out and the value of `finished_rounds` is increased once more. The new value is 2.
 
 The structure is looped through until after the greeting is printed out for the fifth time and the value of `finished_rounds`
-increases to 5. After that the condition is tested again, but this time the condition is 5<5 which is false. The loop is
+increases to 5. After that the condition is tested again, but this time the condition is 5 < 5 which is false. The loop is
 not repeated again and the execution of the program would continue from the next statement after the while loop. In our example
 there are not statements after the while loop so the execution of the program ends.
 
@@ -104,7 +105,7 @@ The program asks the user to give text commands until the user enters a stop com
 
 ```python
 command = input("Enter command: ")
-while command!="stop":
+while command != "stop":
     print("Executing command: " + command)
     command = input("Enter command: ")
 print("Execution stopped.")
@@ -131,7 +132,7 @@ The number of required rolls varies between runs:
 ```python
 import random
 dice1 = dice2 = rolls = 0
-while (dice1!=6 or dice2!=6):
+while (dice1 != 6 or dice2 != 6):
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
     rolls = rolls + 1
@@ -155,7 +156,7 @@ as you can always check the documentation for the correct use: [https://docs.pyt
 
 Loops can be placed one inside another so that the inner loop is executed on each round of the outer loop.
 
-Let's print out the multiplication table from one to five. The table includes all twenty-five possible 
+Let's print out the multiplication table from one to five. The table includes all twenty-five possible
 multiplications with numbers 1, 2, 3, 4 and 5:
 
 ```python
@@ -182,7 +183,7 @@ while first <= 5:
 5 times 5 is 25
 ```
 
-Let's extend the dice rolling example so that the program prints out how many rounds on *average* is needed before
+Let's extend the dice rolling example so that the program prints out how many rounds on _average_ is needed before
 getting a pair of sixes.
 
 To calculate the average, let's set the number of simulated rounds to a very large number, a hundred thousand:
@@ -194,7 +195,7 @@ total_rolls = 0
 
 while rounds < 100000:
     dice1 = dice2 = rolls = 0
-    while (dice1!=6 or dice2!=6):
+    while (dice1 != 6 or dice2 != 6):
         dice1 = random.randint(1,6)
         dice2 = random.randint(1,6)
 	rolls = rolls + 1
@@ -229,8 +230,8 @@ In the following example the command MAYDAY is used to break out of the loop ent
 
 ```python
 command = input("Enter command: ")
-while command!="stop":
-    if command=="MAYDAY":
+while command != "stop":
+    if command == "MAYDAY":
         break
     print("Executing command: " + command)
     command = input("Enter command: ")
@@ -266,8 +267,8 @@ Let's look at the following example:
 
 ```python
 command = input("Enter command: ")
-while command!="stop":
-    if command=="MAYDAY":
+while command != "stop":
+    if command == "MAYDAY":
         break
     print("Executing command: " + command)
     command = input("Enter command: ")
@@ -317,6 +318,7 @@ print("All ready.")
 ```
 
 The execution never stops:
+
 ```monospace
 1
 1
@@ -331,3 +333,24 @@ the stop button on the side of the console window:
 
 If the stop button does not stop the execution, check that the terminal emulation operations are enabled in
 the console window: select **Run/Edit Configurations** and check the **Emulate Terminal in Output Console** checkbox.
+
+```mermaid
+flowchart TD
+    A([Start]) --> B{Is amount_paid < 5?}
+    B -- Yes --> C[Insert a coin]
+    C --> B
+    B -- No  --> D([End])
+```
+
+---
+
+**Next:** [List structures and iterative loops (for)](05_List_Structures_and_Iterative_Loops.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

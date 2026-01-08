@@ -20,7 +20,7 @@ class Dog:
 ```
 
 The `pass` statement above is an empty statement that does not do anything. It is needed as a placeholder as the body of
-a class definition must contain at least one statement. 
+a class definition must contain at least one statement.
 
 This class definition only tells that there is a class called Dog. So far it does not specify any properties or methods
 of dogs.
@@ -31,7 +31,7 @@ we create a Dog object called Bubbles that was born in 2022:
 ```python
 class Dog:
     pass
-   
+
 dog = Dog()
 dog.name = "Bubbles"
 dog.birth_year = 2022
@@ -48,13 +48,14 @@ As we see in the example, the properties of an object can be referenced by first
 a period and lastly the name of the property. An example of such reference would be `dog.name`.
 
 The last statement of the example program outputs the name and birth year of the dog object created in the main program:
+
 ```monospace
 Bubbles was born in 2022.
 ```
 
 Notice that class names in Python are written write uppercase initials. If the name of a class consists of multiple words,
 the words are written together without underscores so that each word starts with an uppercase letter. This naming style
-is called *CamelCase*. An example of this type of a name would be `ScreenRectangle`.
+is called _CamelCase_. An example of this type of a name would be `ScreenRectangle`.
 
 ## Initializer
 
@@ -86,12 +87,15 @@ object. The properties of the new object are referenced by the reserved word `se
 of the property. Typically, the parameters of the initializer are used to assign values to the properties of the new object.
 For example, the statement `self.name = name` assigs the value of the name parameter to the value of the name property.
 
-Notice that when a new object is created, the first parameter of the initializer, `self`, is not written. So, not this way:  
+Notice that when a new object is created, the first parameter of the initializer, `self`, is not written. So, not this way:
+
 ```python
 # Incorrect instantiation statement
 dog = Dog(self, "Nuggets", 2022)
 ```
+
 but this way instead:
+
 ```python
 dog = Dog("Nuggets", 2022)
 ```
@@ -141,7 +145,7 @@ meaning that different dogs can have different names.
 
 Sometimes there is a need to store some information that applies to the entire class instead of a single object. In the `Dog` class in the example
 this type of a property could for example be the total amount of dogs instantiated from the class. This type of information can be stored in a
-class variable, or static variable. 
+class variable, or static variable.
 
 In the following example a class variable called `created` has been defined to store the amount of dogs. Notice that the variable is defined outside the
 initializer. The definition statement of a class variable does not include the `self.` prefix. (The prior barking feature has been left out of this example).
@@ -149,7 +153,7 @@ initializer. The definition statement of a class variable does not include the `
 ```python
 class Dog:
     created = 0
-	
+
     def __init__(self, name, birth_year, sound="Woof woof"):
         self.name = name
         self.birth_year = birth_year
@@ -168,3 +172,107 @@ The program produces the following output:
 ```monospace
 2 dogs have been created so far.
 ```
+
+## Relationship between objects and classes
+
+The class presented above can be represented with the following class diagram:
+
+```mermaid
+classDiagram
+    class Dog {
+        +name: str
+        +birth_year: int
+        +sound: str
+        static created: int
+        +__init__(name, birth_year, sound="Woof woof")
+        +bark(times)
+    }
+```
+
+The following diagram shows how the variables, classes and runtime objects relate to each other:
+
+```mermaid
+flowchart LR
+    subgraph Variables
+        V1[dog1]
+        V2[dog2]
+    end
+
+    L["Dog (class)" <br> created=2]:::klass
+
+    subgraph Runtime_Objects
+      O1((name='Rascal' birth_year=2018 sound='Woof woof')):::obj
+      O2((name='Boi' birth_year=2022 sound='Yip yip yip')):::obj
+    end
+
+    O1 -. instance .-> L
+    O2 -. instance .-> L
+
+    V1 --> O1
+    V2 --> O2
+```
+
+The following diagram shows how multiple variables can reference the same object:
+
+```mermaid
+flowchart LR
+
+    subgraph Variables
+        V1[dog1]
+        V2[dog2]
+        V3[dog3]
+    end
+
+    L["Dog (class)" <br> created=2]:::klass
+
+    subgraph Runtime_Objects
+      O1((name='Rascal' birth_year=2018 sound='Woof woof')):::obj
+      O2((name='Boi' birth_year=2022 sound='Yip yip yip')):::obj
+    end
+
+    O1 -. instance .-> L
+    O2 -. instance .-> L
+
+    V1 --> O1
+    V3 --> O1
+    V2 --> O2
+```
+
+And this diagram shows the situation after assignment where all variables reference the same object and one object becomes unreferenced (simulated deletion):
+
+```mermaid
+flowchart LR
+    classDef deleted fill:#aa0000,stroke:#333,stroke-width:2px,color:#fff;
+    subgraph Variables
+        V1[dog1]
+        V2[dog2]
+        V3[dog3]
+    end
+
+    L["Dog (class)" <br> created=2]
+
+    subgraph Runtime_Objects
+      O1((name='Musti' birth_year=2018 sound='Woof woof'))
+      O2((name='Boi' birth_year=2022 sound='Yip yip yip')):::deleted
+    end
+
+    O1 -. instance .-> L
+    O2 -. instance .-> L
+
+    V1 --> O1
+    V2 --> O1
+    V3 --> O1
+```
+
+---
+
+**Next:** [Association](10_Association.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

@@ -14,7 +14,7 @@ Tuples are useful in situations where the queue of items is static: it is known 
 changed during the execution of the program. The advantages of using tuples over lists relate to memory management:
 when a tuple is created, it can be reserved a fixed location in memory, and the address of a single item can
 be calculated directly based on the beginning address and index. With lists this is not possible: when searching
-for an item based on index, the running environment usually has to iterate through all the items in the list. 
+for an item based on index, the running environment usually has to iterate through all the items in the list.
 This causes a speed difference: finding an item based on its index is faster in tuples. In practice, the difference
 is unnoticeable when the data structure is small.
 
@@ -46,6 +46,7 @@ print(fruits)
 ```
 
 The output is:
+
 ```monospace
 ('Orange', 'Banana', 'Apple')
 ```
@@ -61,6 +62,7 @@ developers consider it a good practice that improves code readability.
 ### Tuple unpacking
 
 The elements inside a tuple can be unpacked into variables in the following way:
+
 ```python
 fruits = "Orange", "Banana", "Apple"
 (first, second, third) = fruits
@@ -68,6 +70,7 @@ print(f"The fruits are: {first}, {second} and {third}.")
 ```
 
 This program makes the following output:
+
 ```monospace
 The fruits are: Orange, Banana and Apple.
 ```
@@ -96,10 +99,10 @@ print(f"The dice show {die1} and {die2}.")
 ```
 
 The output reveals that we get a result for both casts with a single function call:
+
 ```monospace
 The dice show 2 and 4.
 ```
-
 
 ## Set
 
@@ -127,6 +130,7 @@ for g in games:
 ```
 
 The program produces the following output:
+
 ```monospace
 {'Chess', 'Monopoly', 'Cluedo'}
 {'Chess', 'Monopoly', 'Dominion', 'Cluedo'}
@@ -138,7 +142,7 @@ Monopoly
 ```
 
 First, we create a set with three games: Monopoly, Chess and Cluedo. Then the set containing the games is printed out.
-Notice that the games in the output are in different order than when the set was created. The printing statement 
+Notice that the games in the output are in different order than when the set was created. The printing statement
 concretizes the fact that the order of the items is not defined: the programmer must prepare for the fact that the
 items can be printed out in any order. The order of presentation is determined by the internal storage solution and
 may differ even when the same program is run again.
@@ -172,17 +176,18 @@ names = set()
 names.add("Mary")
 print(names)
 ```
+
 The program produces the following output:
+
 ```monospace
 {'Mary'}
 ```
-
 
 ## Dictionary
 
 Dictionary is one of the most commonly used Python data structures.
 
-A dictionary can store key-value pairs. A key is a sort of a handle that can be pulled to find the 
+A dictionary can store key-value pairs. A key is a sort of a handle that can be pulled to find the
 correct record in the dictionary to access its value.
 
 Sometimes dictionary is called an associative table or a hash structure.
@@ -215,6 +220,7 @@ if name in numbers:
 ```
 
 The program produces the following output:
+
 ```monospace
 {'Viivi': '050-1234567', 'Ahmed': '040-1112223', 'Pekka': '050-7654321', 'Olga': '050-1011012', 'Mary': '0401-2132139'}
 Enter name: Viivi
@@ -229,8 +235,21 @@ the name of the variable that refers to the dictionary. Respectively, the value 
 retrieved with `dictionary[key]`.
 
 When iterating through a dictionary using the `for/in` structure, on each loop the value of the loop variable to refers
-to the correponding key.
+to the corresponding key.
 
 But are the items in a dictionary, or the key-value pairs - ordered? This depends on the Python version: starting from
 version 3.7 the items are ordered, meaning that the running environment makes sure that the order of iteration is always the
 same as the order in which the items were added to the dictionary. This is not guaranteed in older Python versions.
+
+---
+
+**Next:** [Using relational databases](08_Using_Relational_Databases.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

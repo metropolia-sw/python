@@ -11,8 +11,7 @@ These are the reasons for using version control.
 
 A distributed version control tool called Git is used on this course (and often in professional software development as well) to manage
 version control. Distributed version control means that there is a shared storage (a repository) for program code which is used to create
-local copies of the program code on the user's own computers. Up-to-date information is fetched from the shared, remote repository (referred to as 'pull') and new local 
-changes are loaded into the remote repository (referred to as 'push').
+local copies of the program code on the user's own computers. Up-to-date information is fetched from the shared, remote repository (referred to as 'pull') and new local changes are loaded into the remote repository (referred to as 'push').
 
 GitHub is a freely available website where you can store the source code of your Git projects. It is also the largest open code repository and practically all
 professional programmers use GitHub in one way or the other.
@@ -36,11 +35,11 @@ Let's start by creating your own GitHub repository for a project:
 Next you will give PyCharm access to your repository.
 
 1. Select the GitHub account you are using. Press **Ctrl/Alt S**. Select **Version Control / GitHub /Add** and
-enter your GitHub credentials.
+   enter your GitHub credentials.
 
 2. Connect the repository to your Python project. In PyCharm, select **VCS / Get from Version Control** and
-select **Clone** to retrieve the Git repository you created on GitHub. PyCharm will create a new project that
-uses the GitHub repository.
+   select **Clone** to retrieve the Git repository you created on GitHub. PyCharm will create a new project that
+   uses the GitHub repository.
 
 If the GitHub repository does not yet exist, you can skip the second step and select **VCS / Create Git Repository** instead.
 In this case the repository will be created based on the PyCharm project and you can choose which files to store.
@@ -54,13 +53,12 @@ files to be modified by several developers simultaneously. We will also assume t
 the development project into several branches. You will learn more advanced use of Git as a co-operative platform at the
 beginning of the course project.
 
-
 - Use the **Git / Pull** command every time you start working. The command will fetch all possible updates from the remote
-repository on GitHub.
+  repository on GitHub.
 - Every time you have finished some work, commit your changes using **Git / Commit**. The changes will create a new checkpoint
-that you can return to if needed. At minimum, commit your changes every time you are planning to stop working.
+  that you can return to if needed. At minimum, commit your changes every time you are planning to stop working.
 - When you stop working, use the **Git / Push** command. The command will copy all your locally committed changes to the remote
-repository on GitHub.
+  repository on GitHub.
 
 You can explore the development branch and checkpoints on GitHub.
 

@@ -29,14 +29,14 @@ class Dog:
         return
 ```
 
-Let's extend the example by adding a dog hotel. A dog hotel is defined as follows: a dog can be taken to a dog hotel and 
-later be picked up from the hotel. Occasionally, a member of the dog hotel staff takes a round around the hotel: they greet 
+Let's extend the example by adding a dog hotel. A dog hotel is defined as follows: a dog can be taken to a dog hotel and
+later be picked up from the hotel. Occasionally, a member of the dog hotel staff takes a round around the hotel: they greet
 all the dogs and each dog barks back.
 
 First, we will need to think about what we need to implement the dog hotel.
 
 First of all, the dog hotel should be implemented as a separate class. The functionality of the dog hotel has nothing to
-do with a single dog, so it should not be written inside the Dog class. Therefore, we will add a second class called Hotel 
+do with a single dog, so it should not be written inside the Dog class. Therefore, we will add a second class called Hotel
 to our program.
 
 Next, we need to think about what properties relate to a dog hotel. We notice that a dog hotel must know which dogs are in
@@ -44,6 +44,7 @@ its care at any given time. This can be done by using a list: let's add a list o
 
 What about activities of a dog hotel that should be written into methods? From the definition earlier we
 can identify three methods we should write for a dog hotel:
+
 1. Checking a dog in to the dog hotel.
 2. Checking a dog out from the dog hotel.
 3. Doing a round in the dog hotel.
@@ -52,10 +53,10 @@ Now we have defined and designed the program and we can go ahead to implement it
 
 ## A program with two classes
 
-There are two classes in our example program: `Dog` and `Hotel`. In Python, it is common to write multiple classes into 
+There are two classes in our example program: `Dog` and `Hotel`. In Python, it is common to write multiple classes into
 a single source file. The classes could also be in separate files. If the classes are in placed in
 separate files, referencing another class is only possible if an `import` statement for the other file (or module) is added
-at the beginning of the program. 
+at the beginning of the program.
 
 It is handy to write classes of a small program into one file, and this is what we will do now. We will create a file called
 doghotel.py where we will program all the required functionality:
@@ -106,6 +107,7 @@ hotel.greet_dogs()
 ```
 
 The example program consists of three parts:
+
 1. the `Dog` class
 2. the `Hotel` class
 3. the main program.
@@ -165,7 +167,7 @@ holds the references to `Dog` objects.
 Here the associative relationship is unidirectional: A `Hotel` object knows which dogs are currently staying in the hotel.
 On the other hand, a `Dog` object has no knowledge of the hotel it might currently be staying in. An associative relationship
 can be implemented either unidirectionally or bidirectionally. A bidirectional association should only be used when absolutely
-needed. Bidirectional association brings an extra burden to the programmer because the contents of the object references to 
+needed. Bidirectional association brings an extra burden to the programmer because the contents of the object references to
 different directions must be in sync.
 
 ## Temporary association
@@ -177,11 +179,10 @@ The `Hotel` and `Dog` classes also share another type of a dependency: The `Hote
 have a reference to a `Dog` object as a parameter. An associative relationship can also be valid only during a method call
 when an instance of the other class is listed as a parameter of a method. When the method call finishes, the associative
 relationship used during the method call would vanish if the information of the relationship wasn't stored as a property like
-we did in our example. 
+we did in our example.
 
 Let's look at an example of a situation where an associative relationship is purely temporary: the relationship between a
 car and a car paint shop. In this example we will create a blue car and pass it to a paint shop to be painted red:
-
 
 ```python
 class Car:
@@ -207,7 +208,66 @@ The car is blue
 The car is now red
 ```
 
+```mermaid
+classDiagram
+    class Dog {
+        +name: str
+        +birth_year: int
+        +sound: str
+        +__init__(name: str, birth_year: int, sound: str="Woof woof")
+        +bark(times: int) None
+    }
+
+    class Hotel {
+        +dogs: list[Dog]
+        +__init__()
+        +dog_checkin(dog: Dog) None
+        +dog_checkout(dog: Dog) None
+        +greet_dogs() None
+    }
+
+    Hotel "1" o-- "0..*" Dog : has
+```
+
+```mermaid
+flowchart LR
+
+    subgraph Main_program_variables
+        MV1[hotel]
+        MV2[dog1]
+        MV3[dog2]
+    end
+
+    subgraph Dog_objects
+      K1((name='Muro' birth_year=2018 sound='Vuh-vuh'))
+      K2((name='Rekku' birth_year=2022 sound='Viu viu viu'))
+    end
+
+    subgraph Hotel_object
+        H(("dogs[]"))
+    end
+
+    MV1 --> H
+    MV2 --> K1
+    MV3 --> K2
+    H -- 0 --> K1
+    H -- 1 --> K2
+```
+
 In this example the paint shop knows the car it needs to paint only for time of the execution of the `paint` method as
 the reference to the `Car` object was received as a parameter of the method call. Once the execution of method is finished,
-the value of the parameter variable can no longer be accessed. The car has no knowledge of the paint shop either. In this 
+the value of the parameter variable can no longer be accessed. The car has no knowledge of the paint shop either. In this
 example the associative relationship between the paint shop and the car is only temporary.
+
+---
+
+**Next:** [Inheritance](11_Inheritance.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

@@ -40,6 +40,7 @@ print("morning")
 ```
 
 Output:
+
 ```monospace
 Good
 morning
@@ -69,19 +70,17 @@ user = input('Enter your name: ')
 print("Nice to meet you, " + user + "!")
 ```
 
-The user input is read using the built-in input function. The function receives the text to be printed on the screen
-as an argument. The text should tell the user what information they are expected to enter.
+The user input is read using the built-in input function. The function receives the text to be printed on the screen as an argument. The text should tell the user what information they are expected to enter.
 
 The built-in input function waits for input from the user's keyboard. The user ends the input with the Enter key.
 When the input has been give, the value of the input function is the string entered by the user.
 
-The string must be saved into a *variable* so that it can be used later in the program. Here we are using a variable called
-*user*. User input is saved into the memory of the computer and can be fetched from memory using the name of the variable.
+The string must be saved into a _variable_ so that it can be used later in the program. Here we are using a variable called
+_user_. User input is saved into the memory of the computer and can be fetched from memory using the name of the variable.
 The name of a variable is a sort of a handle or name tag that can be used to retrieve the value from memory.
 
 A variable can be given a value using an assignment statement. The assignment statement uses an equals symbol (=).
-The name of the variable is on the left side and the expression that determines the value to be assigned to the variable
-is written on the right side.
+The name of the variable is on the left side and the expression that determines the value to be assigned to the variable is written on the right side.
 
 Let's look at the printing statement more closely:
 
@@ -91,17 +90,18 @@ If we only wanted to print out the name the user entered as input, we could repl
 print(user)
 ```
 
-Notice that *user* is the name of the variable. As it is not a string literal, the name is not surrounded by quotes.
+Notice that _user_ is the name of the variable. As it is not a string literal, the name is not surrounded by quotes.
 
 However, we want the program to output a whole greeting message, not just the name.
 The string to output can be composed of several substrings by joining them together with a plus sign (+).
 the lower row of the original program creates the output with three parts:
 
 1. String literal "Nice to meet, "
-2. The value of the *user* variable
+2. The value of the _user_ variable
 3. String literal "!"
 
 The program works as follows:
+
 ```monospace
 Enter your name: Joanne
 Nice to meet you, Joanne!
@@ -111,11 +111,10 @@ Nice to meet you, Joanne!
 
 Above we assigned the string entered by the user to a variable.
 
-In Python, variables and their type do not have to be declared in advance. The type of a variable
-is determined automatically in the assignment statement. Variable type is the type of data a variable
-refers to: is the value for example a string or a number?
+In Python, variables and their type do not have to be declared in advance. The type of a variable is determined automatically in the assignment statement. Variable type is the type of data a variable refers to: is the value for example a string or a number?
 
 Python has six basic types of variables:
+
 - string
 - number, that can either be integer, long, float or complex
 - boolean, that is either True or False
@@ -146,7 +145,7 @@ print(fourth.real)
 print(fourth.imag)
 ```
 
-When entering an integer or long, the digits can be grouped with an underscore as was done with the *second* variable
+When entering an integer or long, the digits can be grouped with an underscore as was done with the _second_ variable
 above. However, this is not mandatory.
 
 The difference between an integer and long is that the value range of long is wider. It can be used to store integers
@@ -156,6 +155,7 @@ points. A long requires more space in memory than a regular integer.
 Notice that the imaginary part of a complex number in Python is marked with symbol j and not i as usually in mathematics.
 
 The example program produces the following output:
+
 ```monospace
 -9
 12456123180
@@ -175,7 +175,6 @@ The arithmetic operations are addition (`+`), subtraction (`-`), multiplication 
 The program below asks for a temperature in Fahrenheit and converts it to Celsius. The conversion is done by
 subtracting 32 from the Fahrenheit degrees and multiplying the difference with a constant 5/9.
 
-
 ```python
 fahrenheit_str = input("Enter a temperature in Fahrenheit: ")
 fahrenheit = float(fahrenheit_str)
@@ -184,26 +183,27 @@ print("The temperature in Celsius: " + str(celsius))
 ```
 
 The program works as follows:
+
 ```monospace
 Enter a temperature in Fahrenheit: 102
 The temperature in Celsius: 38.888888888888886
 ```
 
 Notice that the value returned by the input function is always interpreted as a string even if
-it contains numbers only. A string can be converted into a float with the *float* funcion or into an integer
-with the *int* function.
+it contains numbers only. A string can be converted into a float with the _float_ function or into an integer
+with the _int_ function.
 
-Furthermore, a number can be converted into a string with the *str* function. In the example program the conversion
+Furthermore, a number can be converted into a string with the _str_ function. In the example program the conversion
 must be done to add the calculated Celsius degrees to the output string. Both parts of the print must be strings.
 
 ## Output formatting
 
 Sometimes it is required to modify the format of the output: how many decimals of a float are shown or for example
-how many character spaces are reserved for a string. 
+how many character spaces are reserved for a string.
 
 This can be done by using a formatted string literal, where the string to be printed includes format codes.
 
-Let's look at this through an example. We will modify the output of the last example program so that the Celsius 
+Let's look at this through an example. We will modify the output of the last example program so that the Celsius
 degrees are always shown with two decimals.
 
 ```python
@@ -222,6 +222,7 @@ point number. The `6.2` notation defines the output to be printed out in a field
 the accuracy of two decimals.
 
 The following list shows examples of format codes:
+
 - .5f : a float with the accuracy of 5 decimals
 - 10.2f : a float with two decimals into a field of 10 characters wide
 - <20s : a string printed into a field of 20 characters wide, justified to the left
@@ -236,7 +237,7 @@ print(f"The temperature in Celsius: {celsius}")
 ```
 
 The same formatted string literal can include multiple expressions to format and their possible format codes. The
-following program ouputs the value of two natural constants: pi and Euler's number (e) so that the name of each
+following program outputs the value of two natural constants: pi and Euler's number (e) so that the name of each
 constant is printed in a field of 12 characters and their corresponding values are printed in a field of 10
 characters using 5 decimals:
 
@@ -250,11 +251,24 @@ expressions `math.pi` and `math.e`.
 
 Lastly, Python offers multiple ways of formatting outputs. Formatted string literals introduces here are quite a
 new way of formatting that has been available since Python version 3.6. It is enough to learn one good way of
-formatting output, but you might see alternative methods in online learning materials and when looking at 
+formatting output, but you might see alternative methods in online learning materials and when looking at
 program code made by others. These alternative methods are:
+
 1. using the `str.format()` function
 2. using format specifiers and a list of expressions (% operator notation)
 3. using template strings
 
-The alternative methods listed above are not introduced here. You can find more information in the Python 3 documentation:
-[https://docs.python.org/3/tutorial/inputoutput.html]
+The alternative methods listed above are not introduced here. You can find more information in the Python 3 documentation: [https://docs.python.org/3/tutorial/inputoutput.html](https://docs.python.org/3/tutorial/inputoutput.html)
+
+---
+
+**Next:** [Conditional structures](03_Conditional_Structures.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

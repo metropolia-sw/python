@@ -122,7 +122,7 @@ The program provides the following output:
 ```
 
 A base class - subclass relationship in Python is expressed by adding the name of the base class enclosed in parenthesis
-to the `class` statement that defines the subclass. Thus, the beginning of statement the `class HourlyPaid(Employee)` 
+to the `class` statement that defines the subclass. Thus, the beginning of statement the `class HourlyPaid(Employee)`
 determines that the HourlyPaid class becomes a subclass of the Employee class.
 
 If needed, a subclass can have its own initializer. When an instance of the subclass is created, only the initializer
@@ -269,7 +269,7 @@ classDiagram
 
 ---
 
-[In the next module, we will fetch information for our program from external services.](12_Using_External_Interfaces.md)
+**Next:** [Using external interfaces](12_Using_External_Interfaces.md)
 
 ---
 
