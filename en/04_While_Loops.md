@@ -30,6 +30,14 @@ as long as amount_paid < 5
 
 At some point the amount paid is enough and we can stop giving more coins.
 
+```mermaid
+flowchart TD
+    A([Start]) --> B{Is amount_paid < 5?}
+    B -- Yes --> C[Insert a coin]
+    C --> B
+    B -- No  --> D([End])
+```
+
 With a repetitive structure we can repeat a block of code multiple times in our program.
 The pseudo code example has an initial condition that is evaluated every time when entering
 the loop. If the condition is true, the indented block is executed. Every time the indented
@@ -150,7 +158,7 @@ Rolled 37 times.
 The example uses the Python built-in `random` library. The library
 must be imported with an import statement at the beginning of the program
 before it can be used. You do not have to memorize how to use ready-made libraries
-as you can always check the documentation for the correct use: [https://docs.python.org/]
+as you can always check the documentation for the correct use: <https://docs.python.org/>
 
 ## Nested loops
 
@@ -333,14 +341,6 @@ the stop button on the side of the console window:
 
 If the stop button does not stop the execution, check that the terminal emulation operations are enabled in
 the console window: select **Run/Edit Configurations** and check the **Emulate Terminal in Output Console** checkbox.
-
-```mermaid
-flowchart TD
-    A([Start]) --> B{Is amount_paid < 5?}
-    B -- Yes --> C[Insert a coin]
-    C --> B
-    B -- No  --> D([End])
-```
 
 ---
 

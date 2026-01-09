@@ -20,8 +20,18 @@ if money_in_pocket >= 5
 
 The pseudo code shows that the decision is made based on whether a condition is true. The condition in this
 case is that there is at least 5 euros of money. The condition can be true or false: For example, if there were
-7 euros the statement would be 7 >= 5 which is true. On the other hand, if there were only 4.85 euros in the pocket,
-the condition would be 4.85 <= 5 which is false.
+7 euros the statement would be `7 >= 5` which is true. On the other hand, if there were only 4.85 euros in the pocket,
+the condition would be `4.85 <= 5` which is false.
+
+The program flow can also be described with a flowchart (_flowchart_). A flowchart is a graphical representation of the program's execution path. It is a useful tool for understanding the program's structure. The following shows the flowchart for the selection structure mentioned above:
+
+```mermaid
+graph TD
+    A[Start] --> B{Is money_in_pocket >= 5?}
+    B -- Yes --> C[Buy a latte]
+    B -- No --> D[Stop]
+    C --> D
+```
 
 A conditional part of the program (buying the latte) if executed precisely when the condition is true.
 
@@ -133,9 +143,9 @@ Python has the following logical operators:
 
 | Notation | Logical operator   |
 | -------- | ------------------ |
-| and      | "both"             |
-| or       | "either" or "both" |
-| not      | negation, "no"     |
+| `and`    | "both"             |
+| `or`     | "either" or "both" |
+| `not`    | negation, "no"     |
 
 Let's assume that `a` and `b` are logical statements and their values are either true or false.
 In that case:
@@ -185,6 +195,18 @@ is false. The weight information is only read if it is known that the age is at 
 years, and in this specific case the weight variable is defined. This Python language feature is called
 short-circuiting.
 
+```mermaid
+graph TD
+    A[Start] --> B[Ask for age]
+    B --> C{15 ≤ age < 18?}
+    C -- Yes --> D[Ask for weight]
+    C -- No  --> E{"age ≥ 18 or (age ≥ 15 and weight ≥ 55)?"}
+    D --> E
+    E -- Yes --> F[Medicine can be used]
+    F --> H[End]
+    E -- No  --> H
+```
+
 ## Two mutually exclusive options
 
 In the medicine administration example program has a weakness: if use of the medicine is not allowed, the program
@@ -216,6 +238,19 @@ else:
 
 The `else` branch in the example is tied to the second `if` statement. In general, an `else` branch is interpreted
 to relate to the last `if` statement that has been indented to the same level as the `else` branch in the program.
+
+```mermaid
+graph TD
+    A[Start] --> B[Ask for age]
+    B --> C{15 ≤ age < 18?}
+    C -- Yes --> D[Ask for weight]
+    C -- No  --> E{"age ≥ 18 or (age ≥ 15 and weight ≥ 55)?"}
+    D --> E
+    E -- Yes --> F[Medicine can be used]
+    E -- No  --> G[Medicine cannot be used]
+    F --> H[End]
+    G --> H
+```
 
 Let's look at the outputs produced by the program with different inputs:
 
@@ -284,39 +319,6 @@ How does a structure with `elif` branches work? The execution proceeds as follow
 If we look at the program, we can see that it was written so that the strict condition of the first branch is gradually
 loosened by each branch, so we do not need upper limits for the age in the conditions. They can be written but it would
 be unnecessary and create a new possibility for a programming error.
-
-```mermaid
-graph TD
-    A[Start] --> B{Is money_in_pocket >= 5?}
-    B -- Yes --> C[Buy a latte]
-    B -- No --> D[Stop]
-    C --> D
-```
-
-```mermaid
-graph TD
-    A[Start] --> B[Ask for age]
-    B --> C{15 ≤ age < 18?}
-    C -- Yes --> D[Ask for weight]
-    C -- No  --> E{"age ≥ 18 or (age ≥ 15 and weight ≥ 55)?"}
-    D --> E
-    E -- Yes --> F[Medicine can be used]
-    F --> H[End]
-    E -- No  --> H
-```
-
-```mermaid
-graph TD
-    A[Start] --> B[Ask for age]
-    B --> C{15 ≤ age < 18?}
-    C -- Yes --> D[Ask for weight]
-    C -- No  --> E{"age ≥ 18 or (age ≥ 15 and weight ≥ 55)?"}
-    D --> E
-    E -- Yes --> F[Medicine can be used]
-    E -- No  --> G[Medicine cannot be used]
-    F --> H[End]
-    G --> H
-```
 
 ---
 

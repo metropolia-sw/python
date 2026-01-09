@@ -2,6 +2,10 @@
 
 In this module you will learn to implement a backend in Python. This way you can build a web service so that the HTML, CSS or JavaScript user interface (UI) communicates with the HTTP endpoints provided by the backend written in Python.
 
+The user of a backend does not necessarily have to be a browser. With the approach presented here, the backend service can be used programmatically from any service with any programming language thanks to the HTTP connection protocol.
+
+The module exercises implement a simple Python backend service that retrieves data from a MariaDB database. The backend service provides an HTTP endpoint that a web application's user interface can use to fetch data. The endpoint is implemented using the Flask library.
+
 ```mermaid
 flowchart LR
 
@@ -23,10 +27,6 @@ flowchart LR
     LIB -- SQL --> DB
     DB -- results --> LIB
 ```
-
-The user of a backend does not necessarily have to be a browser. With the approach presented here, the backend service can be used programmatically from any service with any programming language thanks to the HTTP connection protocol.
-
-The module exercises implement a simple Python backend service that retrieves data from a MariaDB database. The backend service provides an HTTP endpoint that a web application's user interface can use to fetch data. The endpoint is implemented using the Flask library.
 
 ## Flask library installation
 

@@ -107,6 +107,49 @@ Enter your name: Joanne
 Nice to meet you, Joanne!
 ```
 
+### More about variables and the assignment operator
+
+In programming, **variables** can be thought of as named boxes that store information. This information can be numbers, text, or more complex structures. When stored data is needed later in a program, it can be accessed simply by referring to the box by its name.
+
+For example, suppose we want to store the color of something. We create a variable named `color` and assign it the value `"blue"` like this:
+
+```python
+color = "blue"
+```
+
+In the example above, `color` is a **variable** whose **value is the string** `"blue"`.
+
+Variable names may contain letters, digits, and underscores, but they cannot start with a digit or contain spaces. As good programming practice, give variables descriptive names; this makes the code easier to read.
+
+The assignment operator (`=`) is written as a single equals sign (`=`). Its job is to set the value of the expression on the right-hand side as the value of the variable on the left-hand side — in other words, to store the value in the memory slot reserved for the variable.
+
+You can visualize the example like this:
+
+```txt
+  Variable        Assignment operator      Value
++-----------+    +-----------------+    +----------+
+|   color   | <- |        =        | <- | "blue"   |
++-----------+    +-----------------+    +----------+
+```
+
+When Python executes the line `color = "blue"`, it performs the following steps:
+
+1. Evaluate the expression on the right-hand side of the assignment and store the result temporarily. In this case the expression is the simple string literal `"blue"`, but the expression can also include more complex operations, such as reading input with the `input()` function.
+2. Create a variable named `color` and allocate memory for it. If the variable `color` has already been created earlier in the program, the existing memory slot is used.
+3. Store the value computed in step 1 (`"blue"`) as the value of the variable `color`. If the variable already existed, its previous value is overwritten and lost.
+
+A variable’s value can be changed at any time during program execution. For example:
+
+```python
+points = 50  # points is now 50
+print(points)  # prints: 50
+
+points = 120  # now points is 120
+print(points)  # prints: 120
+```
+
+In this case `points` was initially `50`, but the **assignment operator** (`=`) changed its value to `120`.
+
 ## Variable type
 
 Above we assigned the string entered by the user to a variable.
