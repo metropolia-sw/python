@@ -218,7 +218,7 @@ Jos kirjoitamme lauseen `koira2 = koira1`, kaikki muuttujat `koira1`, `koira2` j
 
 ```mermaid
 flowchart LR
-    classDef deleted fill:#aa0000,stroke:#333,stroke-width:2px;
+    classDef deleted fill:#aa0000,stroke:#333,stroke-width:2px,color:#fff;
     subgraph Muuttujat
         V1[koira1]
         V2[koira2]
