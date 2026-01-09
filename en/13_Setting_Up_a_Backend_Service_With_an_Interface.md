@@ -1,22 +1,40 @@
 # Setting up a backend service with an interface
 
-In this module you will learn to implement a backend in Python. This way you can build
-a web service so that the HTML, CSS or JavaScript user interface (UI) communicates with the
-HTTP endpoints provided by the backend written in Python.
+In this module you will learn to implement a backend in Python. This way you can build a web service so that the HTML, CSS or JavaScript user interface (UI) communicates with the HTTP endpoints provided by the backend written in Python.
 
-The user of a backend does not necessarily have to be a browser. With the approach presented here,
-the backend service can be used programmatically from any service with any programming language thanks to
-the HTTP connection protocol.
+```mermaid
+flowchart LR
+
+    Client[Client application]
+
+    subgraph Python_app [Python application]
+        PY[Application logic]
+        Flask[Flask library]
+        LIB[mysql-connector library]
+        PY <--> LIB
+        PY <--> Flask
+    end
+
+    DB[(Database)]
+
+    Client -- HTTP request --> Flask
+    Flask -- HTTP response --> Client
+
+    LIB -- SQL --> DB
+    DB -- results --> LIB
+```
+
+The user of a backend does not necessarily have to be a browser. With the approach presented here, the backend service can be used programmatically from any service with any programming language thanks to the HTTP connection protocol.
+
+The module exercises implement a simple Python backend service that retrieves data from a MariaDB database. The backend service provides an HTTP endpoint that a web application's user interface can use to fetch data. The endpoint is implemented using the Flask library.
 
 ## Flask library installation
 
 A Python program is made into a backend service using the Flask library. Flask enables the programming
-of endpoints. An external program (such as a web browser) can use those endpoints to execute operations
-programmed into the backend service.
+of endpoints. An external program (such as a web browser) can use those endpoints to execute operations programmed into the backend service.
 
-Let's look at an example where we create a backend service that receives two numbers and adds them together. 
-This kind of an operation would not of course need a backend service. However, this simple example is used
-just to demonstrate the required technology.
+Let's look at an example where we create a backend service that receives two numbers and adds them together.
+This kind of an operation would not of course need a backend service. However, this simple example is used just to demonstrate the required technology.
 
 We will start by installing the Flask library. The installation can be done directly from the PyCharm IDE:
 
@@ -49,8 +67,7 @@ if __name__ == '__main__':
 Let's see how the program works by starting from the last line. The call to the `app.run` method launches the backend service.
 The service is opened in IP address 127.0.0.1 which is a so-called loopback (or localhost) address that points to the IP address
 of your own computer. This means that the connection to that IP address can only be established from the same computer where the
-program is running. Port number 5000 tells that the backend server listens to port 5000 for communication from the same
-computer.
+program is running. Port number 5000 tells that the backend server listens to port 5000 for communication from the same computer.
 
 Line `@app.route('sum')` defines a so called endpoint. It means that the function `calculate_sum` on the next line is executed when
 a user of the backend sends a request to the IP address followed by the string `/sum`. This means that the function can be
@@ -58,7 +75,7 @@ called from the browser by typing `http://127.0.0.1:5000/sum` as the web address
 HTTP protocol GET request that the backend service built with Flask responds to.
 
 The request portrayed above is not yet enough to calculate the sum, as also the numbers for calculating the sum must be defined
-in the request. The numbers can be passed as parameters of the GET request and then be processed using the `args.get` method of the 
+in the request. The numbers can be passed as parameters of the GET request and then be processed using the `args.get` method of the
 `request` library.
 
 This way the backend service could be called by writing for example the address `http://127.0.0.1:5000/sum?number1=13&number2=28` to
@@ -74,12 +91,9 @@ At this point the backend service technically works, but the format of the resul
 
 ## Generating a JSON response
 
-When a backend sends a response to a browser, the best format for the response is usually JSON. JSON (*JavaScript
-Object Notation*) is a presentation format that complies with the structure of JavaScript objects. Luckily, the structure is also
-intuitive for developers accustomed to objects in Python language.
+When a backend sends a response to a browser, the best format for the response is usually JSON. JSON (_JavaScript Object Notation_) is a presentation format that complies with the structure of JavaScript objects. Luckily, the structure is also intuitive for developers accustomed to objects in Python language.
 
-Let's modify the `sum` function in the example so that it no longer returns a string but instead produces a response in JSON format.
-This will be done automatically from the Python dictionary structure:
+Let's modify the `sum` function in the example so that it no longer returns a string but instead produces a response in JSON format. This will be done automatically from the Python dictionary structure:
 
 ```python
 from flask import Flask, request
@@ -108,7 +122,7 @@ Now the program produces a JSON response which is easy to process for example by
 
 ![JSON response in a browser window](img/flask_json.png)
 
-The simple backend service presented here can be used to build a more versatile backend service with the required amount of 
+The simple backend service presented here can be used to build a more versatile backend service with the required amount of
 endpoints.
 
 ## Parsing the request
@@ -153,10 +167,10 @@ a valid request looks like this: `http://127.0.0.1:3000/sum/42/117`.
 In the earlier example, we assumed that the request is always error-free.
 
 However, at least the following errors are possible and should be dealt with:
+
 1. The user tries to call an erroneous endpoint: `http://127.0.0.1:3000/dum/42/117`
 2. A correct endpoint is called, but the sum cannot be computed because of an invalid number as input:
-`http://127.0.0.1:3000/sum/4t23/117`
-
+   `http://127.0.0.1:3000/sum/4t23/117`
 
 In the first case, the Flask backend service automatically returns the error code 404 (Not found).
 In the latter case, the status code 500 (Internal server error) is returned. The originator
@@ -166,14 +180,15 @@ producing the request sender more detailed information about the potential cause
 of the error.
 
 The following program handles the error situations in a more elegant fashion:
+
 1. A request to an invalid endpoint produces the status code 404 with a JSON response:
-`{"status": 404, "message": "Invalid endpoint"}`.
+   `{"status": 404, "message": "Invalid endpoint"}`.
 2. Should the conversion of a parameter to float type fail, the following JSON is sent:
-`{"status": 400, "teksti": "Invalid number as addend"}`. The backend service now returns the more suitable HTTP status code
-400 (Bad Request) instead of the default code 500 (Internal server error).
+   `{"status": 400, "text": "Invalid number as added"}`. The backend service now returns the more suitable HTTP status code
+   400 (Bad Request) instead of the default code 500 (Internal server error).
 
 Also, the program adds the status code to the body of the JSON response. The code in the body is sent just as
-additional information for the client. The 'real' HTTP status code is provided as the statuscode parameter
+additional information for the client. The 'real' HTTP status code is provided as the status code parameter
 of the Response object. (The Response object must be created whenever we want to send something else than the JSON auto-converted
 from the dictionary accompanied with the default error code 200 (OK).
 Unfortunately, we cannot take advantage of the dictionary-to-JSON auto-conversion in this case, but
@@ -183,6 +198,7 @@ As the Response object is created, we need to specify the so-called MIME type. A
 how the content should be interpreted. In this case, the MIME type is set to `"application/json"`.
 
 The expanded program is as follows:
+
 ```python
 import json
 
@@ -225,3 +241,12 @@ def page_not_found(error_code):
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=5000)
 ```
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

@@ -14,7 +14,7 @@ Now you must determine if you have enough money to buy the latte. This selection
 using pseudo code:
 
 ```monospace
-if money_in_pocket >=5
+if money_in_pocket >= 5
 	buy latte
 ```
 
@@ -33,12 +33,13 @@ if(condition):
 	conditionally executed block of code
 ```
 
-In the example above, the condition is a logical expression that can be true or false. Based on the condition, 
+In the example above, the condition is a logical expression that can be true or false. Based on the condition,
 the execution proceeds as follows:
+
 1. If the condition is true, the conditional block of code is executed.
 2. If the condition is false, the execution will jump to the next statement after the conditional structure.
 
-The expressions inside the conditional block must be indented by one step. In Python, a one-step indentation 
+The expressions inside the conditional block must be indented by one step. In Python, a one-step indentation
 is written by adding four spaces at the beginning of a line. In practice, it is more efficient to press the
 Tab key once instead of writing four spaces. Indentation is important in Python: it expresses the internal
 hierarchy of the program. In this example, the one-step indentation shows which lines of code are part of
@@ -50,13 +51,14 @@ languages where indenting is optional in terms of the syntax of the language.
 
 Let's write the first example of a program that uses a conditional statement. The program asks the user
 how much money they have in their pocket and lets them know if it is enough to buy the latte that costs 5
-euros. If there is not enough money, there is no output: 
+euros. If there is not enough money, there is no output:
 
 ```python
 money = float(input("Enter amount of money: "))
-if money>=5:
+if money >= 5:
     print("You can buy a latte.")
 ```
+
 Let's try the program out with different inputs. The conditional block is executed when there is enough money:
 
 ```monospace
@@ -65,15 +67,17 @@ You can buy a latte.
 ```
 
 Now let's try a situation when there is just enough money:
+
 ```monospace
 Enter amount of money: 5
 You can buy a latte.
 ```
 
 This was an important test as handling boundary cases easily leads to programming errors. If we had written the condition
-as `money>5` by mistake, the latte would not have been bought due to incorrectly working program.
+as `money > 5` by mistake, the latte would not have been bought due to incorrectly working program.
 
 Finally, let's check that the conditional block is not executed when there is not enough money:
+
 ```monospace
 Enter amount of money: 4.95
 ```
@@ -83,15 +87,14 @@ Enter amount of money: 4.95
 In the latte example above, the condition was expressed using the greater than or equal to comparison operator (`>=`).
 You can use the following comparison operators to express conditions in Python:
 
-| Notation | Comparison operator        | 
-|----------|----------------------------|
-| \>       | greater than               |
-| \<       | less than                  |
-| >=       | greater than or equal to   | 
-| >=       | greater than or equal to   | 
-| <=       | less than or equal to      | 
-| ==       | equal to                   | 
-| !=       | not equal to               | 
+| Notation | Comparison operator      |
+| -------- | ------------------------ |
+| \>       | greater than             |
+| \<       | less than                |
+| >=       | greater than or equal to |
+| <=       | less than or equal to    |
+| ==       | equal to                 |
+| !=       | not equal to             |
 
 Logical operators can be chained. The following statement is true when a person's height is at least
 170 but less than 180 cm: `170 <= height < 180`.
@@ -105,7 +108,7 @@ The following example checks if two strings are equal:
 cat = input("Enter the name of the cat: ")
 dog = input("Enter the name of the dog: ")
 
-if cat==dog:
+if cat == dog:
     print("Oh my! The cat and dog have the same name!")
 ```
 
@@ -113,7 +116,7 @@ Notice that the equality comparison uses two equal signs (`==`) as one is is use
 
 The program notifies if the cat and dog have the same name:
 
-``` monospace
+```monospace
 Enter the name of the cat: Bob
 Enter the name of the dog: Bob
 Oh my! The cat and dog have the same name!
@@ -128,14 +131,15 @@ operators.
 
 Python has the following logical operators:
 
-| Notation | Logical operator                | 
-|----------|---------------------------------|
-| and      | "both"                          |
-| or       | "either" or "both"              |
-| not      | negation, "no"                  | 
+| Notation | Logical operator   |
+| -------- | ------------------ |
+| and      | "both"             |
+| or       | "either" or "both" |
+| not      | negation, "no"     |
 
 Let's assume that `a` and `b` are logical statements and their values are either true or false.
 In that case:
+
 - statement `a and b` is true precisely if both statement `a` and statement `b` are true.
 - statement `a or b` is true when at least one of statements `a` and `b` are true.
 - statement `not a` is true precisely when statement `a` is false.
@@ -144,6 +148,7 @@ The order of precedence of the logical operators is as follows: the `not` operat
 operator and lastly the `or` operator. The order can be altered using parentheses.
 
 Examples:
+
 - statement `a or b and c` is true when either `a` is true or both `b` and `c` are true.
 - statement `(a or b) and c` is true when at least one of statements `a` and `b` are true and also statement `c` is true.
 - statement `a and not b` is true when `a` is true and `b` is false.
@@ -157,10 +162,12 @@ the program also asks the weight. Finally, the program notifies the user if the 
 age = int(input("Enter age: "))
 if 15 <= age < 18:
     weight = float(input("Enter weight (kg): "))
-if (age >=18 or age>=15 and weight >=55):
+if (age >= 18 or age >= 15 and weight >= 55):
     print("The medicine can be used.")
 ```
+
 Let's try the program for a 17-year-old persons weighing 55 kilograms:
+
 ```monospace
 Enter age: 17
 Enter weight (kg): 55
@@ -187,6 +194,7 @@ Let's modify the program by adding a conditional block that runs if the original
 done by adding an `else` branch to the `if` statement.
 
 This is how the `else` branch works:
+
 ```monospace
 if (condition):
     block that is executed if the condition is true
@@ -200,7 +208,7 @@ Let's add an `else` branch to the medicine example:
 age = int(input("Enter age: "))
 if 15 <= age < 18:
     weight = float(input("Enter weight (kg): "))
-if (age >=18 or age>=15 and weight >=55):
+if (age >= 18 or age >= 15 and weight >= 55):
     print("The medicine can be used.")
 else:
     print("The medicine cannot be used.")
@@ -244,33 +252,81 @@ specific age, although that is not true in real life.)
 
 ```python
 age = int(input("Enter your age: "))
-if age>=65:
+if age >= 65:
     print("You are retired.")
-elif age>=18:
+elif age >= 18:
     print("You are working-age.")
-elif age>=7:
+elif age >= 7:
     print("You are in school.")
 else:
     print("You are a small child.")
 ```
 
 Let's try the program by entering 23 years as the age:
+
 ```monospace
 Enter your age: 23
 You are working-age.
 ```
 
-How does a structure with `elif` branches work? The execution proceeds as follows: 
+How does a structure with `elif` branches work? The execution proceeds as follows:
+
 1. First is is tested if the age is at least 65 years. If that is ture, the first conditional block will be executed
-and the program will end.
+   and the program will end.
 2. If the first condition was false (age not 65 or more), it is checked if the age is at least 18 years. At this state
-it is already known that the age is less than 65 years, so we do not need an upper limit for the age. If the condition
-is true, the conditional block will be executed and the program ends.
+   it is already known that the age is less than 65 years, so we do not need an upper limit for the age. If the condition
+   is true, the conditional block will be executed and the program ends.
 3. If neither of the two first conditions were true, the age must be less than 18 years. The third branch checks whether
-the age is at least 7 years, so practically 7-17 years. If the condition is true, the third conditional block is executed
-and execution stops.
+   the age is at least 7 years, so practically 7-17 years. If the condition is true, the third conditional block is executed
+   and execution stops.
 4. If the age was less than 7 years, the last conditional block in the `else` branch is executed.
 
 If we look at the program, we can see that it was written so that the strict condition of the first branch is gradually
 loosened by each branch, so we do not need upper limits for the age in the conditions. They can be written but it would
 be unnecessary and create a new possibility for a programming error.
+
+```mermaid
+graph TD
+    A[Start] --> B{Is money_in_pocket >= 5?}
+    B -- Yes --> C[Buy a latte]
+    B -- No --> D[Stop]
+    C --> D
+```
+
+```mermaid
+graph TD
+    A[Start] --> B[Ask for age]
+    B --> C{15 ≤ age < 18?}
+    C -- Yes --> D[Ask for weight]
+    C -- No  --> E{"age ≥ 18 or (age ≥ 15 and weight ≥ 55)?"}
+    D --> E
+    E -- Yes --> F[Medicine can be used]
+    F --> H[End]
+    E -- No  --> H
+```
+
+```mermaid
+graph TD
+    A[Start] --> B[Ask for age]
+    B --> C{15 ≤ age < 18?}
+    C -- Yes --> D[Ask for weight]
+    C -- No  --> E{"age ≥ 18 or (age ≥ 15 and weight ≥ 55)?"}
+    D --> E
+    E -- Yes --> F[Medicine can be used]
+    E -- No  --> G[Medicine cannot be used]
+    F --> H[End]
+    G --> H
+```
+
+---
+
+**Next:** [While loops](04_While_Loops.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

@@ -1,6 +1,6 @@
 # List structures and iterative loop structures (for)
 
-In this module you will learn how to use lists, the most important data structures of Python language. A list is 
+In this module you will learn how to use lists, the most important data structures of Python language. A list is
 an ordered group of items. With a list, you can store multiple values into a single list variable and loop through
 the values using a for loop structure that has been developed for this purpose.
 
@@ -66,7 +66,7 @@ second to last item in the list.
 The fourth printing statement prints out a portion of the list. The square brackets enclose an index range `1:3` which
 means that the resulting new list has the items beginning from index 1 (including the starting point) up to index 3
 (excluding the end point). The start index in the range is always included in the new list while the endpoint is not.
-Therefore, the new list has items 1 and 2 or "Ahmed" and "Pekka". 
+Therefore, the new list has items 1 and 2 or "Ahmed" and "Pekka".
 
 In the fifth print the endpoint has not been given. In this case items from the starting point up to the end of the
 list are printed, including the last item. The resulting indices are 2, 3 and 4 and the corresponding strings "Pekka",
@@ -81,6 +81,7 @@ print(len(names))
 ```
 
 This outputs the length of the list, which is one larger than the index of the last item.
+
 ```monospace
 5
 ```
@@ -88,7 +89,7 @@ This outputs the length of the list, which is one larger than the index of the l
 ## Index out of range
 
 When referencing a list item by its index, it is possible to program an illegal reference that points
-to an item that does not exist in the list. This type of an error is quite common in programming and 
+to an item that does not exist in the list. This type of an error is quite common in programming and
 it is good to learn how to recognize right from the start.
 
 The following list has five items. The idea is to reference the fifth item in the list, but - as the indexing
@@ -101,6 +102,7 @@ print(names[5])
 ```
 
 A runtime exception occurs and a description of the error is printed on the console:
+
 ```monospace
 Traceback (most recent call last):
   File "C:/Users/olliv/PycharmProjects/Python_Ohjelmistoteema/Esimerkit/listaesimerkki.py", line 4, in <module>
@@ -134,6 +136,7 @@ print(names)
 ```
 
 An example on how the program works below:
+
 ```monospace
 Enter the first name or quit by pressing Enter: Mikko
 Enter the next name or quit by pressing Enter: Kerttu
@@ -149,15 +152,15 @@ different ways using then operations.
 
 The most common list operations are listed in the table below:
 
-| Operation | Meaning                                                                                     | Example                                                           | 
-|-----------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| append    | adds an item to the end of the list                                                         | names.append("Matti")                                             |
-| remove    | removes the first occurance of an item in the list                                          | names.remove("Pekka")                                             |
-| insert    | inserts an item into a defined position in the list, index specified in the first argument  | names.insert(4, "Teppo")                                          |
-| extend    | adds the items in the second list to the first list                                         | otherNames = ["Allu","Ninni"]<br/>names.extend(otherNames)        |
-| index     | returns the index of the first occurence of the specified item                              | what_index = names.index("Olga")                                  |
-| in        | checks if an item exists in the list                                                        | if "Matti" in names:<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Matti found"    |
-| sort      | sorts the list items in alphabetical or numerical order                                     | numbers.sort()                                                      |
+| Operation | Meaning                                                                                    | Example                                                        |
+| --------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| append    | adds an item to the end of the list                                                        | names.append("Matti")                                          |
+| remove    | removes the first occurance of an item in the list                                         | names.remove("Pekka")                                          |
+| insert    | inserts an item into a defined position in the list, index specified in the first argument | names.insert(4, "Teppo")                                       |
+| extend    | adds the items in the second list to the first list                                        | otherNames = ["Allu","Ninni"]<br/>names.extend(otherNames)     |
+| index     | returns the index of the first occurence of the specified item                             | what_index = names.index("Olga")                               |
+| in        | checks if an item exists in the list                                                       | if "Matti" in names:<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Matti found" |
+| sort      | sorts the list items in alphabetical or numerical order                                    | numbers.sort()                                                 |
 
 ## Going through a list using a for loop
 
@@ -179,6 +182,7 @@ for n in names:
 ```
 
 The program works as follows:
+
 ```monospace
 Enter the first name or quit by pressing Enter: Stefan
 Enter the next name or quit by pressing Enter: Ville
@@ -190,6 +194,7 @@ Moi, Aamu!
 ```
 
 Accessing the list items one by one was implemented using a `for` loop:
+
 ```python
 for n in names:
     print(f"Hello, {n}!")
@@ -211,7 +216,7 @@ a loop variable that is assigned to any required values as a sequence with one o
 
 The first argument of the `range` fucntion is the starting point, the second argument the end point and the third, optional
 argument defines the step size between numbers. If the step size is not defined, the default step is 1. If the step is defined
-as 0, an error message is printed. 
+as 0, an error message is printed.
 
 If the `range` function is only given one argument, it is interpreted as the endpoint of the range. In this case the starting
 point is zero and step is one.
@@ -250,3 +255,35 @@ program prints string "Hello!" six times:
 for number in range(6):
     print("Hello!")
 ```
+
+```mermaid
+graph TD;
+    A[names] --0--> B['Viivi']
+    A --1--> C['Ahmed']
+    A --2--> D['Pekka']
+    A --3--> E['Olga']
+    A --4--> F['Mary']
+```
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Initialize number = 3]
+    B --> C{Is number ≤ 30?}
+    C -- Yes --> D[Print number]
+    D --> E[Increase number += 3]
+    E --> C
+    C -- No --> F([End])
+```
+
+---
+
+**Next:** [Functions](06_Functions.md)
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
