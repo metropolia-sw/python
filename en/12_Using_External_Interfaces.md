@@ -12,29 +12,52 @@ for a programmer to become familiar with the documentation of the API.
 Let us first examine what happens when computers connected to the Internet communicate with each other.
 This provides us the foundations for understanding and implementing cross-device communication.
 
-Data communication in the Internet is based on client-server model. A computer that is connected
-to the Internet, waiting for other computers to connect to it, is called a server.
-In practice, a computer
-becomes a server when in runs a dedicated server application that instructs the computer to wait for upcoming connections.
+Data communication in the Internet is based on client-server model. A computer that is connected to the Internet, waiting for other computers to connect to it, is called a server.
+In practice, a computer becomes a server when in runs a dedicated server application that instructs the computer to wait for upcoming connections.
 
 Informally, when we talk about servers, we may mean:
 
 - a computer connected to the Internet that acts as a server, or
 - a server application that runs in a server computer.
 
-In accordance with the client-server model, the computer that initiates a connection to the server machine (and the
-server application therein) first sends a request. The server handles the request and provides a response:
+In accordance with the client-server model, the computer that initiates a connection to the server machine (and the server application therein) first sends a request. The server handles the request and provides a response:
 
-![Client server model](img/client-server.png)
+```mermaid
+sequenceDiagram
+    participant Client as Client
+    participant Server as Server
 
-The retrieval of web pages follows the client-server model. As you write a web address into the browser's address
-bar (or click a link on a web page), a request is sent to the web server. The web server then sends an HTML file
-describing the web page as a response. If the web page requires additional resources (such as images or stylesheets),
-new requests are generated, and the requested resources are received as responses.
+    Client->>Server: Request (Request)
+    Server-->>Client: Response (Response)
+```
 
-In a similar fashion to web pages, we can also retrieve any data from an external server. For example, we can write a Python program that retrieves
-todays weather data, or (as we will soon do), information about a TV show selected by the user. In this case, our
-own Python client sends a request to the external server, and receives a response.
+The retrieval of web pages follows the client-server model. As you write a web address into the browser's address bar (or click a link on a web page), a request is sent to the web server. The web server then sends an HTML file describing the web page as a response. If the web page requires additional resources (such as images or stylesheets), new requests are generated, and the requested resources are received as responses:
+
+```mermaid
+sequenceDiagram
+    participant Client as Browser / HTTP client
+    participant Server as Web server
+
+    Client->>Server: HTTP Request (GET /index.html)
+    Server-->>Client: HTTP Response (200 OK + HTML)
+
+    Client->>Server: HTTP Request (GET /style.css)
+    Server-->>Client: HTTP Response (200 OK + CSS)
+
+    Client->>Server: HTTP Request (GET /image.png)
+    Server-->>Client: HTTP Response (200 OK + image)
+```
+
+In a similar fashion to web pages, we can also retrieve any data from an external server. For example, we can write a Python program that retrieves todays weather data, or (as we will soon do), information about a TV show selected by the user. In this case, our own Python client sends a request to the external server, and receives a response:
+
+```mermaid
+sequenceDiagram
+    participant Client as Python application
+    participant Server as Web server
+
+    Client->>Server: HTTP Request (GET /desired-data)
+    Server-->>Client: HTTP Response (200 OK + JSON)
+```
 
 The service providers (such as the weather service or the TV show search service) provide so-called APIs, or application
 programming interfaces. The documentation of an interface specifies what kind of requests it understands, and what the
@@ -230,39 +253,6 @@ Now the program does not crash when an error occurs, but works as we have progra
 ```monospace
 Enter keyword: python
 Request could not be completed.
-```
-
-```mermaid
-sequenceDiagram
-    participant Client as Client
-    participant Server as Server
-
-    Client->>Server: Request (Request)
-    Server-->>Client: Response (Response)
-```
-
-```mermaid
-sequenceDiagram
-    participant Client as Browser / HTTP client
-    participant Server as Web server
-
-    Client->>Server: HTTP Request (GET /index.html)
-    Server-->>Client: HTTP Response (200 OK + HTML)
-
-    Client->>Server: HTTP Request (GET /style.css)
-    Server-->>Client: HTTP Response (200 OK + CSS)
-
-    Client->>Server: HTTP Request (GET /image.png)
-    Server-->>Client: HTTP Response (200 OK + image)
-```
-
-```mermaid
-sequenceDiagram
-    participant Client as Python application
-    participant Server as Web server
-
-    Client->>Server: HTTP Request (GET /desired-data)
-    Server-->>Client: HTTP Response (200 OK + JSON)
 ```
 
 In the end we of course fix the URL. Because of exception handling we are now prepared for

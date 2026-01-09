@@ -27,7 +27,14 @@ by commas.
 In this case the result is a list with five string-type items. A list can be referenced with a list variable called `names`.
 The following image illustrates the structure of a list:
 
-![List variable and list items](img/list.png)
+```mermaid
+graph TD;
+    A[names] --0--> B['Viivi']
+    A --1--> C['Ahmed']
+    A --2--> D['Pekka']
+    A --3--> E['Olga']
+    A --4--> F['Mary']
+```
 
 Let's look at ways to reference list items. The following program prints out items and parts of a created list:
 
@@ -200,7 +207,7 @@ for n in names:
     print(f"Hello, {n}!")
 ```
 
-These repetitive strucutres are great for looping through a list. The loop variable is assigned the value of each list
+These repetitive structures are great for looping through a list. The loop variable is assigned the value of each list
 item one by one. The operation continues as long as there are items left.
 
 The operation of going through each item in a list is called iteration.
@@ -214,7 +221,7 @@ a loop variable that is assigned to any required values as a sequence with one o
 - range(5,0,-1) defines values 5, 4, 3, 2, 1
 - range(10,21,2) defines values 10, 12, 14, 16, 18, 20
 
-The first argument of the `range` fucntion is the starting point, the second argument the end point and the third, optional
+The first argument of the `range` function is the starting point, the second argument the end point and the third, optional
 argument defines the step size between numbers. If the step size is not defined, the default step is 1. If the step is defined
 as 0, an error message is printed.
 
@@ -248,22 +255,7 @@ Program output:
 30
 ```
 
-Using the `range` function is a handy way of replacing a loop that uses a loop variable. The following
-program prints string "Hello!" six times:
-
-```python
-for number in range(6):
-    print("Hello!")
-```
-
-```mermaid
-graph TD;
-    A[names] --0--> B['Viivi']
-    A --1--> C['Ahmed']
-    A --2--> D['Pekka']
-    A --3--> E['Olga']
-    A --4--> F['Mary']
-```
+While loop structure operation can be illustrated with a flowchart:
 
 ```mermaid
 flowchart TD
@@ -273,6 +265,14 @@ flowchart TD
     D --> E[Increase number += 3]
     E --> C
     C -- No --> F([End])
+```
+
+Using the `range` function is a handy way of replacing a loop that uses a loop variable. The following
+program prints string "Hello!" six times:
+
+```python
+for number in range(6):
+    print("Hello!")
 ```
 
 ---

@@ -148,7 +148,7 @@ get_employees_by_last_name(last_name)
 
 ```
 
-Running the program produces the follwing output:
+Running the program produces the following output:
 
 ```monospace
 Enter last name: Fernsby

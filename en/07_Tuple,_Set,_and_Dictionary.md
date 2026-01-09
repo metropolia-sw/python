@@ -194,7 +194,22 @@ Sometimes dictionary is called an associative table or a hash structure.
 
 The following image represents the structure of a dictionary:
 
-![The dictionary structure](img/dictionary.png)
+```mermaid
+graph TD
+    A["numbers[key]"]
+
+    A --> K1['Viivi']
+    A --> K2['Ahmed']
+    A --> K3['Pekka']
+    A --> K4['Olga']
+    A --> K5['Mary']
+
+    K1 --> V1['050-1234567']
+    K2 --> V2['040-1112223']
+    K3 --> V3['050-7654321']
+    K4 --> V4['050-1011012']
+    K5 --> V5['0401-2132139']
+```
 
 A dictionary called `numbers` contains the phone numbers of five persons. The name of a person is used as the key:
 when you know the name, you retrieve the value - in this case, phone number.
