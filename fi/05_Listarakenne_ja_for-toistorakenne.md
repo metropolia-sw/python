@@ -66,7 +66,7 @@ Viimeinen esimerkki tulostaa listan kokonaisuudessaan.
 Listan pituus saadaan tarvittaessa Python-kielen sisäänrakennetulla `len`-funktiolla:
 
 ```python
-print (len(nimet))
+print(len(nimet))
 ```
 
 Tuloksena on listan pituus, joka on siis yhtä suurempi kuin viimeisen alkion indeksi:
@@ -84,7 +84,7 @@ Seuraavassa listassa on viisi alkiota. Tarkoitus on viitata listan viidenteen al
 ```python
 nimet = ["Viivi", "Ahmed", "Pekka", "Olga", "Mary"]
 # Virheellinen viittaus
-print (nimet[5])
+print(nimet[5])
 ```
 
 Syntyy ajonaikainen poikkeus, ja konsolissa nähdään selostus virheestä:
@@ -92,7 +92,7 @@ Syntyy ajonaikainen poikkeus, ja konsolissa nähdään selostus virheestä:
 ```monospace
 Traceback (most recent call last):
   File "C:/Users/olliv/PycharmProjects/Python_Ohjelmistoteema/Esimerkit/listaesimerkki.py", line 4, in <module>
-    print (nimet[5])
+    print(nimet[5])
 IndexError: list index out of range
 
 Process finished with exit code 1
@@ -158,7 +158,7 @@ while etunimi ! = "":
     etunimi = input("Anna seuraava nimi tai lopeta painamalla Enter: ")
 
 for nimi in nimet:
-    print (f"Moi, {nimi}!")
+    print(f"Moi, {nimi}!")
 ```
 
 Ohjelma toimii näin:
@@ -177,7 +177,7 @@ Listan läpikäynti toteutettiin for-toistorakenteen avulla:
 
 ```python
 for n in nimet:
-    print (f"Moi, {n}!")
+    print(f"Moi, {n}!")
 ```
 
 Toistorakenne on omiaan listan läpikäyntiin. Kierrosmuuttuja `n` saa vuoron perään arvokseen kunkin listan alkion. Toistoa jatketaan niin kauan kuin listassa riittää alkioita.
@@ -202,7 +202,7 @@ Esimerkiksi seuraava ohjelma tulostaa kolmella jaolliset luvut väliltä 3 ja 30
 
 ```python
 for luku in range(3,31,3):
-    print (luku)
+    print(luku)
 ```
 
 Ohjelma tulostaa:
@@ -236,7 +236,7 @@ flowchart TD
 
 ```python
 for luku in range(6):
-    print ("Moi!")
+    print("Moi!")
 ```
 
 ---
