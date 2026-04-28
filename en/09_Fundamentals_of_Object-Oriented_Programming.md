@@ -77,14 +77,10 @@ dog = Dog("Bubbles", 2022)
 print(f"{dog.name:s} was born in {dog.birth_year:d}." )
 ```
 
-A Python initializer is defined inside a class by writing a function with the name `__init__`. The first parameter of the
-function is always `self`. After this other parameters to the initializer are given. In this case they are name and birth year.
-A function defined this way is interpreted automatically as the initializer when the program is run and it is executed every
-time a new object is created. There is no return statement at the end of an initializer.
+A Python initializer is defined inside a class by writing a function with the name `__init__`. The first parameter of the function is `self`. This refers to the object being created and it's a Python convention to use the name `self` for it. After this other parameters to the initializer are given. In this case they are name and birth year. A function defined this way is interpreted automatically as the initializer when the program is run and it is executed every time a new object is created. There is no return statement at the end of an initializer.
 
-Inside the initializer in the example there are two assignment statements were values are given to the properties of the new
-object. The properties of the new object are referenced by the reserved word `self` which is followed by a period and the name
-of the property. Typically, the parameters of the initializer are used to assign values to the properties of the new object.
+Inside the initializer in the example there are two assignment statements were values are given to the properties of the new object. The properties of the new object are referenced by the variable `self` which is followed by a period and the name of the property. Typically, the parameters of the initializer are used to assign values to the properties of the new object.
+
 For example, the statement `self.name = name` assigs the value of the name parameter to the value of the name property.
 
 Notice that when a new object is created, the first parameter of the initializer, `self`, is not written. So, not this way:

@@ -61,9 +61,9 @@ koira = Koira("Rekku", 2022)
 print (f"{koira.nimi} on syntynyt vuonna {koira.syntymävuosi}." )
 ```
 
-Python-kielen alustaja määritetään luokan sisällä kirjoittamalla funktio, jonka nimenä on `__init__`. Funktion ensimmäiseksi parametriksi määritetään aina `self`. Tämän jälkeen määritellään muut parametrit, jotka alustajalle halutaan antaa. Tässä tapauksessa ne ovat nimi ja syntymävuosi. Näin kirjoitettu ja nimetty funktio tulkitaan ohjelmaa ajettaessa automaattisesti alustajaksi, ja se suoritetaan aina, kun uusi olio luodaan. Alustajan loppuun ei kirjoiteta return-lausetta.
+Python-kielen alustaja määritetään luokan sisällä kirjoittamalla funktio, jonka nimenä on `__init__`. Funktion ensimmäiseksi parametriksi määritetään `self`. Ensimmäinen parametri viittaa aina luotavaan olioon, ja Pythonissa on yleinen käytäntö käyttää tässä nimeä `self`. Tämän jälkeen määritellään muut parametrit, jotka alustajalle halutaan antaa. Tässä tapauksessa ne ovat nimi ja syntymävuosi. Näin kirjoitettu ja nimetty funktio tulkitaan ohjelmaa ajettaessa automaattisesti alustajaksi, ja se suoritetaan aina, kun uusi olio luodaan. Alustajan loppuun ei kirjoiteta return-lausetta.
 
-Alustajan sisällä on kaksi sijoituslausetta, joilla annetaan arvot luotavan olion ominaisuuksille. Uuden olion ominaisuuksiin viitataan kirjoittamalla varattu sana `self`, minkä jälkeen tulee piste ja halutun ominaisuuden nimi. Uuden olion ominaisuuden arvoksi annetaan tyypillisesti alustajan parametrina saatu arvo. Esimerkiksi lause `self.nimi = nimi` antaa uuden olion nimi-ominaisuuden arvoksi nimi-parametrimuuttujan arvon.
+Alustajan sisällä on kaksi sijoituslausetta, joilla annetaan arvot luotavan olion ominaisuuksille. Uuden olion ominaisuuksiin viitataan kirjoittamalla muuttujan nimi `self`, minkä jälkeen tulee piste ja halutun ominaisuuden nimi. Uuden olion ominaisuuden arvoksi annetaan tyypillisesti alustajan parametrina saatu arvo. Esimerkiksi lause `self.nimi = nimi` antaa uuden olion nimi-ominaisuuden arvoksi nimi-parametrimuuttujan arvon.
 
 Huomaa, että oliota luotaessa alustajan ensimmäinen parametri `self` ohitetaan kokonaan. Ei siis kirjoiteta:
 
