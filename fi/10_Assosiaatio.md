@@ -51,7 +51,7 @@ classDiagram
 
     class Hoitola {
         +koirat: list[Koira]
-        +__init__() 
+        +__init__()
         +koira_sisään(koira: Koira) None
         +koira_ulos(koira: Koira) None
         +tervehdi_koiria() None
@@ -225,7 +225,7 @@ Tässä esimerkissä maalaamo tuntee maalattavan auton vain `maalaa`-metodin suo
 
 ---
 
-[Seuraavassa moduulissa käsitellään olion periytymistä.](11_Periytyminen.md)
+[Seuraavassa moduulissa käsitellään olion periytymistä.](11_periytyminen.md)
 
 ---
 

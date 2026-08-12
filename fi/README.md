@@ -1,31 +1,37 @@
-# Python-kieli
+# Ohjelmisto 1: Python-ohjelmoinnin perusteet
 
-## Osa 1: Python-ohjelmoinnin perustaidot
+## Sisältö
 
-**1.** [Ensimmäinen ohjelma](01a_Ensimmainen_ohjelma_vscode.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_kayttoonotto_vscode.md) (Visual Studio Code)  
-[Ensimmäinen ohjelma](01a_Ensimmäinen_ohjelma.md) sekä [versionhallinnan käyttöönotto (GitHub)](01b_Versionhallinnan_käyttöönotto.md) (PyCharm)  
-**2.** [Muuttujat ja vuorovaikutteiset ohjelmat](02_Muuttujat_ja_vuorovaikutteiset_ohjelmat.md)  
-**3.** [Valintarakenne (if)](03_Valintarakenne.md)  
-**4.** [Alkuehdollinen toistorakenne (while)](04_While-toistorakenne.md)  
-**5.** [Listarakenne ja läpikäyvä toistorakenne (for)](05_Listarakenne_ja_for-toistorakenne.md)  
-**6.** [Funktio](06_Funktio.md)  
-**7.** [Monikko, joukko ja sanakirja](07_Monikko_joukko_ja_sanakirja.md)  
-**8.** [Relaatiotietokannan käyttö](08_Relaatiotietokannan_käyttö.md)  
-
-## Osa 2: Pythonin hallinta
-
-**9.** [Luokka, olio, alustaja](09_Olio-ohjelmoinnin_lähtökohdat.md)  
-**10.** [Assosiaatio](10_Assosiaatio.md)  
-**11.** [Periytyminen](11_Periytyminen.md)  
-**12.** [Ulkoisen rajapinnan käyttö](12_Ulkoisen_rajapinnan_käyttö.md)  
-**13.** [Taustapalvelun ja rajapinnan rakentaminen](13_Taustapalvelun_ja_rajapinnan_rakentaminen.md)  
-**14.** [Ohjelman rakenne: moduulit ja paketit](14_Ohjelman_rakenne.md) (ei erillisiä tehtäviä, mutta voi hyödyntää projektityössä)
+1. Ohjelmoinnin aloitus
+    1. [Kehitysympäristö ja työkalut](01a_kehitysymparisto_ja_tyokalut.md)  
+    1. [Ensimmäinen ohjelma](02a_Ensimmainen_ohjelma_vscode.md)
+1. Versionhallinta
+    1. [Versionhallinta ja Git](02a_versionhallinta_ja_git.md)
+    1. [Versionhallinnan käyttöönotto](02b_versionhallinnan_kayttoonotto_vscode.md)
+1. [Muuttujat ja vuorovaikutteiset ohjelmat](03_muuttujat_ja_vuorovaikutteiset_ohjelmat.md)
+1. [Valintarakenne (if)](04_valintarakenne.md)
+1. [Alkuehdollinen toistorakenne (while)](05_while-toistorakenne.md.md)
+1. [Listarakenne ja läpikäyvä toistorakenne (for)](06_listarakenne_ja_for-toistorakenne.md)
+1. [Funktio](07_funktio.md)
+1. [Monikko, joukko ja sanakirja](08_monikko_joukko_ja_sanakirja.md)
+1. [Luokka, olio, alustaja](09_olio-ohjelmointi.md)
+1. [Assosiaatio](10_assosiaatio.md)
+1. [Periytyminen](11_periytyminen.md)
+1. [Ohjelman rakenne: moduulit ja paketit](12_ohjelman_rakenne.md)
+1. [Tiedostonkäsittely](13_tiedostonkasittely.md)
 
 ## Tehtävät
 
-[Tehtäväsarja](Tehtävät.md)
+[Tehtäväsarja](tehtavat.md)
 
-## Projektityöt
+## Projektityö
 
-1. opintojakso: [Esiprojektin toimeksianto](Projektityö/01_Esiprojektin_toimeksianto.md)
-2. opintojakso: [Projektityön toimeksianto](Projektityö/02_Projektityön_toimeksianto.md)
+Jakson aikana tehdään yksi isompi henkilökohtainen ohjelmointiprojekti, jonka ohjeet ja kriteerit löydät täältä: [Ensimmäinen ohjelmointiprojekti](ohjelmointiprojekti-1.md).
+
+---
+
+## Materiaalin lisenssi
+
+Creative Commons Nimeä-EiKaupallinen-JaaSamoin 4.0
+
+Lisätietoa: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fi)
