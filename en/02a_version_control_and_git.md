@@ -87,7 +87,7 @@ Git is a distributed version control system, which means that each developer has
 
 [Download and installation options for different operating systems](https://git-scm.com/install/)
 
-Installing and using Git in your own exercise project is done [in the next module](02b_versionhallinnan_kayttoonotto_vscode.md).
+Installing and using Git in your own exercise project is done [in the next module](02b_setting_up_version_control_vscode.md).
 
 ### Basic Usage
 

@@ -77,7 +77,7 @@ In principle, any text editor that can be used to write code is sufficient for c
 
 There are also many auxiliary tools to make software development easier, for example for automatic code completion and formatting, syntax highlighting, testing, finding errors, compiling into machine language, etc. When these features are combined with the actual editor in the same application, it is called an integrated development environment, or IDE (_Integrated Development Environment_).
 
-The installation and use of the IDE are discussed in more detail in the [next section](./01b_ensimmainen_ohjelma_vscode.md).
+The installation and use of the IDE are discussed in more detail in the [next section](01b_first_program_vscode.md).
 
 ### AI Assistants
 
@@ -97,7 +97,7 @@ Version control concepts are used in many everyday applications and services, su
 
 Version control is particularly essential in software development because source code is constantly modified, and it is important to be able to track what changes have been made, who made them, when, and why. A version control system keeps track of all this information, which makes collaboration, tracing errors, and restoring previous versions when necessary easier.
 
-Version control in software development is discussed in more detail [later](./02a_versionhallinta_ja_git.md).
+Version control in software development is discussed in more detail [later](02a_version_control_and_git.md).
 
 ---
 
