@@ -4,9 +4,7 @@ In this module you will learn to write interactive Python programs.
 
 An interactive program communicates with the use: it reads and processes input and generates output accordingly.
 
-An example of an interactive program would be a program that asks the user to enter two numbers, calculates their sum
-and shows the sum to the user. In this case the input is read from the user (for example numbers 2 and 3), the input
-is processed by calculating the sum and the output is shown to the user (sum of the numbers is 5).
+An example of an interactive program would be a program that asks the user to enter two numbers, calculates their sum and shows the sum to the user. In this case the input is read from the user (for example numbers 2 and 3), the input is processed by calculating the sum and the output is shown to the user (sum of the numbers is 5).
 
 ## Printing
 
@@ -16,17 +14,13 @@ Let's start with Python's printing function called print. The following program 
 print('Hello, world!')
 ```
 
-The printing is handled with a Python built-in function called print. The argument to the function is called inside
-brackets. In this case the message to print is a string literal "Hello, world!". A string literal is a string that
-is written directly into the program code. A string literal is written inside apostrophes ' ' or quotation marks " ".
-The same program could also be written as shown here:
+The printing is handled with a Python built-in function called print. The argument to the function is called inside brackets. In this case the message to print is a string literal "Hello, world!". A string literal is a string that is written directly into the program code. A string literal is written inside apostrophes ' ' or quotation marks " ". The same program could also be written as shown here:
 
 ```python
 print("Hello, world!")
 ```
 
-What if you need to print out a message that includes apostrophes or quotation marks? The solution is to write the
-symbol inside a string literal using the other alternative symbol to enclose the string literal:
+What if you need to print out a message that includes apostrophes or quotation marks? The solution is to write the symbol inside a string literal using the other alternative symbol to enclose the string literal:
 
 ```python
 print('"Hello", said Joe')
@@ -46,12 +40,9 @@ Good
 morning
 ```
 
-The above program shows one of the basic structures of programming: sequences. By default, statements are executed
-in the order they have been written in the program code. Other basic structures are selections and loops. They will
-be introduced later.
+The above program shows one of the basic structures of programming: sequences. By default, statements are executed in the order they have been written in the program code. Other basic structures are selections and loops. They will be introduced later.
 
-You can also print a message with line breaks with a single line of code: It is possible to write a line break symbol
-\n inside a string literal. You can get the same output as before by writing:
+You can also print a message with line breaks with a single line of code: It is possible to write a line break symbol `\n` inside a string literal. You can get the same output as before by writing:
 
 ```python
 print("Good\nmorning")
@@ -59,11 +50,9 @@ print("Good\nmorning")
 
 ## Inputs, variables, and assignment statements
 
-You have now learned how to create simple programs that generate the same output on each run. However, usually
-it is required that a program reads inputs from the users and uses the input to execute tasks.
+You have now learned how to create simple programs that generate the same output on each run. However, usually it is required that a program reads inputs from the users and uses the input to execute tasks.
 
-Let's write a program the asks the user for their name and then greets the user with their name.
-This can be done as follows:
+Let's write a program the asks the user for their name and then greets the user with their name. This can be done as follows:
 
 ```python
 user = input('Enter your name: ')
@@ -72,40 +61,11 @@ print("Nice to meet you, " + user + "!")
 
 The user input is read using the built-in input function. The function receives the text to be printed on the screen as an argument. The text should tell the user what information they are expected to enter.
 
-The built-in input function waits for input from the user's keyboard. The user ends the input with the Enter key.
-When the input has been give, the value of the input function is the string entered by the user.
+The built-in input function waits for input from the user's keyboard. The user ends the input with the Enter key. When the input has been give, the value of the input function is the string entered by the user.
 
-The string must be saved into a _variable_ so that it can be used later in the program. Here we are using a variable called
-_user_. User input is saved into the memory of the computer and can be fetched from memory using the name of the variable.
-The name of a variable is a sort of a handle or name tag that can be used to retrieve the value from memory.
+The string must be saved into a _variable_ so that it can be used later in the program. Here we are using a variable called _user_. User input is saved into the memory of the computer and can be fetched from memory using the name of the variable. The name of a variable is a sort of a handle or name tag that can be used to retrieve the value from memory.
 
-A variable can be given a value using an assignment statement. The assignment statement uses an equals symbol (=).
-The name of the variable is on the left side and the expression that determines the value to be assigned to the variable is written on the right side.
-
-Let's look at the printing statement more closely:
-
-If we only wanted to print out the name the user entered as input, we could replace the bottom row with the following:
-
-```python
-print(user)
-```
-
-Notice that _user_ is the name of the variable. As it is not a string literal, the name is not surrounded by quotes.
-
-However, we want the program to output a whole greeting message, not just the name.
-The string to output can be composed of several substrings by joining them together with a plus sign (+).
-the lower row of the original program creates the output with three parts:
-
-1. String literal "Nice to meet, "
-2. The value of the _user_ variable
-3. String literal "!"
-
-The program works as follows:
-
-```monospace
-Enter your name: Joanne
-Nice to meet you, Joanne!
-```
+A variable can be given a value using an assignment statement. The assignment statement uses an equals symbol (=). The name of the variable is on the left side and the expression that determines the value to be assigned to the variable is written on the right side.
 
 ### More about variables and the assignment operator
 
@@ -164,15 +124,15 @@ Note that now `user` is the name of a variable. It is not a string literal, and 
 
 However, we want the program to print a complete greeting text instead of just the name. The string being printed can be constructed from substrings by joining the parts together using the plus sign (+). The lower line of the original program constructs the output from three parts:
 
-1. the string literal "Hauska tavata, ",
-2. the value of the variable `user`, and
-3. the string literal "!".
+1. String literal "Nice to meet, "
+2. The value of the _user_ variable
+3. String literal "!"
 
-The program therefore works as follows:
+The program works as follows:
 
 ```monospace
-Anna nimesi: Viivi
-Hauska tavata, Viivi!
+Enter your name: Joanne
+Nice to meet you, Joanne!
 ```
 
 ## Variable Type
